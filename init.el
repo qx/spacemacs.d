@@ -18,21 +18,23 @@
    ;; of a list then all discovered layers will be installed.
    dotspacemacs-configuration-layers
    '(
-    html
-    dash
-    ruby-on-rails
+     osx
+     html
+     dash
+     ruby-on-rails
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
      ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
      (auto-completion :variables
-     	auto-completion-return-key-behavior 'complete
-     	auto-completion-tab-key-behavior 'cycleexcluded
-     	auto-completion-enable-snippets-in-popup t
-     	auto-completion-enable-help-tooltip t
-     	auto-completion-enable-sort-by-usage t
-     	)
+                      auto-completion-return-key-behavior 'complete
+                      ;;	auto-completion-tab-key-behavior 'cycleexcluded
+                      auto-completion-tab-key-behavior 'complete
+                      auto-completion-enable-snippets-in-popup t
+                      ;;auto-completion-enable-help-tooltip t
+                      auto-completion-enable-sort-by-usage t
+                      )
      ;; better-defaults
      emacs-lisp
      ;; git
@@ -105,21 +107,21 @@
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
    dotspacemacs-themes '(spacemacs-dark
-   	spacemacs-light
-   	solarized-light
-   	solarized-dark
-   	leuven
-   	monokai
-   	zenburn)
+                         spacemacs-light
+                         solarized-light
+                         solarized-dark
+                         leuven
+                         monokai
+                         zenburn)
    ;; If non nil the cursor color matches the state color in GUI Emacs.
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
    ;; size to make separators look not too crappy.
    dotspacemacs-default-font '("Source Code Pro"
-   	:size 13
-   	:weight normal
-   	:width normal
-   	:powerline-scale 1.1)
+                               :size 13
+                               :weight normal
+                               :width normal
+                               :powerline-scale 1.1)
    ;; The leader key
    dotspacemacs-leader-key "SPC"
    ;; The leader key accessible in `emacs state' and `insert state'
@@ -249,13 +251,13 @@
 	This function is mostly useful for variables that need to be set
 	before packages are loaded. If you are unsure, you should try in setting them in
 	`dotspacemacs/user-config' first."
- (setq socks-server '("Default server" "127.0.0.1" 7070 5))
- (setq configuration-layer--elpa-archives
-  '(("melpa-cn" . "https://elpa.zilongshanren.com/melpa/")
-    ("org-cn"   . "https://elpa.zilongshanren.com/org/")
-    ("gnu-cn"   . "https://elpa.zilongshanren.com/gnu/")))
- 
- )
+  (setq socks-server '("Default server" "127.0.0.1" 7070 5))
+  (setq configuration-layer--elpa-archives
+        '(("melpa-cn" . "https://elpa.zilongshanren.com/melpa/")
+          ("org-cn"   . "https://elpa.zilongshanren.com/org/")
+          ("gnu-cn"   . "https://elpa.zilongshanren.com/gnu/")))
+  
+  )
 
 (defun dotspacemacs/user-config ()
 	"Configuration function for user code.
@@ -264,6 +266,8 @@
 	This is the place where most of your configurations should be done. Unless it is
 	explicitly specified that a variable should be set before a package is loaded,
 	you should place your code here."
+                                        ;(add-to-list 'yas-snippet-dirs "~/.spacemacs.d/snippets" t)
+  (setq yas-snippet-dirs "~/.spacemacs.d/snippets")
   (setq  company-idle-delay 0.01)
   (setq  company-minimum-prefix-length 1)
   )

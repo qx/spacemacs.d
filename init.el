@@ -248,7 +248,9 @@
 	This function is mostly useful for variables that need to be set
 	before packages are loaded. If you are unsure, you should try in setting them in
 	`dotspacemacs/user-config' first."
-	)
+ (setq socks-server '("Default server" "127.0.0.1" 7070 5))
+ (global-company-mode)
+ )
 
 (defun dotspacemacs/user-config ()
 	"Configuration function for user code.

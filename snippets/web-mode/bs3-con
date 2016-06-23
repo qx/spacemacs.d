@@ -1,8 +1,0 @@
-# -*- mode: snippet -*-
-# name: bs3-con
-# key: bs3-con
-# --
-<div class="container" style="background-color:gray">
-<div class="row">
-</div>
-</div>

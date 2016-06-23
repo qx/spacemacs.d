@@ -18,7 +18,7 @@
    ;; of a list then all discovered layers will be installed.
    dotspacemacs-configuration-layers
    '(
-   	dash
+    dash
     ruby-on-rails
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
@@ -249,7 +249,6 @@
 	before packages are loaded. If you are unsure, you should try in setting them in
 	`dotspacemacs/user-config' first."
  (setq socks-server '("Default server" "127.0.0.1" 7070 5))
- (global-company-mode)
  )
 
 (defun dotspacemacs/user-config ()
@@ -259,4 +258,20 @@
 	This is the place where most of your configurations should be done. Unless it is
 	explicitly specified that a variable should be set before a package is loaded,
 	you should place your code here."
+  (setq  company-idle-delay 0.01)
+  (setq  company-minimum-prefix-length 1)
 	)
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(company-idle-delay 0.03)
+ '(company-minimum-prefix-length 1))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(company-tooltip-common ((t (:inherit company-tooltip :weight bold :underline nil))))
+ '(company-tooltip-common-selection ((t (:inherit company-tooltip-selection :weight bold :underline nil)))))

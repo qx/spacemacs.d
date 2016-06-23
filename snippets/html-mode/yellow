@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name:yellow 
+# key:yellow 
+# --
+style="background-color:yellow"

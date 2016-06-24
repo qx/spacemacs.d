@@ -202,4 +202,4 @@
                        ("ft" "<%= form_tag(${1:action: \"${5:update}\"}${6:, {:${8:class}: \"${9:form}\"\\}}) do %>\n  $0\nend" "ft" nil nil nil "/Users/ok/.spacemacs.d/snippets/ruby-mode/180-rails-form_tag.yasnippet" nil nil)))
 
 
-;;; Do not edit! File generated at Fri Jun 24 17:34:36 2016
+;;; Do not edit! File generated at Fri Jun 24 21:03:00 2016

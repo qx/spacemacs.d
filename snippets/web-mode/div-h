@@ -1,0 +1,17 @@
+# -*- mode: snippet -*-
+# name: div-horizon
+# key: div-h
+# --
+                            <div id="whatever" style="display: inline;
+                                                      background-color:red;
+                                                      margin: 0 1em 0 1em;
+                                                      width: 30%;">
+                                <div style="display: inline;
+                                            background-color:pink;
+                                            margin: 0 0 0 0;
+                                            width:40%; float: left">
+                                    <div style="display: inline-block;background-color:gray; float: left">头像</div>
+                                    <div style="display: inline-block;background-color:blue;float: right">姓名</div>
+                                </div>
+                                <div style="display: inline-block; background-color:green;float: right"><%= post.get_date%></div>
+                            </div>

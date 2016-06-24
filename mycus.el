@@ -67,3 +67,4 @@
 (global-set-key (kbd "s-/") 'comment-or-uncomment-region)
 (global-set-key (kbd "s-2") 'save-refresh)
 (bind-key* "s-r" 'browser-refresh--chrome-applescript)
+(bind-key* "s-3" 'er/expand-region)

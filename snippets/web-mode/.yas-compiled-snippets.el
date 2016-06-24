@@ -3,6 +3,9 @@
 ;;;
 (yas-define-snippets 'web-mode
                      '(("vsvideo" "<video controls=\"controls\" id=\"really-cool-video\" class=\"video-js vjs-default-skin vjs-big-play-centered\"\n                                         preload=\"auto\"\n                                         style=\"width:100%\"\n                                         data-setup='{}'>\n                                         <source src=\"<%= video.get_video_path %>\" type=\"video/mp4\">\n                                         </video> \n" "video js video" nil nil nil "/Users/ok/.spacemacs.d/snippets/web-mode/vsvideo" nil nil)
+                       ("pCenterDiv" "    <div style=\"background-color:green;display: table;\n                margin: 0 auto;\" >\n        <p class=\"text-center\" style=\"width: 70%;margin: 0 auto\">$2 </p>\n    </div>" "pCenterDiv" nil nil nil "/Users/ok/.spacemacs.d/snippets/web-mode/pCenterDiv" nil nil)
+                       ("div-h" "                            <div id=\"whatever\" style=\"display: inline;\n                                                      background-color:red;\n                                                      margin: 0 1em 0 1em;\n                                                      width: 30%;\">\n                                <div style=\"display: inline;\n                                            background-color:pink;\n                                            margin: 0 0 0 0;\n                                            width:40%; float: left\">\n                                    <div style=\"display: inline-block;background-color:gray; float: left\">头像</div>\n                                    <div style=\"display: inline-block;background-color:blue;float: right\">姓名</div>\n                                </div>\n                                <div style=\"display: inline-block; background-color:green;float: right\"><%= post.get_date%></div>\n                            </div>\n" "div-horizon" nil nil nil "/Users/ok/.spacemacs.d/snippets/web-mode/div-h" nil nil)
+                       ("bs3CR4CT" "<div class=\"text-center container\" style=\"background-color:red\">\n    <div class=\"page-header text-center\" style=\"background-color:pink text-align:center\">\n        <h2 class=\"text-center\" style=\"width:100%;background-color:yellow\">视频介绍</h2>\n        <p class=\"text-center\">Video introduction</p>\n    </div>\n\n    <div style=\"background-color:yellow\" class=\"row\">\n        <% if !@videos.blank? %>\n            <% @videos.each_with_index do |video, index| %>\n                <div class=\"col-xs-12 col-sm-6 col-md-3 col-lg-3\">\n                    <div class=\"thumbnail\" style=\"max-height:280px\">\n                        <img src=\"<%= video.get_cover %>\"\n                             alt=\"\">\n                        <div class=\"caption\">\n                            <h3><%= video.title %></h3>\n                            <p><%= video.desc %></p>\n                        </div>\n                    </div>\n                </div>\n            <% end %>\n        <% else %>\n            <p>nothing to show</p>\n        <% end %>\n    </div>\n</div>\n" "bs3-contain-rol-4column-thumnail" nil nil nil "/Users/ok/.spacemacs.d/snippets/web-mode/bs3-contain-rol-4column-thumnail" nil nil)
                        ("README.md" "# bootstrap3-snippets-for-emacs\n" "README.md" nil nil nil "/Users/ok/.spacemacs.d/snippets/web-mode/README.md" nil nil)))
 
 
@@ -100,9 +103,9 @@
 ;;;
 (yas-define-snippets 'web-mode
                      '(("yellow" "style=\"background-color:yellow\"" "yellow" nil nil nil "/Users/ok/.spacemacs.d/snippets/web-mode/colors/yellow" nil nil)
-                       ("red" " style=\"background-color:red\"\n" "red" nil nil nil "/Users/ok/.spacemacs.d/snippets/web-mode/colors/red" nil nil)
-                       ("pink" "style=\"background-color:pink\"\n" "pink" nil nil nil "/Users/ok/.spacemacs.d/snippets/web-mode/colors/pink" nil nil)
-                       ("green" "style=\"background-color:green\"\n" "green" nil nil nil "/Users/ok/.spacemacs.d/snippets/web-mode/colors/green" nil nil)
+                       ("red" "style=\"background-color:red\"" "red" nil nil nil "/Users/ok/.spacemacs.d/snippets/web-mode/colors/red" nil nil)
+                       ("pink" "style=\"background-color:pink\"" "pink" nil nil nil "/Users/ok/.spacemacs.d/snippets/web-mode/colors/pink" nil nil)
+                       ("green" "style=\"background-color:green\"" "green" nil nil nil "/Users/ok/.spacemacs.d/snippets/web-mode/colors/green" nil nil)
                        ("blue" "style=\"background-color:blue\"" "blue" nil nil nil "/Users/ok/.spacemacs.d/snippets/web-mode/colors/blue" nil nil)))
 
 
@@ -205,7 +208,7 @@
 ;;; Snippet definitions:
 ;;;
 (yas-define-snippets 'web-mode
-                     '(("textcenter" "class=\"text-center\"\n" "textcenter" nil nil nil "/Users/ok/.spacemacs.d/snippets/web-mode/h/textcenter" nil nil)))
+                     '(("textcenter" "class=\"text-center\"" "textcenter" nil nil nil "/Users/ok/.spacemacs.d/snippets/web-mode/h/textcenter" nil nil)))
 
 
 ;;; Snippet definitions:
@@ -403,4 +406,4 @@
                        ("bs3well:lg" "\n<div class=\"well well-lg\">\n	$0\n</div>\n" "bs3-well:lg" nil nil nil "/Users/ok/.spacemacs.d/snippets/web-mode/wells/bs3-well-lg.yasnippet" nil nil)))
 
 
-;;; Do not edit! File generated at Fri Jun 24 17:34:36 2016
+;;; Do not edit! File generated at Fri Jun 24 21:03:01 2016

@@ -1,6 +1,6 @@
 (defconst *is-a-mac* (eq system-type 'darwin))
 
-Suggested-by: first <k>
+;;Suggested-by: first <k>
 
 ;; Ctrl-K with no kill
 (defun delete-line-no-kill ()
@@ -50,14 +50,14 @@ Suggested-by: first <k>
 ;; execute the layout
 (my-startup-layout ) 
 
-;; (defun save-refresh()
-;;   (interactive "p") 
-;;   (progn
-;;     ;;(save-buffer nil)
-;;     (indent-buffer)
-;;     ;;(browser-refresh--chrome-applescript)
-;;     )
-  
+(defun save-refresh(arg)
+  (interactive "p") 
+  (progn
+    (save-buffer)
+    (indent-buffer)
+    (browser-refresh--chrome-applescript)
+    )
+)
 
 ;; search global
 (spacemacs/set-leader-keys "oy" 'youdao-dictionary-search-at-point+)
@@ -65,5 +65,5 @@ Suggested-by: first <k>
 (global-set-key (kbd "s-1") 'indent-buffer)
 (global-set-key (kbd "C-k") 'delete-line-no-kill)
 (global-set-key (kbd "s-/") 'comment-or-uncomment-region)
-;; (global-set-key (kbd "s-2") 'save-refresh)
+(global-set-key (kbd "s-2") 'save-refresh)
 (bind-key* "s-r" 'browser-refresh--chrome-applescript)

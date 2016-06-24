@@ -58,13 +58,13 @@
     (browser-refresh--chrome-applescript)
     )
 )
-
+(toggle-word-wrap t)
 ;; search global
 (spacemacs/set-leader-keys "oy" 'youdao-dictionary-search-at-point+)
 (global-set-key (kbd "s-f") 'helm-ag)
 (global-set-key (kbd "s-1") 'indent-buffer)
 (global-set-key (kbd "C-k") 'delete-line-no-kill)
 (global-set-key (kbd "s-/") 'comment-or-uncomment-region)
-(global-set-key (kbd "s-2") 'save-refresh)
-(bind-key* "s-r" 'browser-refresh--chrome-applescript)
+(global-set-key (kbd "s-r") 'save-refresh)
+;; (bind-key* "s-r" 'browser-refresh--chrome-applescript)
 (bind-key* "s-3" 'er/expand-region)

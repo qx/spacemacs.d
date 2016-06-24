@@ -80,3 +80,4 @@
 (spacemacs/set-leader-keys "os" 'yas-visit-snippet-file)
 (spacemacs/set-leader-keys "ogc" 'magit-commit)
 (spacemacs/set-leader-keys "ogp" 'magit-push-current)
+(spacemacs/set-leader-keys "ogr" 'vc-revert-buffer)

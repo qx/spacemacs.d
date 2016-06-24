@@ -78,3 +78,5 @@
 ;; (bind-key* "s-r" 'browser-refresh--chrome-applescript)
 (bind-key* "s-3" 'er/expand-region)
 (spacemacs/set-leader-keys "os" 'yas-visit-snippet-file)
+(spacemacs/set-leader-keys "ogc" 'magit-commit)
+(spacemacs/set-leader-keys "ogp" 'magit-push-current)

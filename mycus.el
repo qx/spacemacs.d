@@ -77,3 +77,4 @@
 (global-set-key (kbd "s-r") 'save-refresh)
 ;; (bind-key* "s-r" 'browser-refresh--chrome-applescript)
 (bind-key* "s-3" 'er/expand-region)
+(spacemacs/set-leader-keys "os" 'yas-visit-snippet-file)

@@ -62,6 +62,12 @@
 (toggle-word-wrap t)
 (web-mode-toggle-current-element-highlight)
 (setq web-mode-enable-current-column-highlight t)
+;;yank crazy
+(defun crazy-yank ()
+  (interactive)
+  (spacemacs/paste-transient-state/evil-paste-after))
+
+(global-set-key (kbd "s-v") 'crazy-yank)
 ;; search global
 (spacemacs/set-leader-keys "oy" 'youdao-dictionary-search-at-point+)
 (global-set-key (kbd "s-f") 'helm-ag)

@@ -36,16 +36,30 @@
     " )))
 
 ;;set key for mac
-(when *is-a-mac*
-  (setq mac-option-modifier 'super)
-  (setq mac-command-modifier 'meta)
-  )
+;; (when *is-a-mac*
+;;   (setq mac-option-modifier 'super)
+;;   (setq mac-command-modifier 'meta)
+;;   )
+(defun indent-buffer()
+  (interactive)
+  (indent-region (point-min) (point-max)))
 
 ;; execute the layout
 (my-startup-layout ) 
+
+;; (defun save-refresh()
+;;   (interactive "p") 
+;;   (progn
+;;     ;;(save-buffer nil)
+;;     (indent-buffer)
+;;     ;;(browser-refresh--chrome-applescript)
+;;     )
+  
+
 ;; search global
 (spacemacs/set-leader-keys "oy" 'youdao-dictionary-search-at-point+)
 (global-set-key (kbd "s-f") 'helm-ag)
 (global-set-key (kbd "s-1") 'indent-buffer)
 (global-set-key (kbd "C-k") 'delete-line-no-kill)
+;; (global-set-key (kbd "s-2") 'save-refresh)
 (bind-key* "s-r" 'browser-refresh--chrome-applescript)

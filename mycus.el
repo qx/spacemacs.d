@@ -1,4 +1,7 @@
 (defconst *is-a-mac* (eq system-type 'darwin))
+
+Suggested-by: first <k>
+
 ;; Ctrl-K with no kill
 (defun delete-line-no-kill ()
   "Deletes a line, but does not put it in the kill-ring. (kinda)"
@@ -61,5 +64,6 @@
 (global-set-key (kbd "s-f") 'helm-ag)
 (global-set-key (kbd "s-1") 'indent-buffer)
 (global-set-key (kbd "C-k") 'delete-line-no-kill)
+(global-set-key (kbd "s-/") 'comment-or-uncomment-region)
 ;; (global-set-key (kbd "s-2") 'save-refresh)
 (bind-key* "s-r" 'browser-refresh--chrome-applescript)

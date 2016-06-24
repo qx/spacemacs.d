@@ -81,3 +81,9 @@
 (spacemacs/set-leader-keys "ogc" 'magit-commit)
 (spacemacs/set-leader-keys "ogp" 'magit-push-current)
 (spacemacs/set-leader-keys "ogr" 'vc-revert-buffer)
+
+;;
+;; shift + click select region
+(define-key global-map (kbd "<S-down-mouse-1>") 'ignore) ; turn off font dialog
+(define-key global-map (kbd "<S-mouse-1>") 'mouse-set-point)
+(put 'mouse-set-point 'CUA 'move)

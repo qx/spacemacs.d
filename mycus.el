@@ -14,9 +14,9 @@
 (defun my-startup-layout ()
   (interactive)
   (delete-other-windows)
-  (split-window-horizontally) ;; -> |
-  (next-multiframe-window)
-  (find-file "~/github/web/www/app/controllers/application_controller.rb")
+  ;; (split-window-horizontally) ;; -> |
+  ;; (next-multiframe-window)
+  ;; (find-file "~/github/web/www/app/controllers/application_controller.rb")
   (split-window-vertically) ;;  -> --
   (next-multiframe-window)
   (find-file "~/.spacemacs.d/mycus.el")
@@ -57,8 +57,11 @@
     (indent-buffer)
     (browser-refresh--chrome-applescript)
     )
-)
+  )
+;;web mode settings
 (toggle-word-wrap t)
+(web-mode-toggle-current-element-highlight)
+(setq web-mode-enable-current-column-highlight t)
 ;; search global
 (spacemacs/set-leader-keys "oy" 'youdao-dictionary-search-at-point+)
 (global-set-key (kbd "s-f") 'helm-ag)

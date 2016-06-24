@@ -18,6 +18,8 @@
    ;; of a list then all discovered layers will be installed.
    dotspacemacs-configuration-layers
    '(
+     (spacemacs-layouts :variables
+                        spacemacs-layouts-directory "~/.spacemacs.d/layouts/")
      osx
      html
      dash

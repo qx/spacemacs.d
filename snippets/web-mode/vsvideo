@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: video js video
+# key: vsvideo
+# --
+<video controls="controls" id="really-cool-video" class="video-js vjs-default-skin vjs-big-play-centered"
+                                         preload="auto"
+                                         style="width:100%"
+                                         data-setup='{}'>
+                                         <source src="<%= video.get_video_path %>" type="video/mp4">
+                                         </video> 

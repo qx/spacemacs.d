@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: Rails.logger
+# key: logger
+# --
+ <%= Rails.logger.info video.get_cover %>

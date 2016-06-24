@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: link_to do
+# key: link_tod
+# --
+<%= link_to item,target: '_blank'  do %>
+<% end%>

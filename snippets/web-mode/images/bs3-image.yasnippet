@@ -4,4 +4,4 @@
 # name: bs3-image
 # --
 
-<img src="${1:#}" ${2:class="img-responsive"} alt="${3:Image}">
+<img src="<%=asset_path ("$0")%>" ${2:class="img-responsive center-block"} alt="${3:Image}">

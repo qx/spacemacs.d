@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: textcenter
+# key: textcenter
+# --
+class="text-center"

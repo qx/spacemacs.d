@@ -2,6 +2,13 @@
 ;;; Snippet definitions:
 ;;;
 (yas-define-snippets 'web-mode
+                     '(("vsvideo" "<video controls=\"controls\" id=\"really-cool-video\" class=\"video-js vjs-default-skin vjs-big-play-centered\"\n                                         preload=\"auto\"\n                                         style=\"width:100%\"\n                                         data-setup='{}'>\n                                         <source src=\"<%= video.get_video_path %>\" type=\"video/mp4\">\n                                         </video> \n" "video js video" nil nil nil "/Users/ok/.spacemacs.d/snippets/web-mode/vsvideo" nil nil)
+                       ("README.md" "# bootstrap3-snippets-for-emacs\n" "README.md" nil nil nil "/Users/ok/.spacemacs.d/snippets/web-mode/README.md" nil nil)))
+
+
+;;; Snippet definitions:
+;;;
+(yas-define-snippets 'web-mode
                      '(("bs3alert" "\n<div class=\"alert\">\n	<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">&times;</button>\n	<strong>${1:Title!}</strong> ${2:Alert body ...}\n</div>\n" "bs3-alert" nil nil nil "/Users/ok/.spacemacs.d/snippets/web-mode/alerts/bs3-alert.yasnippet" nil nil)
                        ("bs3alert:warning" "\n<div class=\"alert alert-warning\">\n	<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">&times;</button>\n	<strong>${1:Title!}</strong> ${2:Alert body ...}\n</div>\n" "bs3-alert:warning" nil nil nil "/Users/ok/.spacemacs.d/snippets/web-mode/alerts/bs3-alert-warning.yasnippet" nil nil)
                        ("bs3alert:success" "\n<div class=\"alert alert-success\">\n	<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">&times;</button>\n	<strong>${1:Title!}</strong> ${2:Alert body ...}\n</div>\n" "bs3-alert:success" nil nil nil "/Users/ok/.spacemacs.d/snippets/web-mode/alerts/bs3-alert-success.yasnippet" nil nil)
@@ -107,11 +114,15 @@
                        ("st" "<%= submit_tag \"${1:My Button Text}\", class: \"${2:class}\" %>" "st" nil nil nil "/Users/ok/.spacemacs.d/snippets/web-mode/erb-html/submit_tag.yasnippet" nil nil)
                        ("pe" "<%= $0 %>" "pe" nil nil nil "/Users/ok/.spacemacs.d/snippets/web-mode/erb-html/print_erb.yasnippet" nil nil)
                        ("pft" "<%= password_field_tag(:${1:thing} %>" "pft" nil nil nil "/Users/ok/.spacemacs.d/snippets/web-mode/erb-html/password_tag.yasnippet" nil nil)
+                       ("logger" " <%= Rails.logger.info video.get_cover %>\n" "Rails.logger" nil nil nil "/Users/ok/.spacemacs.d/snippets/web-mode/erb-html/logger" nil nil)
+                       ("link_tod" "<%= link_to item,target: '_blank'  do %>\n<% end%>\n" "link_to do" nil nil nil "/Users/ok/.spacemacs.d/snippets/web-mode/erb-html/link_tod" nil nil)
                        ("lt" "<%= link_to $1, $2 %>" "lt" nil nil nil "/Users/ok/.spacemacs.d/snippets/web-mode/erb-html/link_to.yasnippet" nil nil)
                        ("lblt" "<%= label_tag (:${1:thing}, \"${2:Your label text}\" %>" "lblt" nil nil nil "/Users/ok/.spacemacs.d/snippets/web-mode/erb-html/label_tag.yasnippet" nil nil)
                        ("if" "\n<% if $1 %>\n	$0\n<% end %>\n" "if" nil nil nil "/Users/ok/.spacemacs.d/snippets/web-mode/erb-html/if_erb.yasnippet" nil nil)
                        ("ife" "\n<% if $1 %>\n	$2\n<% else %>\n	$0\n<% end %>\n" "ife" nil nil nil "/Users/ok/.spacemacs.d/snippets/web-mode/erb-html/if_else_erb.yasnippet" nil nil)
                        ("ff" "<%= form_for(${1:@things}) do |${2:f}| %>\n		$3\n<% end %>\n  " "ff" nil nil nil "/Users/ok/.spacemacs.d/snippets/web-mode/erb-html/form_for_erb.yasnippet" nil nil)
+                       ("forloop" "<% if !list.blank? %>\n  <% for item in list %>\n  <% end %>\n<% else %>\n<% end %>\n" "if !list.blank? forloop" nil nil nil "/Users/ok/.spacemacs.d/snippets/web-mode/erb-html/forloop" nil nil)
+                       ("bug" "<% byebug %>\n" "erb byebug" nil nil nil "/Users/ok/.spacemacs.d/snippets/web-mode/erb-html/erbug" nil nil)
                        ("t" "<%= t('$0') %>" "t" nil nil nil "/Users/ok/.spacemacs.d/snippets/web-mode/erb-html/erb_translation.yasnippet" nil nil)
                        ("er" "<% $0 %>" "er" nil nil nil "/Users/ok/.spacemacs.d/snippets/web-mode/erb-html/erb.yasnippet" nil nil)
                        ("end" "\n<% end %>\n" "end" nil nil nil "/Users/ok/.spacemacs.d/snippets/web-mode/erb-html/end_erb.yasnippet" nil nil)
@@ -194,6 +205,12 @@
 ;;; Snippet definitions:
 ;;;
 (yas-define-snippets 'web-mode
+                     '(("textcenter" "class=\"text-center\"\n" "textcenter" nil nil nil "/Users/ok/.spacemacs.d/snippets/web-mode/h/textcenter" nil nil)))
+
+
+;;; Snippet definitions:
+;;;
+(yas-define-snippets 'web-mode
                      '(("bs3icon" "\n<i class=\"fa fa-${1:name}${2:-${3:shape}${4:-${5:o}${6:-${7:direction}}}}\"></i>\n" "bs3-icon" nil nil nil "/Users/ok/.spacemacs.d/snippets/web-mode/icons/bs3-icon.yasnippet" nil nil)
                        ("bs3icon:glyphicon" "\n<span class=\"glyphicon glyphicon-${1:icon}\" aria-hidden=\"true\"></span>\n" "bs3-icon:glyphicon" nil nil nil "/Users/ok/.spacemacs.d/snippets/web-mode/icons/bs3-icon-glyphicon.yasnippet" nil nil)))
 
@@ -203,7 +220,7 @@
 (yas-define-snippets 'web-mode
                      '(("bs3thumbnail" "\n<div class=\"col-xs-${1:3} col-sm-${1:3} col-md-${1:3} col-lg-${1:3}\">\n	<a href=\"${2:#}\" class=\"thumbnail\">\n		<img data-src=\"${3:#}\" alt=\"$4\">\n	</a>\n</div>\n" "bs3-thumbnail" nil nil nil "/Users/ok/.spacemacs.d/snippets/web-mode/images/bs3-thumbnail.yasnippet" nil nil)
                        ("bs3thumbnail:content" "\n<div class=\"col-xs-${1:3} col-sm-${1:3} col-md-${1:3} col-lg-${1:3}\">\n	<div class=\"thumbnail\">\n		<img data-src=\"${2:#}\" alt=\"$3\">\n		<div class=\"caption\">\n			<h3>${4:Title}</h3>\n			<p>\n				${5:...}\n			</p>\n			<p>\n				<a href=\"${6:#}\" class=\"btn btn-primary\">${7:Action}</a>\n				<a href=\"${8:#}\" class=\"btn btn-default\">${9:Action}</a>\n			</p>\n		</div>\n	</div>\n</div>\n" "bs3-thumbnail:content" nil nil nil "/Users/ok/.spacemacs.d/snippets/web-mode/images/bs3-thumbnail-content.yasnippet" nil nil)
-                       ("bs3image" "\n<img src=\"${1:#}\" ${2:class=\"img-responsive\"} alt=\"${3:Image}\">\n" "bs3-image" nil nil nil "/Users/ok/.spacemacs.d/snippets/web-mode/images/bs3-image.yasnippet" nil nil)))
+                       ("bs3image" "\n<img src=\"<%=asset_path (\"$0\")%>\" ${2:class=\"img-responsive center-block\"} alt=\"${3:Image}\">\n" "bs3-image" nil nil nil "/Users/ok/.spacemacs.d/snippets/web-mode/images/bs3-image.yasnippet" nil nil)))
 
 
 ;;; Snippet definitions:
@@ -386,4 +403,4 @@
                        ("bs3well:lg" "\n<div class=\"well well-lg\">\n	$0\n</div>\n" "bs3-well:lg" nil nil nil "/Users/ok/.spacemacs.d/snippets/web-mode/wells/bs3-well-lg.yasnippet" nil nil)))
 
 
-;;; Do not edit! File generated at Fri Jun 24 08:20:52 2016
+;;; Do not edit! File generated at Fri Jun 24 17:34:36 2016

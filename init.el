@@ -51,7 +51,7 @@
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
-   dotspacemacs-additional-packages '()
+   dotspacemacs-additional-packages '(youdao-dictionary)
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '(emmet-mode)
    ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
@@ -270,7 +270,9 @@
   (setq yas-snippet-dirs "~/.spacemacs.d/snippets")
   (setq  company-idle-delay 0.01)
   (setq  company-minimum-prefix-length 1)
+  (load-file "~/.spacemacs.d/mycus.el") 
   )
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

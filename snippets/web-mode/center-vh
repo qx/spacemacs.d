@@ -1,0 +1,22 @@
+# -*- mode: snippet -*-
+# name: center-vertical&horizontal
+# key: center-vh
+# --
+.center {
+    height: 200px;
+    position: relative;
+    border: 3px solid green;
+}
+
+.center p {/* 只针对.center内部p*/
+    margin: 0;
+    position: absolute;
+    border: 3px solid green;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+<div class="center">
+  <p>I am vertically and horizontally centered.</p>
+</div>

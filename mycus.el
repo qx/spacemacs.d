@@ -59,17 +59,21 @@
     )
   )
 ;;web mode settings
-(toggle-word-wrap t)
+(setq word-wrap t)
 (web-mode-toggle-current-element-highlight)
 (setq web-mode-enable-current-column-highlight t)
 ;;yank crazy
-(defun crazy-yank ()
-  (interactive)
-  (spacemacs/paste-transient-state/evil-paste-after))
+(defun crazy-yank(arg)
+  (interactive "p")
+  (progn
+    ;; (delete-region)
+    (spacemacs/paste-transient-state/evil-paste-before)
+    )
+  )
 
 (global-set-key (kbd "s-v") 'crazy-yank)
 ;; search global
-(spacemacs/set-leader-keys "oy" 'youdao-dictionary-search-at-point+)
+(spacemacs/set-leader-keys "od" 'youdao-dictionary-search-at-point+)
 (global-set-key (kbd "s-f") 'helm-ag)
 (global-set-key (kbd "s-1") 'indent-buffer)
 (global-set-key (kbd "C-k") 'delete-line-no-kill)

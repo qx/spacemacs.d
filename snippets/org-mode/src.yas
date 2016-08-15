@@ -1,0 +1,11 @@
+# -*- mode: snippet -*-
+# name: src
+# key: src
+# --
+#+BEGIN_SRC ruby :results output :session :exports both 
+class ${1:MyClass}
+     def ${2:MyMethod}
+         ${3}
+     end
+end
+#+END_SRC

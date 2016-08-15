@@ -136,7 +136,8 @@
                        ("elsif" "<% elsif ${1:true} %>" "elsif" nil nil nil "/Users/ok/.spacemacs.d/snippets/web-mode/erb-html/elsif_erb.yasnippet" nil nil)
                        ("else" "<% else %>" "else" nil nil nil "/Users/ok/.spacemacs.d/snippets/web-mode/erb-html/else_erb.yasnippet" nil nil)
                        ("each" "\n<% ${1:@things}.each do |${2:thing}| %>\n	$0\n<% end %>\n" "each" nil nil nil "/Users/ok/.spacemacs.d/snippets/web-mode/erb-html/each_erb.yasnippet" nil nil)
-                       ("pc" "<%# $0 %>" "pc" nil nil nil "/Users/ok/.spacemacs.d/snippets/web-mode/erb-html/comment_erb.yasnippet" nil nil)))
+                       ("pc" "<%# $0 %>" "pc" nil nil nil "/Users/ok/.spacemacs.d/snippets/web-mode/erb-html/comment_erb.yasnippet" nil nil)
+                       ("ass" "<%= asset_path(\"$1.png\") %>\n" "asset_path" nil nil nil "/Users/ok/.spacemacs.d/snippets/web-mode/erb-html/assetP" nil nil)))
 
 
 ;;; Snippet definitions:
@@ -410,4 +411,4 @@
                        ("bs3well:lg" "\n<div class=\"well well-lg\">\n	$0\n</div>\n" "bs3-well:lg" nil nil nil "/Users/ok/.spacemacs.d/snippets/web-mode/wells/bs3-well-lg.yasnippet" nil nil)))
 
 
-;;; Do not edit! File generated at Sat Jun 25 11:11:40 2016
+;;; Do not edit! File generated at Sun Aug 14 22:22:55 2016

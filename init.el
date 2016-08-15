@@ -55,7 +55,10 @@ values."
                       auto-completion-enable-snippets-in-popup t
                       ;;auto-completion-enable-help-tooltip t
                       auto-completion-enable-sort-by-usage t
+                      auto-completion-complete-with-key-sequence-delay 0.5
+
                       )
+
      ;; auto-completion
      better-defaults
      emacs-lisp
@@ -73,7 +76,7 @@ values."
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
-   dotspacemacs-additional-packages '()
+   dotspacemacs-additional-packages '(ox-twbs)
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
    ;; A list of packages that will not be install and loaded.
@@ -311,6 +314,9 @@ layers configuration.
 This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
+  ;;org mode
+  ;; (setq org-link-file-path-type 'absolute) 
+  (setq tramp-ssh-controlmaster-options "-o ControlMaster=auto -o ControlPath='tramp.%%C' -o ControlPersist=no")
 
   (setq yas-snippet-dirs "~/.spacemacs.d/snippets")
   (setq  company-idle-delay 0.01)
@@ -346,6 +352,14 @@ you should place your code here."
      (emacs-lisp . t)
      (plantuml . t)
      (ditaa . t)))
+  ;;org mode自动实现格式化代码
+  (defun indent-org-block-automatically ()
+    (when (org-in-src-block-p)
+      (org-edit-special)
+      (indent-region (point-min) (point-max))
+      (org-edit-src-exit)))
+
+  (run-at-time 1 10 'indent-org-block-automatically)
   ;; search global
   (global-set-key (kbd "s-w") 'er/expand-region)
   (spacemacs/set-leader-keys "odp" 'youdao-dictionary-search-at-point+)

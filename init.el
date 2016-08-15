@@ -339,7 +339,8 @@ you should place your code here."
     reload active tab of winref
     end tell
     " )))
-  (spacemacs//set-monospaced-font   "Source Code Pro" "Hiragino Sans GB" 14 16) ;设置等宽字体
+  ;; (spacemacs//set-monospaced-font   "Source Code Pro" "Hiragino Sans GB" 14 16) ;设置等宽字体
+  (spacemacs//set-monospaced-font   "Source Code Pro" "全新硬笔行书简" 14 16) ;设置等宽字体
   ;;设置文学编程支持
   (org-babel-do-load-languages
    'org-babel-load-languages
@@ -360,6 +361,7 @@ you should place your code here."
       (org-edit-src-exit)))
 
   (run-at-time 1 10 'indent-org-block-automatically)
+  (delete-selection-mode t)             ;;设置黏贴为替换,而不是append
   ;; search global
   (global-set-key (kbd "s-w") 'er/expand-region)
   (spacemacs/set-leader-keys "odp" 'youdao-dictionary-search-at-point+)

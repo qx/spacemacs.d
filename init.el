@@ -36,6 +36,7 @@ values."
      osx
      dash
      smex
+     yaml
      (chinese :variables
               chinese-enable-youdao-dict t)
      oyqx
@@ -230,10 +231,10 @@ values."
    dotspacemacs-loading-progress-bar t
    ;; If non nil the frame is fullscreen when Emacs starts up. (default nil)
    ;; (Emacs 24.4+ only)
-   dotspacemacs-fullscreen-at-startup t
+   dotspacemacs-fullscreen-at-startup t 
    ;; If non nil `spacemacs/toggle-fullscreen' will not use native fullscreen.
    ;; Use to disable fullscreen animations in OSX. (default nil)
-   dotspacemacs-fullscreen-use-non-native t
+   dotspacemacs-fullscreen-use-non-native t 
    ;; If non nil the frame is maximized when Emacs starts up.
    ;; Takes effect only if `dotspacemacs-fullscreen-at-startup' is nil.
    ;; (default nil) (Emacs 24.4+ only)
@@ -340,7 +341,7 @@ you should place your code here."
     end tell
     " )))
   ;; (spacemacs//set-monospaced-font   "Source Code Pro" "Hiragino Sans GB" 14 16) ;设置等宽字体
-  (spacemacs//set-monospaced-font   "Source Code Pro" "全新硬笔行书简" 14 16) ;设置等宽字体
+  (spacemacs//set-monospaced-font   "Source Code Pro" "全新硬笔行书简" 14 18) ;设置等宽字体
   ;;设置文学编程支持
   (org-babel-do-load-languages
    'org-babel-load-languages
@@ -448,6 +449,25 @@ you should place your code here."
     (delete-other-windows)
     (neotree-dir "/Users/ok/github/app_all/appServerManage/.")
     )
+  (defun class_config()
+    (interactive)
+    (find-file "/Users/ok/github/myfun/samples/config.yml")
+    )
+  (defun class_ruby()
+    (interactive)
+    (find-file "/Users/ok/github/myfun/samples/create_course_folder_class.rb")
+    )
+
+  (defun exec-class-config()
+    (interactive)
+    (shell-command "ruby /Users/ok/github/myfun/samples/create_course_folder_class.rb")
+    )
+
+  (defun pushtogit()
+    (interactive)
+    (shell-command "pushtogit.rb")
+    )
+
   (run-at-time 1 10 'indent-org-block-automatically)
   (delete-selection-mode t)             ;;设置黏贴为替换,而不是append
   ;; search global

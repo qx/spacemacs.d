@@ -76,7 +76,7 @@ values."
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
-   dotspacemacs-additional-packages '(ox-twbs)
+   dotspacemacs-additional-packages '(quickrun ox-twbs)
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
    ;; A list of packages that will not be install and loaded.
@@ -315,7 +315,7 @@ This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
   ;;org mode
-  ;; (setq org-link-file-path-type 'absolute) 
+  ;; (setq org-link-file-path-type 'absolute)
   (setq tramp-ssh-controlmaster-options "-o ControlMaster=auto -o ControlPath='tramp.%%C' -o ControlPersist=no")
 
   (setq yas-snippet-dirs "~/.spacemacs.d/snippets")
@@ -359,7 +359,95 @@ you should place your code here."
       (org-edit-special)
       (indent-region (point-min) (point-max))
       (org-edit-src-exit)))
+  ;;设置启动项目
+  (defun teacher()
+    (interactive)
+    (delete-other-windows)
+    (neotree-dir "~/Teacher/.")
+    ;; (split-window-horizontally) ;; -> |
+    ;; (next-multiframe-window)
+    ;; (find-file "~/github/web/www/app/controllers/application_controller.rb")
+    ;; (split-window-vertically) ;;  -> --
 
+    ;; (next-multiframe-window)
+
+    ;; (find-file "~/.spacemacs.d/mycus.el")
+    ;; (next-multiframe-window)
+    ;; (dired "~/github/web/www/.")
+    ;; (find-file "~/github/web/www/app/views/static_pages/home.html.erb")
+    )
+  (defun myfun()
+    (interactive)
+    (delete-other-windows)
+    (neotree-dir "~/github/myfun/.")
+    ;; (split-window-horizontally) ;; -> |
+    ;; (next-multiframe-window)
+    ;; (find-file "~/github/web/www/app/controllers/application_controller.rb")
+    ;; (split-window-vertically) ;;  -> --
+
+    ;; (next-multiframe-window)
+
+    ;; (find-file "~/.spacemacs.d/mycus.el")
+    ;; (next-multiframe-window)
+    ;; (dired "~/github/web/www/.")
+    ;; (find-file "~/github/web/www/app/views/static_pages/home.html.erb")
+    )
+  (defun www()
+    (interactive)
+    (delete-other-windows)
+    (neotree-dir "~/github/www/.")
+    ;; (split-window-horizontally) ;; -> |
+    ;; (next-multiframe-window)
+    ;; (find-file "~/github/web/www/app/controllers/application_controller.rb")
+    ;; (split-window-vertically) ;;  -> --
+
+    ;; (next-multiframe-window)
+
+    ;; (find-file "~/.spacemacs.d/mycus.el")
+    ;; (next-multiframe-window)
+    ;; (dired "~/github/web/www/.")
+    ;; (find-file "~/github/web/www/app/views/static_pages/home.html.erb")
+    )
+
+  (defun www()
+    (interactive)
+    (delete-other-windows)
+    (neotree-dir "~/github/www/.")
+    ;; (split-window-horizontally) ;; -> |
+    ;; (next-multiframe-window)
+    ;; (find-file "~/github/web/www/app/controllers/application_controller.rb")
+    ;; (split-window-vertically) ;;  -> --
+
+    ;; (next-multiframe-window)
+
+    ;; (find-file "~/.spacemacs.d/mycus.el")
+    ;; (next-multiframe-window)
+    ;; (dired "~/github/web/www/.")
+    ;; (find-file "~/github/web/www/app/views/static_pages/home.html.erb")
+    )
+  (defun appserver()
+    (interactive)
+    (delete-other-windows)
+    (neotree-dir "~/github/appserver/.")
+    ;; (split-window-horizontally) ;; -> |
+    ;; (next-multiframe-window)
+    ;; (find-file "~/github/web/www/app/controllers/application_controller.rb")
+    ;; (split-window-vertically) ;;  -> --
+
+    ;; (next-multiframe-window)
+
+    ;; (find-file "~/.spacemacs.d/mycus.el")
+    ;; (next-multiframe-window)
+    ;; (dired "~/github/web/www/.")
+    ;; (find-file "~/github/web/www/app/views/static_pages/home.html.erb")
+    )
+
+  (defun manager()
+    ;; /Users/ok/github/app_all/appServerManage
+    (interactive)
+    (delete-other-windows)
+    (neotree-dir "/Users/ok/github/app_all/appServerManage/.")
+    )
   (run-at-time 1 10 'indent-org-block-automatically)
   (delete-selection-mode t)             ;;设置黏贴为替换,而不是append
   ;; search global
@@ -376,6 +464,8 @@ you should place your code here."
   (spacemacs/set-leader-keys "ogc" 'magit-commit)
   (spacemacs/set-leader-keys "ogp" 'magit-push-current)
   (spacemacs/set-leader-keys "ogr" 'vc-revert-buffer)
+
+  (spacemacs/set-leader-keys "me" 'quickrun)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will

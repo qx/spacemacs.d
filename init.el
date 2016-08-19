@@ -309,7 +309,9 @@ before packages are loaded. If you are unsure, you should try in setting them in
           ("org-cn"   . "https://elpa.zilongshanren.com/org/")
           ("gnu-cn"   . "https://elpa.zilongshanren.com/gnu/")))
   )
-
+(setq scroll-conservatively 101) ;; move minimum when cursor exits view, instead of recentering
+(setq mouse-wheel-scroll-amount '(1)) ;; mouse scroll moves 1 line at a time, instead of 5 lines
+(setq mouse-wheel-progressive-speed nil) ;; on a long mouse scroll keep scrolling by 1 line
 (defun dotspacemacs/user-config ()
   "Configuration function for user code.
 This function is called at the very end of Spacemacs initialization after
@@ -320,7 +322,7 @@ you should place your code here."
   ;;org mode
   ;; (setq org-link-file-path-type 'absolute)
   (setq tramp-ssh-controlmaster-options "-o ControlMaster=auto -o ControlPath='tramp.%%C' -o ControlPersist=no")
-
+  
   (setq yas-snippet-dirs "~/.spacemacs.d/snippets")
   (setq  company-idle-delay 0.01)
   (setq  company-minimum-prefix-length 1)
@@ -364,7 +366,7 @@ you should place your code here."
       (indent-region (point-min) (point-max))
       (org-edit-src-exit)))
   ;;设置启动项目
-  (defun teacher()
+  (defun my/teacher()
     (interactive)
     (delete-other-windows)
     (neotree-dir "~/Teacher/.")
@@ -380,7 +382,7 @@ you should place your code here."
     ;; (dired "~/github/web/www/.")
     ;; (find-file "~/github/web/www/app/views/static_pages/home.html.erb")
     )
-  (defun myfun()
+  (defun my/myfun()
     (interactive)
     (delete-other-windows)
     (neotree-dir "~/github/myfun/.")
@@ -396,7 +398,8 @@ you should place your code here."
     ;; (dired "~/github/web/www/.")
     ;; (find-file "~/github/web/www/app/views/static_pages/home.html.erb")
     )
-  (defun www()
+
+  (defun my/www()
     (interactive)
     (delete-other-windows)
     (neotree-dir "~/github/www/.")
@@ -412,24 +415,7 @@ you should place your code here."
     ;; (dired "~/github/web/www/.")
     ;; (find-file "~/github/web/www/app/views/static_pages/home.html.erb")
     )
-
-  (defun www()
-    (interactive)
-    (delete-other-windows)
-    (neotree-dir "~/github/www/.")
-    ;; (split-window-horizontally) ;; -> |
-    ;; (next-multiframe-window)
-    ;; (find-file "~/github/web/www/app/controllers/application_controller.rb")
-    ;; (split-window-vertically) ;;  -> --
-
-    ;; (next-multiframe-window)
-
-    ;; (find-file "~/.spacemacs.d/mycus.el")
-    ;; (next-multiframe-window)
-    ;; (dired "~/github/web/www/.")
-    ;; (find-file "~/github/web/www/app/views/static_pages/home.html.erb")
-    )
-  (defun appserver()
+  (defun my/appserver()
     (interactive)
     (delete-other-windows)
     (neotree-dir "~/github/appserver/.")
@@ -446,22 +432,22 @@ you should place your code here."
     ;; (find-file "~/github/web/www/app/views/static_pages/home.html.erb")
     )
 
-  (defun manager()
+  (defun my/manager()
     ;; /Users/ok/github/app_all/appServerManage
     (interactive)
     (delete-other-windows)
     (neotree-dir "/Users/ok/github/app_all/appServerManage/.")
     )
-  (defun class_config()
+  (defun my/class_config()
     (interactive)
     (find-file "/Users/ok/github/myfun/samples/config.yml")
     )
-  (defun class_ruby()
+  (defun my/class_ruby()
     (interactive)
     (find-file "/Users/ok/github/myfun/samples/create_course_folder_class.rb")
     )
 
-  (defun exec-class-config()
+  (defun my/exec-class-config()
     (interactive)
     (shell-command "ruby /Users/ok/github/myfun/samples/create_course_folder_class.rb")
     )

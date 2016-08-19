@@ -41,7 +41,9 @@ values."
               chinese-enable-youdao-dict t)
      oyqx
      html
-     ruby
+     (ruby :variables ruby-version-manager 'rbevn
+           ruby-test-runner 'rspec
+           )
      ruby-on-rails
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
@@ -63,7 +65,7 @@ values."
      ;; auto-completion
      better-defaults
      emacs-lisp
-     ;; git
+     git
      markdown
      org
      ;; (shell :variables
@@ -341,7 +343,8 @@ you should place your code here."
     end tell
     " )))
   ;; (spacemacs//set-monospaced-font   "Source Code Pro" "Hiragino Sans GB" 14 16) ;设置等宽字体
-  (spacemacs//set-monospaced-font   "Source Code Pro" "全新硬笔行书简" 14 18) ;设置等宽字体
+  (spacemacs//set-monospaced-font   "Source Code Pro" "方正硬笔楷书简体" 14 18) ;设置等宽字体
+  (add-hook 'spacemacs/emacs-start 'spacemacs//set-monospaced-font) 
   ;;设置文学编程支持
   (org-babel-do-load-languages
    'org-babel-load-languages
@@ -463,11 +466,6 @@ you should place your code here."
     (shell-command "ruby /Users/ok/github/myfun/samples/create_course_folder_class.rb")
     )
 
-  (defun pushtogit()
-    (interactive)
-    (shell-command "pushtogit.rb")
-    )
-
   (run-at-time 1 10 'indent-org-block-automatically)
   (delete-selection-mode t)             ;;设置黏贴为替换,而不是append
   ;; search global
@@ -477,6 +475,8 @@ you should place your code here."
   (global-set-key (kbd "s-f") 'helm-ag)
   (global-set-key (kbd "C-k") 'delete-line-no-kill)
   (global-set-key (kbd "s-/") 'spacemacs/comment-or-uncomment-lines)
+  (global-set-key (kbd "C-s-<up>") 'move-text-up)
+  (global-set-key (kbd "C-s-<down>") 'move-text-down)
   ;; (bind-key* "s-r" 'browser-refresh--chrome-applescript)
   (bind-key* "s-3" 'er/expand-region)
   (spacemacs/set-leader-keys "oyv" 'yas-visit-snippet-file)

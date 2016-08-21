@@ -141,12 +141,13 @@ values."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(spacemacs-dark
-                         spacemacs-light
-                         solarized-light
-                         solarized-dark
-                         leuven
+   dotspacemacs-themes '(
                          monokai
+                         spacemacs-dark
+                         spacemacs-light
+                         solarized-dark
+                         solarized-light
+                         leuven
                          zenburn)
    ;; If non nil the cursor color matches the state color in GUI Emacs.
    dotspacemacs-colorize-cursor-according-to-state t
@@ -226,7 +227,7 @@ values."
    ;; `right-then-bottom'. right-then-bottom tries to display the frame to the
    ;; right; if there is insufficient space it displays it at the bottom.
    ;; (default 'bottom)
-   dotspacemacs-which-key-position 'bottom
+   dotspacemacs-which-key-position 'right-then-bottom
    ;; If non nil a progress bar is displayed when spacemacs is loading. This
    ;; may increase the boot time on some systems and emacs builds, set it to
    ;; nil to boost the loading time. (default t)
@@ -308,6 +309,7 @@ before packages are loaded. If you are unsure, you should try in setting them in
         '(("melpa-cn" . "https://elpa.zilongshanren.com/melpa/")
           ("org-cn"   . "https://elpa.zilongshanren.com/org/")
           ("gnu-cn"   . "https://elpa.zilongshanren.com/gnu/")))
+
   )
 (setq scroll-conservatively 101) ;; move minimum when cursor exits view, instead of recentering
 (setq mouse-wheel-scroll-amount '(1)) ;; mouse scroll moves 1 line at a time, instead of 5 lines
@@ -321,11 +323,13 @@ explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
   ;;org mode
   ;; (setq org-link-file-path-type 'absolute)
+  (spacemacs//set-monospaced-font   "Source Code Pro" "方正硬笔楷书简体" 14 18) ;设置等宽字体
+
   (setq tramp-ssh-controlmaster-options "-o ControlMaster=auto -o ControlPath='tramp.%%C' -o ControlPersist=no")
   
   (setq yas-snippet-dirs "~/.spacemacs.d/snippets")
   (setq  company-idle-delay 0.01)
-  (setq  company-minimum-prefix-length 1)
+  (setq  companSEEDDsz-minimum-prefix-length 1)
 
   (defun delete-line-no-kill ()
     "Deletes a line, but does not put it in the kill-ring. (kinda)"
@@ -345,8 +349,6 @@ you should place your code here."
     end tell
     " )))
   ;; (spacemacs//set-monospaced-font   "Source Code Pro" "Hiragino Sans GB" 14 16) ;设置等宽字体
-  (spacemacs//set-monospaced-font   "Source Code Pro" "方正硬笔楷书简体" 14 18) ;设置等宽字体
-  (add-hook 'spacemacs/emacs-start 'spacemacs//set-monospaced-font) 
   ;;设置文学编程支持
   (org-babel-do-load-languages
    'org-babel-load-languages
@@ -459,10 +461,12 @@ you should place your code here."
   (spacemacs/set-leader-keys "odp" 'youdao-dictionary-search-at-point+)
   (spacemacs/set-leader-keys "odf" 'find-by-pinyin-dired)
   (global-set-key (kbd "s-f") 'helm-ag)
-  (global-set-key (kbd "C-k") 'delete-line-no-kill)
+  ;; (global-set-key (kbd "C-k") 'delete-line-no-kill)
   (global-set-key (kbd "s-/") 'spacemacs/comment-or-uncomment-lines)
   (global-set-key (kbd "C-s-<up>") 'move-text-up)
   (global-set-key (kbd "C-s-<down>") 'move-text-down)
+  (global-set-key (kbd "s-d") 'delete-line-no-kill)
+  (global-set-key (kbd "s-y") 'spacemacs/copy-and-comment-lines)
   ;; (bind-key* "s-r" 'browser-refresh--chrome-applescript)
   (bind-key* "s-3" 'er/expand-region)
   (spacemacs/set-leader-keys "oyv" 'yas-visit-snippet-file)
@@ -472,7 +476,67 @@ you should place your code here."
   (spacemacs/set-leader-keys "ogr" 'vc-revert-buffer)
 
   (spacemacs/set-leader-keys "me" 'quickrun)
+  (global-set-key (kbd "s-g") 'avy-goto-char)
+  (global-set-key (kbd "s-<left>") 'doc-view-last-page)
+  (global-set-key (kbd "s-<right>") 'doc-view-next-page)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(ansi-color-names-vector
+   ["#272822" "#F92672" "#A6E22E" "#E6DB74" "#66D9EF" "#FD5FF0" "#A1EFE4" "#F8F8F2"])
+ '(compilation-message-face (quote default))
+ '(custom-safe-themes
+   (quote
+    ("557c283f4f9d461f897b8cac5329f1f39fac785aa684b78949ff329c33f947ec" default)))
+ '(evil-want-Y-yank-to-eol nil)
+ '(fci-rule-color "#20240E" t)
+ '(highlight-changes-colors (quote ("#FD5FF0" "#AE81FF")))
+ '(highlight-tail-colors
+   (quote
+    (("#20240E" . 0)
+     ("#679A01" . 20)
+     ("#4BBEAE" . 30)
+     ("#1DB4D0" . 50)
+     ("#9A8F21" . 60)
+     ("#A75B00" . 70)
+     ("#F309DF" . 85)
+     ("#20240E" . 100))))
+ '(magit-diff-use-overlays nil)
+ '(pos-tip-background-color "#A6E22E")
+ '(pos-tip-foreground-color "#272822")
+ '(vc-annotate-background nil)
+ '(vc-annotate-color-map
+   (quote
+    ((20 . "#F92672")
+     (40 . "#CF4F1F")
+     (60 . "#C26C0F")
+     (80 . "#E6DB74")
+     (100 . "#AB8C00")
+     (120 . "#A18F00")
+     (140 . "#989200")
+     (160 . "#8E9500")
+     (180 . "#A6E22E")
+     (200 . "#729A1E")
+     (220 . "#609C3C")
+     (240 . "#4E9D5B")
+     (260 . "#3C9F79")
+     (280 . "#A1EFE4")
+     (300 . "#299BA6")
+     (320 . "#2896B5")
+     (340 . "#2790C3")
+     (360 . "#66D9EF"))))
+ '(vc-annotate-very-old-color nil)
+ '(weechat-color-list
+   (unspecified "#272822" "#20240E" "#F70057" "#F92672" "#86C30D" "#A6E22E" "#BEB244" "#E6DB74" "#40CAE4" "#66D9EF" "#FB35EA" "#FD5FF0" "#74DBCD" "#A1EFE4" "#F8F8F2" "#F8F8F0")))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )

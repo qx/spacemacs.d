@@ -33,6 +33,9 @@ values."
    '(
      (spacemacs-layouts :variables
                         spacemacs-layouts-directory "~/.spacemacs.d/layouts/")
+     (colors :variables
+             colors-enable-nyan-cat-progress-bar t
+             colors-enable-rainbow-identifiers t)
      osx
      dash
      smex
@@ -234,10 +237,10 @@ values."
    dotspacemacs-loading-progress-bar t
    ;; If non nil the frame is fullscreen when Emacs starts up. (default nil)
    ;; (Emacs 24.4+ only)
-   dotspacemacs-fullscreen-at-startup t 
+   dotspacemacs-fullscreen-at-startup nil 
    ;; If non nil `spacemacs/toggle-fullscreen' will not use native fullscreen.
    ;; Use to disable fullscreen animations in OSX. (default nil)
-   dotspacemacs-fullscreen-use-non-native t 
+   dotspacemacs-fullscreen-use-non-native nil 
    ;; If non nil the frame is maximized when Emacs starts up.
    ;; Takes effect only if `dotspacemacs-fullscreen-at-startup' is nil.
    ;; (default nil) (Emacs 24.4+ only)

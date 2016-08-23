@@ -82,7 +82,7 @@ values."
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
-   dotspacemacs-additional-packages '(quickrun ox-twbs)
+   dotspacemacs-additional-packages '(quickrun ox-twbs bongo)
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
    ;; A list of packages that will not be install and loaded.
@@ -374,7 +374,7 @@ you should place your code here."
   (defun my/teacher()
     (interactive)
     (delete-other-windows)
-    (neotree-dir "~/Teacher/.")
+    (neotree-dir  "~/Teacher/.")
     ;; (split-window-horizontally) ;; -> |
     ;; (next-multiframe-window)
     ;; (find-file "~/github/web/www/app/controllers/application_controller.rb")
@@ -456,7 +456,7 @@ you should place your code here."
     (interactive)
     (shell-command "ruby /Users/ok/github/myfun/samples/create_course_folder_class.rb")
     )
-
+  (setq neo-smart-open t)
   (run-at-time 1 10 'indent-org-block-automatically)
   (delete-selection-mode t)             ;;设置黏贴为替换,而不是append
   ;; search global
@@ -482,6 +482,7 @@ you should place your code here."
   (global-set-key (kbd "s-g") 'avy-goto-char)
   (global-set-key (kbd "s-<left>") 'doc-view-last-page)
   (global-set-key (kbd "s-<right>") 'doc-view-next-page)
+  (global-set-key [f8] 'neotree-toggle)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will

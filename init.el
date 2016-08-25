@@ -547,15 +547,15 @@ you should place your code here."
   (define-key evil-normal-state-map "\C-k" 'kill-line)
   (define-key evil-insert-state-map "\C-k" 'kill-line)
   (define-key evil-visual-state-map "\C-k" 'kill-line)
-  
+
   (define-key evil-normal-state-map "Q" 'call-last-kbd-macro)
   (define-key evil-visual-state-map "Q" 'call-last-kbd-macro)
   (define-key evil-normal-state-map (kbd "TAB") 'evil-undefine)
 
-
   (define-key evil-insert-state-map (kbd "C-o") 'evil-open-below)
   (define-key evil-normal-state-map (kbd "C-o") 'evil-open-below)
   (define-key evil-visual-state-map (kbd "C-o") 'evil-open-below)
+
   (define-key evil-insert-state-map (kbd "C-S-o") 'evil-open-above)
   (define-key evil-normal-state-map (kbd "C-S-o") 'evil-open-above)
   (define-key evil-visual-state-map (kbd "C-S-o") 'evil-open-above)

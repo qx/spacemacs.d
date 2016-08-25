@@ -435,7 +435,7 @@ you should place your code here."
     ;; (split-window-horizontally) ;; -> |
     ;; (next-multiframe-window)
     ;; (find-file "~/github/web/www/app/controllers/application_controller.rb")
-    ;; (split-window-vertically) ;;  -> --
+    ;; (split-window-vertically) ;;  -> kjkj--
 
     ;; (next-multiframe-window)
 
@@ -459,16 +459,17 @@ you should place your code here."
     (interactive)
     (find-file "/Users/ok/github/myfun/samples/create_course_folder_class.rb")
     )
-
   (defun my/exec-class-config()
     (interactive)
     (shell-command "ruby /Users/ok/github/myfun/samples/create_course_folder_class.rb")
     )
-  ;;自动保存
-  (defun my-save ()
-    (if (buffer-file-name)
-        (evil-save))
-    )
+  ;; ;; 退出编辑模式自动切换输入法
+  ;; (defun exit-pyim()
+  ;;  message "yesk"
+  ;;   )
+ 
+  ;; ;;fasjdifouasdfiousdf
+  ;; (add-hook 'evil-insert-state-exit-hook 'exit-pyim)
   ;;del往上移动10行
   (define-key evil-normal-state-map (kbd "DEL") (lambda ()
                                                   (interactive)
@@ -482,7 +483,6 @@ you should place your code here."
                                                 (evil-scroll-line-down 10)
                                                 ))
 
-  (add-hook 'evil-insert-state-exit-hook 'my-save)
   (setq neo-smart-open t)
   (run-at-time 1 10 'indent-org-block-automatically)
   (delete-selection-mode t)             ;;设置黏贴为替换,而不是append

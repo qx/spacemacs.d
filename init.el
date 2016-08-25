@@ -67,7 +67,7 @@ values."
                       ;;auto-completion-enable-help-tooltip t
                       auto-completion-enable-sort-by-usage t
                       auto-completion-complete-with-key-sequence-delay 0.5
- 
+
                       )
 
      ;; auto-completion
@@ -83,11 +83,11 @@ values."
      syntax-checking
      ;; version-control
      )
-   
+
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages, then consider creating a layer. You can also put the
-   
+
    ;; configuration in `dotspacemacs/user-config'.
    dotspacemacs-additional-packages '(quickrun ox-twbs bongo )
    ;; A list of packages that cannot be updated.
@@ -96,7 +96,7 @@ values."
    dotspacemacs-excluded-packages '()
    ;; Defines the behaviour of Spacemacs when downloading packages.
    ;; Possible values are `used', `used-but-keep-unused' and `all'. `used' will
-   ;; download only explicitly used packages and remove any unused packages as 
+   ;; download only explicitly used packages and remove any unused packages as
    ;; well as their dependencies. `used-but-keep-unused' will download only the
    ;; used packages but won't delete them if they become unused. `all' will
    ;; download all the packages regardless if they are used or not and packages
@@ -467,7 +467,7 @@ you should place your code here."
   ;; (defun exit-pyim()
   ;;  message "yesk"
   ;;   )
- 
+
   ;; ;;fasjdifouasdfiousdf
   ;; (add-hook 'evil-insert-state-exit-hook 'exit-pyim)
   ;;del往上移动10行
@@ -547,9 +547,18 @@ you should place your code here."
   (define-key evil-normal-state-map "\C-k" 'kill-line)
   (define-key evil-insert-state-map "\C-k" 'kill-line)
   (define-key evil-visual-state-map "\C-k" 'kill-line)
+  
   (define-key evil-normal-state-map "Q" 'call-last-kbd-macro)
   (define-key evil-visual-state-map "Q" 'call-last-kbd-macro)
   (define-key evil-normal-state-map (kbd "TAB") 'evil-undefine)
+
+
+  (define-key evil-insert-state-map (kbd "C-o") 'evil-open-below)
+  (define-key evil-normal-state-map (kbd "C-o") 'evil-open-below)
+  (define-key evil-visual-state-map (kbd "C-o") 'evil-open-below)
+  (define-key evil-insert-state-map (kbd "C-S-o") 'evil-open-above)
+  (define-key evil-normal-state-map (kbd "C-S-o") 'evil-open-above)
+  (define-key evil-visual-state-map (kbd "C-S-o") 'evil-open-above)
 
   (defun evil-undefine ()
     (interactive)

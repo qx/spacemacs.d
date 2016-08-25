@@ -237,10 +237,10 @@ values."
    dotspacemacs-loading-progress-bar t
    ;; If non nil the frame is fullscreen when Emacs starts up. (default nil)
    ;; (Emacs 24.4+ only)
-   dotspacemacs-fullscreen-at-startup nil 
+   dotspacemacs-fullscreen-at-startup nil
    ;; If non nil `spacemacs/toggle-fullscreen' will not use native fullscreen.
    ;; Use to disable fullscreen animations in OSX. (default nil)
-   dotspacemacs-fullscreen-use-non-native nil 
+   dotspacemacs-fullscreen-use-non-native nil
    ;; If non nil the frame is maximized when Emacs starts up.
    ;; Takes effect only if `dotspacemacs-fullscreen-at-startup' is nil.
    ;; (default nil) (Emacs 24.4+ only)
@@ -329,7 +329,7 @@ you should place your code here."
   (spacemacs//set-monospaced-font   "Source Code Pro" "方正硬笔楷书简体" 14 18) ;设置等宽字体
 
   (setq tramp-ssh-controlmaster-options "-o ControlMaster=auto -o ControlPath='tramp.%%C' -o ControlPersist=no")
-  
+
   (setq yas-snippet-dirs "~/.spacemacs.d/snippets")
   (setq  company-idle-delay 0.01)
   (setq  companSEEDDsz-minimum-prefix-length 1)
@@ -456,6 +456,25 @@ you should place your code here."
     (interactive)
     (shell-command "ruby /Users/ok/github/myfun/samples/create_course_folder_class.rb")
     )
+  ;;自动保存
+  (defun my-save ()
+    (if (buffer-file-name)
+        (evil-save))
+    )
+  ;;del往上移动10行
+  (define-key evil-normal-state-map (kbd "DEL") (lambda ()
+                                                  (interactive)
+                                                  (previous-line 10)
+                                                  (evil-scroll-line-up 10)
+                                                  ))
+  ;;=往下移动十行
+  (define-key evil-normal-state-map (kbd "=") (lambda ()
+                                                (interactive)
+                                                (next-line 10)
+                                                (evil-scroll-line-down 10)
+                                                ))
+
+  (add-hook 'evil-insert-state-exit-hook 'my-save)
   (setq neo-smart-open t)
   (run-at-time 1 10 'indent-org-block-automatically)
   (delete-selection-mode t)             ;;设置黏贴为替换,而不是append
@@ -483,6 +502,51 @@ you should place your code here."
   (global-set-key (kbd "s-<left>") 'doc-view-last-page)
   (global-set-key (kbd "s-<right>") 'doc-view-next-page)
   (global-set-key [f8] 'neotree-toggle)
+  ;;行首行尾跳转
+  ;; (global-set-key (kbd "C-s-u") 'mwim-beginning-of-code-or-line)
+  ;; (global-set-key (kbd "C-s-o") 'mwim-end-of-code-or-line)
+  (define-key evil-normal-state-map (kbd "C-a") 'evil-beginning-of-line)
+  (define-key evil-insert-state-map (kbd "C-a") 'beginning-of-line)
+  (define-key evil-visual-state-map (kbd "C-a") 'evil-beginning-of-line)
+  (define-key evil-motion-state-map (kbd "C-a") 'evil-beginning-of-line)
+  ;;行尾
+  (define-key evil-normal-state-map (kbd "C-e") 'evil-end-of-line)
+  (define-key evil-insert-state-map (kbd "C-e") 'end-of-line)
+  (define-key evil-visual-state-map (kbd "C-e") 'evil-end-of-line)
+  (define-key evil-motion-state-map (kbd "C-e") 'evil-end-of-line)
+  (define-key evil-normal-state-map "\C-f" 'evil-forward-char)
+  (define-key evil-insert-state-map "\C-f" 'evil-forward-char)
+  (define-key evil-insert-state-map "\C-f" 'evil-forward-char)
+  (define-key evil-normal-state-map "\C-b" 'evil-backward-char)
+  (define-key evil-motion-state-map "\C-b" 'evil-backward-char)
+  (define-key evil-insert-state-map "\C-b" 'evil-backward-char)
+  (define-key evil-visual-state-map "\C-b" 'evil-backward-char)
+  (define-key evil-normal-state-map "\C-d" 'evil-delete-char)
+  (define-key evil-insert-state-map "\C-d" 'evil-delete-char)
+  (define-key evil-visual-state-map "\C-d" 'evil-delete-char)
+  (define-key evil-normal-state-map "\C-n" 'evil-next-line)
+  (define-key evil-insert-state-map "\C-n" 'evil-next-line)
+  (define-key evil-visual-state-map "\C-n" 'evil-next-line)
+  (define-key evil-normal-state-map "\C-p" 'evil-previous-line)
+  (define-key evil-insert-state-map "\C-p" 'evil-previous-line)
+  (define-key evil-visual-state-map "\C-p" 'evil-previous-line)
+  (define-key evil-normal-state-map "\C-w" 'evil-delete)
+  (define-key evil-insert-state-map "\C-w" 'evil-delete)
+  (define-key evil-visual-state-map "\C-w" 'evil-delete)
+  (define-key evil-normal-state-map "\C-y" 'yank)
+  (define-key evil-insert-state-map "\C-y" 'yank)
+  (define-key evil-visual-state-map "\C-y" 'yank)
+  (define-key evil-normal-state-map "\C-k" 'kill-line)
+  (define-key evil-insert-state-map "\C-k" 'kill-line)
+  (define-key evil-visual-state-map "\C-k" 'kill-line)
+  (define-key evil-normal-state-map "Q" 'call-last-kbd-macro)
+  (define-key evil-visual-state-map "Q" 'call-last-kbd-macro)
+  (define-key evil-normal-state-map (kbd "TAB") 'evil-undefine)
+
+  (defun evil-undefine ()
+    (interactive)
+    (let (evil-mode-map-alist)
+      (call-interactively (key-binding (this-command-keys)))))
   )
 
 ;; Do not write anything past this comment. This is where Emacs will

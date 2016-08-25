@@ -40,8 +40,13 @@ values."
      dash
      smex
      yaml
-     (chinese :variables
-              chinese-enable-youdao-dict t)
+     ;; (chinese :variables
+     ;;          chinese-default-input-method 'pyim
+     ;;          chinese-enable-youdao-dict t
+     ;;          )
+     ;;有可能是bug,在这里写变量会导致丢失pyim
+     chinese
+     ;; (chinese :variables chinese-default-input-method 'pyim chinese-enable-youdao-dict t)
      oyqx
      html
      (ruby :variables ruby-version-manager 'rbevn
@@ -62,7 +67,7 @@ values."
                       ;;auto-completion-enable-help-tooltip t
                       auto-completion-enable-sort-by-usage t
                       auto-completion-complete-with-key-sequence-delay 0.5
-
+ 
                       )
 
      ;; auto-completion
@@ -78,18 +83,20 @@ values."
      syntax-checking
      ;; version-control
      )
+   
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages, then consider creating a layer. You can also put the
+   
    ;; configuration in `dotspacemacs/user-config'.
-   dotspacemacs-additional-packages '(quickrun ox-twbs bongo)
+   dotspacemacs-additional-packages '(quickrun ox-twbs bongo )
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
    ;; A list of packages that will not be install and loaded.
    dotspacemacs-excluded-packages '()
    ;; Defines the behaviour of Spacemacs when downloading packages.
    ;; Possible values are `used', `used-but-keep-unused' and `all'. `used' will
-   ;; download only explicitly used packages and remove any unused packages as
+   ;; download only explicitly used packages and remove any unused packages as 
    ;; well as their dependencies. `used-but-keep-unused' will download only the
    ;; used packages but won't delete them if they become unused. `all' will
    ;; download all the packages regardless if they are used or not and packages
@@ -314,6 +321,7 @@ before packages are loaded. If you are unsure, you should try in setting them in
           ("gnu-cn"   . "https://elpa.zilongshanren.com/gnu/")))
 
   )
+(setq chinese-enable-youdao-dict t)
 (setq scroll-conservatively 101) ;; move minimum when cursor exits view, instead of recentering
 (setq mouse-wheel-scroll-amount '(1)) ;; mouse scroll moves 1 line at a time, instead of 5 lines
 (setq mouse-wheel-progressive-speed nil) ;; on a long mouse scroll keep scrolling by 1 line
@@ -578,6 +586,9 @@ you should place your code here."
  '(magit-diff-use-overlays nil)
  '(pos-tip-background-color "#A6E22E")
  '(pos-tip-foreground-color "#272822")
+ '(pyim-dicts
+   (quote
+    ((:name "BigDict-01" :file "/Users/ok/.emacs.d/.cache/pyim-bigdict.pyim.gz" :coding utf-8-unix :dict-type pinyin-dict))))
  '(vc-annotate-background nil)
  '(vc-annotate-color-map
    (quote

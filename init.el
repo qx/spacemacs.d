@@ -482,6 +482,7 @@ you should place your code here."
                                                 (next-line 10)
                                                 (evil-scroll-line-down 10)
                                                 ))
+  (global-set-key (kbd "s-<SPC>") 'toggle-input-method) ;;chinese pyim
 
   (setq neo-smart-open t)
   (run-at-time 1 10 'indent-org-block-automatically)

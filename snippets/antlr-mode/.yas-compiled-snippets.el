@@ -7,4 +7,4 @@
                        ("proj" "<project name=\"${1:test}\" default=\"${2:compile}\" basedir=\"${3:.}\">\n\n$0\n</project>" "project" nil nil nil "/Users/ok/.spacemacs.d/snippets/antlr-mode/project" nil nil)))
 
 
-;;; Do not edit! File generated at Tue Aug 30 18:23:44 2016
+;;; Do not edit! File generated at Tue Aug 30 20:43:40 2016

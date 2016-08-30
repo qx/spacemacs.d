@@ -8,4 +8,4 @@
                        ("all" "all:\n        $0" "all" nil nil nil "/Users/ok/.spacemacs.d/snippets/makefile-mode/all" nil nil)))
 
 
-;;; Do not edit! File generated at Tue Aug 30 18:23:45 2016
+;;; Do not edit! File generated at Tue Aug 30 20:43:40 2016

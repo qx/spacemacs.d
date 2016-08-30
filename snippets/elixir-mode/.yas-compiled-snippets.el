@@ -24,4 +24,4 @@
                        ("call" "GenServer.call(${1:__MODULE__}, $0)\n" "call" nil nil nil "/Users/ok/.spacemacs.d/snippets/elixir-mode/call" nil nil)))
 
 
-;;; Do not edit! File generated at Tue Aug 30 18:23:44 2016
+;;; Do not edit! File generated at Tue Aug 30 20:43:40 2016

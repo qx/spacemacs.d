@@ -15,4 +15,4 @@
                        ("dot_" "#+begin_src dot :file ${1:file} :cmdline -T${2:pdf} :exports none :results silent\n            $0\n#+end_src\n\n[[file:$1]]" "dot" nil nil nil "/Users/ok/.spacemacs.d/snippets/org-mode/dot" nil nil)))
 
 
-;;; Do not edit! File generated at Tue Aug 30 18:23:45 2016
+;;; Do not edit! File generated at Tue Aug 30 20:43:40 2016

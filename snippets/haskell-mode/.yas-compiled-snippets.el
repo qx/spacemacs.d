@@ -25,4 +25,4 @@
                         "/Users/ok/.spacemacs.d/snippets/haskell-mode/case" nil nil)))
 
 
-;;; Do not edit! File generated at Tue Aug 30 18:23:44 2016
+;;; Do not edit! File generated at Tue Aug 30 20:43:40 2016

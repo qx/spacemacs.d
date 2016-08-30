@@ -43,6 +43,7 @@
                        ("let" "let(:${1:methodname}){${2:&block}}\n" "rspec-let" nil nil nil "/Users/ok/.spacemacs.d/snippets/ruby-mode/rspec-let.yasnippet" nil nil)
                        ("its" "its(:$1) {$2}\n" "its" nil nil nil "/Users/ok/.spacemacs.d/snippets/ruby-mode/rspec-its.snippet" nil nil)
                        ("desc" "describe $1 do\n$2\nend\n" "desc" nil nil nil "/Users/ok/.spacemacs.d/snippets/ruby-mode/rspec-desc.snippet" nil nil)
+                       ("context" "context '${1:describe/Class}' do\n${2:content}\nend" "rspec-context" nil nil nil "/Users/ok/.spacemacs.d/snippets/ruby-mode/rspec-context.yasnippet" nil nil)
                        ("rest" "respond_to do |format|\n	format.${1:html}${2: { $0 \\}}\nend" "rest" nil nil nil "/Users/ok/.spacemacs.d/snippets/ruby-mode/respond_to.yasnippet" nil nil)
                        ("req" "require '$0'" "require \"...\"" nil
                         ("general")
@@ -215,4 +216,4 @@
                         nil "/Users/ok/.spacemacs.d/snippets/ruby-mode/#" nil nil)))
 
 
-;;; Do not edit! File generated at Tue Aug 30 18:23:45 2016
+;;; Do not edit! File generated at Tue Aug 30 20:43:40 2016

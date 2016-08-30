@@ -47,6 +47,7 @@
                        ("slt" "<%= stylesheet_link_tag ${1::application}${2:, media: \"${3:all}\"}${4:, cache: ${5:true}} %>" "slt" nil nil nil "/Users/ok/.spacemacs.d/snippets/ruby-mode/stylesheet_link_tag-(slt).yasnippet" nil nil)
                        ("scar" "scope :${1:name}, ->(${2:arg}){ where(${3:attribute:} $2) }\n" "scar" nil nil nil "/Users/ok/.spacemacs.d/snippets/ruby-mode/scope_with_args.yasnippet" nil nil)
                        ("sc" "scope :${1:name}, ->{ where(${2:attr:} ${3:value}) }\n" "sc" nil nil nil "/Users/ok/.spacemacs.d/snippets/ruby-mode/scope.yasnippet" nil nil)
+                       ("desc" "describe $1 do\n$2\nend\n" "desc" nil nil nil "/Users/ok/.spacemacs.d/snippets/ruby-mode/rspec-desc.snippet" nil nil)
                        ("resdm" "resources :${1:res_name} do\n  member do\n    ${2:get} :${3:action}\n  end\nend" "resdm" nil nil nil "/Users/ok/.spacemacs.d/snippets/ruby-mode/routes_resources_member_block.yasnippet" nil nil)
                        ("resdc" "resources :${1:res_name} do\n  collection do\n    ${2:get} :${3:action}\n  end\nend" "resdc" nil nil nil "/Users/ok/.spacemacs.d/snippets/ruby-mode/routes_resources_collection_block.yasnippet" nil nil)
                        ("resd" "resources :${1:res_name} do\n  $2\nend" "resd" nil nil nil "/Users/ok/.spacemacs.d/snippets/ruby-mode/routes_resources_block.yasnippet" nil nil)
@@ -136,7 +137,7 @@
                        ("end" "<% end %>" "end" nil nil nil "/Users/ok/.spacemacs.d/snippets/ruby-mode/end.yasnippet" nil nil)
                        ("deftp" "def test_should_post_${1:action}\n	${3:@$2 = ${4:$2s}(:${5:fixture_name})\n	}post :$1${6:, id: @$2.to_param}, ${2:model}: { $0 }\n	assert_response :redirect\n\nend" "deftp" nil nil nil "/Users/ok/.spacemacs.d/snippets/ruby-mode/def-post-request.yasnippet" nil nil)
                        ("deftg" "def test_should_get_${1:action}\n	${2:@${3:model} = ${4:$3s}(:${5:fixture_name})\n	}get :$1${6:, id: @$3.to_param}\n	assert_response :success\n	$0\nend" "deftg" nil nil nil "/Users/ok/.spacemacs.d/snippets/ruby-mode/def-get-request.yasnippet" nil nil)
-                       ("defcreate" "def create\n  @${1:model} = ${2:${1/[[:alpha:]]+|(_)/(?1::\\u$0)/g}}.new(params[:$1])\n  $0\n  respond_to do |format|\n    if @$1.save\n      flash[:notice] = '$2 was successfully created.'\n      format.html { redirect_to(@$1) }\n      format.xml { render xml: @$1, status: :created, location: @$1 }\n    else\n      format.html { render action: \"new\" }\n      format.xml { render xml: @$1.errors, status: :unprocessable_entity }\n    end\n  end\nend\n" "defcreate" nil nil nil "/Users/ok/.spacemacs.d/snippets/ruby-mode/def-create-resource.yasnippet" nil nil)
+                       ("desc" "describe $1 do\n$2\nend" "desc" nil nil nil "/Users/ok/.spacemacs.d/snippets/ruby-mode/def-create-resource.yasnippet" nil nil)
                        ("crud" "\n  def index\n    @$1 = ${1/(.+)/\\u$1/g}.scoped\n  end\n\n  def show\n    @$1 = ${1/(.+)/\\u$1/g}.find(params[:id])\n  end\n\n  def create\n    @$1 = ${1/(.+)/\\u$1/g}.new(params[:$1])\n  end\n\n  def update\n    @$1 = ${1/(.+)/\\u$1/g}.find(params[:id])\n  end\n\n  def edit\n    @$1 = ${1/(.+)/\\u$1/g}.find(params[:id])\n  end\n\n  def destroy\n    $1 = ${1/(.+)/\\u$1/g}.find(params[:id])\n  end" "crud" nil nil nil "/Users/ok/.spacemacs.d/snippets/ruby-mode/crud-actions.yasnippet" nil nil)
                        ("class" "class ${1:${TM_FILENAME/(?:\\A|_)([A-Za-z0-9]+)(?:\\.rb)?/(?2::\\u$1)/g}}\n$0\nend" "class" nil nil nil "/Users/ok/.spacemacs.d/snippets/ruby-mode/class-end.yasnippet" nil nil)
                        ("crw" "cattr_accessor :${0:attr_names}" "crw" nil nil nil "/Users/ok/.spacemacs.d/snippets/ruby-mode/cattr_accessor.yasnippet" nil nil)
@@ -202,4 +203,4 @@
                        ("ft" "<%= form_tag(${1:action: \"${5:update}\"}${6:, {:${8:class}: \"${9:form}\"\\}}) do %>\n  $0\nend" "ft" nil nil nil "/Users/ok/.spacemacs.d/snippets/ruby-mode/180-rails-form_tag.yasnippet" nil nil)))
 
 
-;;; Do not edit! File generated at Sun Aug 14 22:22:55 2016
+;;; Do not edit! File generated at Tue Aug 30 16:45:06 2016

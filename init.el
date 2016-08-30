@@ -481,8 +481,16 @@ you should place your code here."
                                                 (interactive)
                                                 (next-line 10)
                                                 (evil-scroll-line-down 10)
-                                                ))
-  (global-set-key (kbd "s-<SPC>") 'toggle-input-method) ;;chinese pyim
+                                             ))
+  ; reload yas   
+  (defun my/yas_reload()
+      (interactive)
+    (progn
+      (yas-recompile-all)
+      (yas-reload-all)
+      )
+    )
+  (global-set-key (kbd "C-<SPC>") 'toggle-input-method) ;;chinese pyim
 
   (setq neo-smart-open t)
   (run-at-time 1 10 'indent-org-block-automatically)
@@ -502,6 +510,9 @@ you should place your code here."
   (bind-key* "s-3" 'er/expand-region)
   (spacemacs/set-leader-keys "oyv" 'yas-visit-snippet-file)
   (spacemacs/set-leader-keys "oyc" 'yas-new-snippet)
+  (spacemacs/set-leader-keys "oyR" 'my/yas_reload)
+
+
   (spacemacs/set-leader-keys "ogc" 'magit-commit)
   (spacemacs/set-leader-keys "ogp" 'magit-push-current)
   (spacemacs/set-leader-keys "ogr" 'vc-revert-buffer)

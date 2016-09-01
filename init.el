@@ -229,7 +229,7 @@ values."
    dotspacemacs-helm-position 'bottom
    ;; If non nil the paste micro-state is enabled. When enabled pressing `p`
    ;; several times cycle between the kill ring content. (default nil)
-   dotspacemacs-enable-paste-transient-state nil
+   dotspacemacs-enable-paste-transient-state t
    ;; Which-key delay in seconds. The which-key buffer is the popup listing
    ;; the commands bound to the current keystroke sequence. (default 0.4)
    dotspacemacs-which-key-delay 0.4
@@ -580,9 +580,9 @@ you should place your code here."
   ;;replace-string with cmd+ r
   (global-set-key (kbd "s-r") 'replace-string)
   ;;替换evil-delete的yank行为
-  (defun bb/evil-delete (orig-fn beg end &optional type _ &rest args)
-    (apply orig-fn beg end type ?_ args))
-  (advice-add 'evil-delete :around 'bb/evil-delete)
+  ;; (defun bb/evil-delete (orig-fn beg end &optional type _ &rest args)
+  ;;   (apply orig-fn beg end type ?_ args))
+  ;; (advice-add 'evil-delete :around 'bb/evil-delete)
   ;;================end
   (defun check-expansion ()
     (save-excursion

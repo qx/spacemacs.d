@@ -1,0 +1,17 @@
+# -*- mode: snippet -*-
+# name: org-style
+# key: org-style
+# --
+
+#+TITLE:     ${1:title}
+#+AUTHOR:    ${2:name}
+#+EMAIL:     (concat "${2:name}" at-sign "${3:email}")
+#+DESCRIPTION: Org-HTML export made simple.
+#+KEYWORDS:  org-mode, export, html, theme, style, css, js, bigblow
+#+LANGUAGE:  en
+#+OPTIONS:   H:4 toc:t num:2
+
+#+PROPERTY:  header-args :padline no
+#+SETUPFILE: setup/theme-readtheorg-local.setup
+
+ 

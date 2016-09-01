@@ -579,7 +579,11 @@ you should place your code here."
       (call-interactively (key-binding (this-command-keys)))))
   ;;replace-string with cmd+ r
   (global-set-key (kbd "s-r") 'replace-string)
-
+  ;;替换evil-delete的yank行为
+  (defun bb/evil-delete (orig-fn beg end &optional type _ &rest args)
+    (apply orig-fn beg end type ?_ args))
+  (advice-add 'evil-delete :around 'bb/evil-delete)
+  ;;================end
   (defun check-expansion ()
     (save-excursion
       (if (looking-at "\\_>") t

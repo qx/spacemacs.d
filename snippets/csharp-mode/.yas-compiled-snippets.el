@@ -20,4 +20,4 @@
                        ("attrib" "/// <summary>\n/// $3\n/// </summary>\nprivate $1 $2;" "private attribute ....;" nil nil nil "/Users/ok/.spacemacs.d/snippets/csharp-mode/attrib" nil nil)))
 
 
-;;; Do not edit! File generated at Tue Aug 30 20:43:40 2016
+;;; Do not edit! File generated at Wed Aug 31 15:55:18 2016

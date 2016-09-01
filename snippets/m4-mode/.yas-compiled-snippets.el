@@ -5,4 +5,4 @@
                      '(("def" "define(\\`${1:macro}',\\`${2:subst}').\n$0" "def" nil nil nil "/Users/ok/.spacemacs.d/snippets/m4-mode/def" nil nil)))
 
 
-;;; Do not edit! File generated at Tue Aug 30 20:43:40 2016
+;;; Do not edit! File generated at Wed Aug 31 15:55:19 2016

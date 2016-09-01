@@ -232,4 +232,4 @@
                         nil "/Users/ok/.spacemacs.d/snippets/python-mode/__contains__" nil nil)))
 
 
-;;; Do not edit! File generated at Tue Aug 30 20:43:40 2016
+;;; Do not edit! File generated at Wed Aug 31 15:55:19 2016

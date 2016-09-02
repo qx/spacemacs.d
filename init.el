@@ -382,8 +382,12 @@ you should place your code here."
   ;;设置启动项目
   (defun my/teacher()
     (interactive)
-    (delete-other-windows)
-    (neotree-dir  "~/Teacher/.")
+    (progn
+      (delete-other-windows)
+      (dired "~/Teacher/.")
+      )
+
+
     ;; (split-window-horizontally) ;; -> |
     ;; (next-multiframe-window)
     ;; (find-file "~/github/web/www/app/controllers/application_controller.rb")
@@ -399,7 +403,7 @@ you should place your code here."
   (defun my/myfun()
     (interactive)
     (delete-other-windows)
-    (neotree-dir "~/github/myfun/.")
+    (dired "~/github/myfun/.")
     ;; (split-window-horizontally) ;; -> |
     ;; (next-multiframe-window)
     ;; (find-file "~/github/web/www/app/controllers/application_controller.rb")
@@ -416,7 +420,7 @@ you should place your code here."
   (defun my/www()
     (interactive)
     (delete-other-windows)
-    (neotree-dir "~/github/www/.")
+    (dired "~/github/www/.")
     ;; (split-window-horizontally) ;; -> |
     ;; (next-multiframe-window)
     ;; (find-file "~/github/web/www/app/controllers/application_controller.rb")
@@ -432,7 +436,7 @@ you should place your code here."
   (defun my/appserver()
     (interactive)
     (delete-other-windows)
-    (neotree-dir "~/github/appserver/.")
+    (dired "~/github/appserver/.")
     ;; (split-window-horizontally) ;; -> |
     ;; (next-multiframe-window)
     ;; (find-file "~/github/web/www/app/controllers/application_controller.rb")
@@ -450,7 +454,7 @@ you should place your code here."
     ;; /Users/ok/github/app_all/appServerManage
     (interactive)
     (delete-other-windows)
-    (neotree-dir "/Users/ok/github/app_all/appServerManage/.")
+    (dired "/Users/ok/github/app_all/appServerManage/.")
     )
   (defun my/class_config()
     (interactive)
@@ -538,8 +542,10 @@ you should place your code here."
                 (neotree-dir project-dir)
                 (neotree-find file-name)))
         (message "Could not find git project root."))))
-  (global-set-key [f8] 'neotree-project-dir)
-  (global-set-key [f9] 'neotree-projectile-action)
+  ;; (global-set-key [f8] 'neotree-project-dir)
+  ;; (global-set-key [f9] 'neotree-projectile-action)
+  (spacemacs/set-leader-keys "ot" 'neotree-project-dir)
+
   ;;行首行尾跳转
   ;; (global-set-key (kbd "C-s-u") 'mwim-beginning-of-code-or-line)
   ;; (global-set-key (kbd "C-s-o") 'mwim-end-of-code-or-line)

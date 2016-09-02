@@ -522,7 +522,24 @@ you should place your code here."
   (global-set-key (kbd "s-g") 'avy-goto-char)
   (global-set-key (kbd "s-<left>") 'doc-view-last-page)
   (global-set-key (kbd "s-<right>") 'doc-view-next-page)
-  (global-set-key [f8] 'neotree-toggle)
+  (add-hook 'neotree-mode-hook
+            (lambda ()
+              (define-key evil-normal-state-local-map (kbd "TAB") 'neotree-enter)
+              (define-key evil-normal-state-local-map (kbd "q") 'neotree-hide)
+              (define-key evil-normal-state-local-map (kbd "RET") 'neotree-enter)))
+  (defun neotree-project-dir ()
+    "Open NeoTree using the git root."
+    (interactive)
+    (let ((project-dir (projectile-project-root))
+          (file-name (buffer-file-name)))
+      (if project-dir
+          (if (neotree-toggle)
+              (progn
+                (neotree-dir project-dir)
+                (neotree-find file-name)))
+        (message "Could not find git project root."))))
+  (global-set-key [f8] 'neotree-project-dir)
+  (global-set-key [f9] 'neotree-projectile-action)
   ;;行首行尾跳转
   ;; (global-set-key (kbd "C-s-u") 'mwim-beginning-of-code-or-line)
   ;; (global-set-key (kbd "C-s-o") 'mwim-end-of-code-or-line)
@@ -584,6 +601,7 @@ you should place your code here."
   ;;   (apply orig-fn beg end type ?_ args))
   ;; (advice-add 'evil-delete :around 'bb/evil-delete)
   ;;================end
+
   (defun check-expansion ()
     (save-excursion
       (if (looking-at "\\_>") t

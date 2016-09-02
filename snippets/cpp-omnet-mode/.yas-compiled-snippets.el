@@ -13,4 +13,4 @@
                        ("ev" "EV << \"${1:string}\"$0;" "EV" nil nil nil "/Users/ok/.spacemacs.d/snippets/cpp-omnet-mode/EV" nil nil)))
 
 
-;;; Do not edit! File generated at Fri Sep  2 07:56:43 2016
+;;; Do not edit! File generated at Fri Sep  2 08:31:27 2016

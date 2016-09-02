@@ -16,4 +16,4 @@
                        ("bp" "buildPhase= ''\n$1\n'';\n$0" "buildPhase" nil nil nil "/Users/ok/.spacemacs.d/snippets/nix-mode/buildPhase" nil nil)))
 
 
-;;; Do not edit! File generated at Wed Aug 31 15:55:19 2016
+;;; Do not edit! File generated at Fri Sep  2 07:56:43 2016

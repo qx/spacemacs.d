@@ -48,4 +48,4 @@
                        ("ac" "\\newacronym{${1:label}}{${1:$(upcase yas-text)}}{${2:Name}}" "acronym" nil nil nil "/Users/ok/.spacemacs.d/snippets/latex-mode/acronym" nil nil)))
 
 
-;;; Do not edit! File generated at Wed Aug 31 15:55:19 2016
+;;; Do not edit! File generated at Fri Sep  2 07:56:43 2016

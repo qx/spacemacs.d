@@ -29,4 +29,4 @@
                        ("bd" "block data $0\n" "block data" nil nil nil "/Users/ok/.spacemacs.d/snippets/f90-mode/bd" nil nil)))
 
 
-;;; Do not edit! File generated at Fri Sep  2 08:31:27 2016
+;;; Do not edit! File generated at Sat Sep  3 11:42:07 2016

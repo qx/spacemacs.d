@@ -531,6 +531,12 @@ you should place your code here."
               (define-key evil-normal-state-local-map (kbd "TAB") 'neotree-enter)
               (define-key evil-normal-state-local-map (kbd "q") 'neotree-hide)
               (define-key evil-normal-state-local-map (kbd "RET") 'neotree-enter)))
+  (let ((path (shell-command-to-string ". ~/Project/config/env.sh; echo -n $PATH")))
+    (setenv "PATH" path)
+    (setq exec-path 
+          (append
+           (split-string-and-unquote path ":")
+           exec-path)))
   (defun neotree-project-dir ()
     "Open NeoTree using the git root."
     (interactive)

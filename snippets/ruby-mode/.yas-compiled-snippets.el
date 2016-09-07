@@ -101,7 +101,7 @@
                        ("rtlt" "render text: \"${1:text to render...}\", layout: ${2:true}" "rtlt" nil nil nil "/Users/ok/.spacemacs.d/snippets/ruby-mode/render-(text-layout=3Etrue)-(rtlt).yasnippet" nil nil)
                        ("rtl" "render text: \"${1:text to render...}\", layout: \"${2:layoutname}\"" "rtl" nil nil nil "/Users/ok/.spacemacs.d/snippets/ruby-mode/render-(text-layout)-(rtl).yasnippet" nil nil)
                        ("rt" "render text: \"${1:text to render...}\"" "rt" nil nil nil "/Users/ok/.spacemacs.d/snippets/ruby-mode/render-(text)-(rt).yasnippet" nil nil)
-                       ("rps" "render partial: \"${1:item}\", status: ${2:500}" "rps" nil nil nil "/Users/ok/.spacemacs.d/snippets/ruby-mode/render-(partial-status)-(rps).yasnippet" nil nil)
+                       ("rtips" "#请在此处按要求添加代码,修改请删除该注释  START\n\n$0\n\n#请在此处按要求添加代码,修改请删除该注释    END\n" "rtips" nil nil nil "/Users/ok/.spacemacs.d/snippets/ruby-mode/render-(partial-status)-(rps).yasnippet" nil nil)
                        ("rns" "render nothing: ${1:true}, status: ${2:401}" "rns" nil nil nil "/Users/ok/.spacemacs.d/snippets/ruby-mode/render-(nothing-status)-(rns).yasnippet" nil nil)
                        ("rn" "render nothing: ${1:true}" "rn" nil nil nil "/Users/ok/.spacemacs.d/snippets/ruby-mode/render-(nothing)-(rn).yasnippet" nil nil)
                        ("rl" "render layout: \"${1:layoutname}\"" "rl" nil nil nil "/Users/ok/.spacemacs.d/snippets/ruby-mode/render-(layout)-(rl).yasnippet" nil nil)
@@ -273,16 +273,16 @@
                        ("art" "assert_redirected_to ${2:action: \"${1:index}\"}" "art" nil nil nil "/Users/ok/.spacemacs.d/snippets/ruby-mode/Test-Assert-Redirected-To-(art).yasnippet" nil nil)
                        ("tre" "t.rename(:${1:old_column_name}, :${2:new_column_name})\n$0" "tre" nil nil nil "/Users/ok/.spacemacs.d/snippets/ruby-mode/Table-column(s)-rename.yasnippet" nil nil)
                        ("rdb" "RAILS_DEFAULT_LOGGER.debug \"${1:message}\"$0" "rdb" nil nil nil "/Users/ok/.spacemacs.d/snippets/ruby-mode/RAILS_DEFAULT_LOGGER.debug-(rdb).yasnippet" nil nil)
-                       ("mrcol" "rename_column :${1:table}, :${2:old_column_name}, :${3:new_column_name}" "mrcol" nil nil nil "/Users/ok/.spacemacs.d/snippets/ruby-mode/Migration-Rename-Column.yasnippet" nil nil)
+                       ("mcol" "rename_column :${1:table}, :${2:old_column_name}, :${3:new_column_name}" "mcol" nil nil nil "/Users/ok/.spacemacs.d/snippets/ruby-mode/Migration-Rename-Column.yasnippet" nil nil)
                        ("mind" "remove_index :${1:table}, name: :${2:index_name}" "mind" nil nil nil "/Users/ok/.spacemacs.d/snippets/ruby-mode/Migration-Remove-Index.yasnippet" nil nil)
-                       ("mdcol" "remove_column :${1:table}, :${2:column}" "mdcol" nil nil nil "/Users/ok/.spacemacs.d/snippets/ruby-mode/Migration-Remove-Column.yasnippet" nil nil)
+                       ("mcol" "remove_column :${1:table}, :${2:column}" "mcol" nil nil nil "/Users/ok/.spacemacs.d/snippets/ruby-mode/Migration-Remove-Column.yasnippet" nil nil)
                        ("mtab" "drop_table :${1:table}" "mtab" nil nil nil "/Users/ok/.spacemacs.d/snippets/ruby-mode/Migration-Drop-Table-(mdct).yasnippet" nil nil)
                        ("mtab" "create_table :${1:table} do |t|\n  t.${2:string} :${3:name}\n\n  t.timestamps\nend\n" "mtab" nil nil nil "/Users/ok/.spacemacs.d/snippets/ruby-mode/Migration-Create-Table-(mdct).yasnippet" nil nil)
                        ("mccc" "t.column ${1:title}, :${2:string}\nmccc$0" "mccc" nil nil nil "/Users/ok/.spacemacs.d/snippets/ruby-mode/Migration-Create-Column-Continue-(mccc).yasnippet" nil nil)
                        ("mcol" "t.column ${1:title}, :${2:string}\n$0" "mcol" nil nil nil "/Users/ok/.spacemacs.d/snippets/ruby-mode/Migration-Create-Column-(mcc).yasnippet" nil nil)
-                       ("mccol" "change_column :${1:table}, :${2:column}, :${3:string}${4:, ${5:limit}: ${6:255}}" "mccol" nil nil nil "/Users/ok/.spacemacs.d/snippets/ruby-mode/Migration-Change-Column.yasnippet" nil nil)
+                       ("mcol" "change_column :${1:table}, :${2:column}, :${3:string}${4:, ${5:limit}: ${6:255}}" "mcol" nil nil nil "/Users/ok/.spacemacs.d/snippets/ruby-mode/Migration-Change-Column.yasnippet" nil nil)
                        ("mind" "add_index :${1:table}, :${2:columns}${4:, ${5:name}: \"${6:custom_index_name}\"}" "mind" nil nil nil "/Users/ok/.spacemacs.d/snippets/ruby-mode/Migration-Add-Index.yasnippet" nil nil)
-                       ("macol" "add_column :${1:table}, :${2:column}, :${3:string}${4:, ${5:limit}: ${6:255}}" "macol" nil nil nil "/Users/ok/.spacemacs.d/snippets/ruby-mode/Migration-Add-Column.yasnippet" nil nil)
+                       ("mcol" "add_column :${1:table}, :${2:column}, :${3:string}${4:, ${5:limit}: ${6:255}}" "mcol" nil nil nil "/Users/ok/.spacemacs.d/snippets/ruby-mode/Migration-Add-Column.yasnippet" nil nil)
                        ("$L" "\\$LABEL" "$L" nil nil nil "/Users/ok/.spacemacs.d/snippets/ruby-mode/LABEL.yasnippet" nil nil)
                        ("$" "$${1:GLOBAL} = $0" "GLOB" nil nil nil "/Users/ok/.spacemacs.d/snippets/ruby-mode/GLOB" nil nil)
                        ("Enum" "include Enumerable\n\ndef each${1:(&block)}\n  $0\nend\n" "include Enumerable" nil
@@ -315,4 +315,4 @@
                         nil "/Users/ok/.spacemacs.d/snippets/ruby-mode/#" nil nil)))
 
 
-;;; Do not edit! File generated at Sat Sep  3 11:42:07 2016
+;;; Do not edit! File generated at Tue Sep  6 18:55:26 2016

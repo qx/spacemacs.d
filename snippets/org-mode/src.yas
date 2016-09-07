@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
-# name: src
-# key: src
+# name: srcr
+# key: srcr
 # --
 #+BEGIN_SRC ruby :results output :session :exports both 
 class ${1:MyClass}

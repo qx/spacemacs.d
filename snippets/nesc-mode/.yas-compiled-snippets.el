@@ -16,4 +16,4 @@
                        ("tossim" "#ifndef TOSSIM\n        $0\n#endif" "TOSSIM" nil nil nil "/Users/ok/.spacemacs.d/snippets/nesc-mode/TOSSIM" nil nil)))
 
 
-;;; Do not edit! File generated at Sat Sep  3 11:42:07 2016
+;;; Do not edit! File generated at Tue Sep  6 18:55:25 2016

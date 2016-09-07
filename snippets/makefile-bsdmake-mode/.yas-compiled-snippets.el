@@ -9,4 +9,4 @@
                        ("phony" ".PHONY: $0" "PHONY" nil nil nil "/Users/ok/.spacemacs.d/snippets/makefile-bsdmake-mode/PHONY" nil nil)))
 
 
-;;; Do not edit! File generated at Sat Sep  3 11:42:07 2016
+;;; Do not edit! File generated at Tue Sep  6 18:55:25 2016

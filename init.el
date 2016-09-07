@@ -40,6 +40,7 @@ values."
      dash
      smex
      yaml
+     javascript
      ;; (chinese :variables
      ;;          chinese-default-input-method 'pyim
      ;;          chinese-enable-youdao-dict t
@@ -89,7 +90,7 @@ values."
    ;; packages, then consider creating a layer. You can also put the
 
    ;; configuration in `dotspacemacs/user-config'.
-   dotspacemacs-additional-packages '(quickrun ox-twbs bongo )
+   dotspacemacs-additional-packages '(quickrun ox-twbs bongo ranger)
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
    ;; A list of packages that will not be install and loaded.
@@ -321,6 +322,8 @@ before packages are loaded. If you are unsure, you should try in setting them in
           ("gnu-cn"   . "https://elpa.zilongshanren.com/gnu/")))
 
   )
+(setq-default js2-basic-offset 2)
+(setq-default js-indent-level 2)
 (setq desktop-auto-save t)
 (setq chinese-enable-youdao-dict t)
 (setq scroll-conservatively 101) ;; move minimum when cursor exits view, instead of recentering
@@ -403,7 +406,7 @@ you should place your code here."
   (defun my/myfun()
     (interactive)
     (delete-other-windows)
-    (dired "~/github/myfun/.")
+    (neotree-dir "~/github/myfun/.")
     ;; (split-window-horizontally) ;; -> |
     ;; (next-multiframe-window)
     ;; (find-file "~/github/web/www/app/controllers/application_controller.rb")
@@ -420,7 +423,7 @@ you should place your code here."
   (defun my/www()
     (interactive)
     (delete-other-windows)
-    (dired "~/github/www/.")
+    (neotree-dir "~/github/www/.")
     ;; (split-window-horizontally) ;; -> |
     ;; (next-multiframe-window)
     ;; (find-file "~/github/web/www/app/controllers/application_controller.rb")
@@ -436,7 +439,7 @@ you should place your code here."
   (defun my/appserver()
     (interactive)
     (delete-other-windows)
-    (dired "~/github/appserver/.")
+    (neotree-dir "~/github/appserver/.")
     ;; (split-window-horizontally) ;; -> |
     ;; (next-multiframe-window)
     ;; (find-file "~/github/web/www/app/controllers/application_controller.rb")
@@ -449,12 +452,20 @@ you should place your code here."
     ;; (dired "~/github/web/www/.")
     ;; (find-file "~/github/web/www/app/views/static_pages/home.html.erb")
     )
-
+  (defun prelude-copy-file-name-to-clipboard ()
+    "Copy the current buffer file name to the clipboard."
+    (interactive)
+    (let ((filename (if (equal major-mode 'dired-mode)
+                        default-directory
+                      (buffer-file-name))))
+      (when filename
+        (kill-new filename)
+        (message "Copied buffer file name '%s' to the clipboard." filename))))
   (defun my/manager()
     ;; /Users/ok/github/app_all/appServerManage
     (interactive)
     (delete-other-windows)
-    (dired "/Users/ok/github/app_all/appServerManage/.")
+    (neotree-dir "/Users/ok/github/app_all/appServerManage/.")
     )
   (defun my/class_config()
     (interactive)
@@ -467,6 +478,13 @@ you should place your code here."
   (defun my/exec-class-config()
     (interactive)
     (shell-command "ruby /Users/ok/github/myfun/samples/create_course_folder_class.rb")
+    )
+  (defun my/push_answer()
+    (interactive)
+    (shell-command
+     (format "/Users/ok/.rbenv/shims/ruby /Users/ok/github/myfun/commit_answer.rb %s" 
+             (shell-quote-argument (buffer-file-name))))
+    (revert-buffer t t t)
     )
   ;; ;; 退出编辑模式自动切换输入法
   ;; (defun exit-pyim()
@@ -521,6 +539,7 @@ you should place your code here."
   (spacemacs/set-leader-keys "ogc" 'magit-commit)
   (spacemacs/set-leader-keys "ogp" 'magit-push-current)
   (spacemacs/set-leader-keys "ogr" 'vc-revert-buffer)
+  (spacemacs/set-leader-keys "oga" 'my/push_answer)
 
   (spacemacs/set-leader-keys "me" 'quickrun)
   (global-set-key (kbd "s-g") 'avy-goto-char)
@@ -549,8 +568,13 @@ you should place your code here."
                 (neotree-find file-name)))
         (message "Could not find git project root."))))
   ;; (global-set-key [f8] 'neotree-project-dir)
-  ;; (global-set-key [f9] 'neotree-projectile-action)
+  (setq ranger-dont-show-binary t)
+  (setq ranger-excluded-extensions '("DS_Store" "mkv" "iso" "mp4"))
+
+  (global-set-key [f8] 'ranger)
+  (global-set-key [f9] 'neotree-project-dir)
   (spacemacs/set-leader-keys "ot" 'neotree-project-dir)
+  (global-set-key (kbd "s-F") 'helm-ag-project-root)
 
   ;;行首行尾跳转
   ;; (global-set-key (kbd "C-s-u") 'mwim-beginning-of-code-or-line)
@@ -602,6 +626,10 @@ you should place your code here."
   (define-key evil-normal-state-map (kbd "C-S-o") 'evil-open-above)
   (define-key evil-visual-state-map (kbd "C-S-o") 'evil-open-above)
 
+  (define-key evil-normal-state-map "\C-v" 'clipboard-yank)
+  (define-key evil-insert-state-map "\C-v" 'clipboard-yank)
+  (define-key evil-visual-state-map "\C-v" 'clipboard-yank)
+
   (defun evil-undefine ()
     (interactive)
     (let (evil-mode-map-alist)
@@ -621,6 +649,22 @@ you should place your code here."
         (if (looking-at "\\.") t
           (backward-char 1)
           (if (looking-at "->") t nil)))))
+
+  ;; (define-key projectile-rails-mode-map (kbd "C-s-m")   'projectile-rails-find-model)
+  ;; (define-key projectile-rails-mode-map (kbd "C-s-c")   'projectile-rails-find-controller)
+  ;; (define-key projectile-rails-mode-map (kbd "C-s-v")   'projectile-rails-find-view)
+  ;; (define-key projectile-rails-mode-map (kbd "s-RET") 'projectile-rails-goto-file-at-point)
+
+  (with-eval-after-load 'projectile-rails
+    (evil-define-key 'normal ruby-mode-map (kbd "RET") #'projectile-rails-goto-file-at-point)
+    (evil-define-key 'normal haml-mod-map (kbd "RET") #'projectile-rails-goto-file-at-point)
+    (evil-define-key 'normal web-mod-map (kbd "RET") #'projectile-rails-goto-file-at-point)
+    ;; (define-key projectile-rails-mode-map (kbd "s-m")   'projectile-rails-find-model)
+    ;; (define-key projectile-rails-mode-map (kbd "s-c")   'projectile-rails-find-controller)
+    ;; (define-key projectile-rails-mode-map (kbd "s-v")   'projectile-rails-find-view)
+    ;; (define-key projectile-rails-mode-map (kbd "s-RET") 'projectile-rails-goto-file-at-point)
+    
+    )
 
   )
 

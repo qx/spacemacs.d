@@ -9,7 +9,7 @@
 #+DESCRIPTION: Org-HTML export made simple.
 #+KEYWORDS:  org-mode, export, html, theme, style, css, js, bigblow
 #+LANGUAGE:  en
-#+OPTIONS:   H:4 toc:t num:2
+#+OPTIONS:   H:4 toc:t num:2 ^:nil
 
 #+PROPERTY:  header-args :padline no
 #+SETUPFILE: setup/theme-readtheorg-local.setup

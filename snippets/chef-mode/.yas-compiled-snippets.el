@@ -47,4 +47,4 @@
                        ("action" "action: ${0:nothing}" "action" nil nil nil "/Users/ok/.spacemacs.d/snippets/chef-mode/action" nil nil)))
 
 
-;;; Do not edit! File generated at Sat Sep  3 11:42:07 2016
+;;; Do not edit! File generated at Tue Sep  6 18:55:25 2016

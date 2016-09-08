@@ -39,4 +39,4 @@
                        ("apr_assert" "if (Globals.useAssertions) {\n   ${1:assert ..};\n}\n" "apr_assert" nil nil nil "/Users/ok/.spacemacs.d/snippets/java-mode/apr_assert" nil nil)))
 
 
-;;; Do not edit! File generated at Tue Sep  6 18:55:25 2016
+;;; Do not edit! File generated at Thu Sep  8 11:02:54 2016

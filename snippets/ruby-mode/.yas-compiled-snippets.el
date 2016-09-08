@@ -248,6 +248,7 @@
                        ("asnd" "assert_no_difference \"${1:Model}.${2:count}\" do\n  $0\nend" "asnd" nil nil nil "/Users/ok/.spacemacs.d/snippets/ruby-mode/assert_no_difference.yasnippet" nil nil)
                        ("asd" "assert_difference \"${1:Model}.${2:count}\", ${3:1} do\n  $0\nend" "asd" nil nil nil "/Users/ok/.spacemacs.d/snippets/ruby-mode/assert_difference.yasnippet" nil nil)
                        ("asg" "assert(${1:var} = assigns(:$1), \"Cannot find @$1\")\n$0" "asg" nil nil nil "/Users/ok/.spacemacs.d/snippets/ruby-mode/assert(var-=-assigns(3Avar)).yasnippet" nil nil)
+                       ("begin" "begin\n  ${1:yourcode}\nrescue Exception => e\n       puts e\nensure\n  ${2:surerun}\n# make sure to run\nend\n" "begin-rescue-end" nil nil nil "/Users/ok/.spacemacs.d/snippets/ruby-mode/array_map" nil nil)
                        ("app" "if __FILE__ == $PROGRAM_NAME\n  $0\nend" "if __FILE__ == $PROGRAM_NAME ... end" nil
                         ("general")
                         nil "/Users/ok/.spacemacs.d/snippets/ruby-mode/app" nil nil)
@@ -280,7 +281,7 @@
                        ("mtab" "create_table :${1:table} do |t|\n  t.${2:string} :${3:name}\n\n  t.timestamps\nend\n" "mtab" nil nil nil "/Users/ok/.spacemacs.d/snippets/ruby-mode/Migration-Create-Table-(mdct).yasnippet" nil nil)
                        ("mccc" "t.column ${1:title}, :${2:string}\nmccc$0" "mccc" nil nil nil "/Users/ok/.spacemacs.d/snippets/ruby-mode/Migration-Create-Column-Continue-(mccc).yasnippet" nil nil)
                        ("mcol" "t.column ${1:title}, :${2:string}\n$0" "mcol" nil nil nil "/Users/ok/.spacemacs.d/snippets/ruby-mode/Migration-Create-Column-(mcc).yasnippet" nil nil)
-                       ("mcol" "change_column :${1:table}, :${2:column}, :${3:string}${4:, ${5:limit}: ${6:255}}" "mcol" nil nil nil "/Users/ok/.spacemacs.d/snippets/ruby-mode/Migration-Change-Column.yasnippet" nil nil)
+                       ("~" "ENV['HOME']$0\n" "~" nil nil nil "/Users/ok/.spacemacs.d/snippets/ruby-mode/Migration-Change-Column.yasnippet" nil nil)
                        ("mind" "add_index :${1:table}, :${2:columns}${4:, ${5:name}: \"${6:custom_index_name}\"}" "mind" nil nil nil "/Users/ok/.spacemacs.d/snippets/ruby-mode/Migration-Add-Index.yasnippet" nil nil)
                        ("mcol" "add_column :${1:table}, :${2:column}, :${3:string}${4:, ${5:limit}: ${6:255}}" "mcol" nil nil nil "/Users/ok/.spacemacs.d/snippets/ruby-mode/Migration-Add-Column.yasnippet" nil nil)
                        ("$L" "\\$LABEL" "$L" nil nil nil "/Users/ok/.spacemacs.d/snippets/ruby-mode/LABEL.yasnippet" nil nil)
@@ -315,4 +316,4 @@
                         nil "/Users/ok/.spacemacs.d/snippets/ruby-mode/#" nil nil)))
 
 
-;;; Do not edit! File generated at Tue Sep  6 18:55:26 2016
+;;; Do not edit! File generated at Thu Sep  8 11:02:54 2016

@@ -11,4 +11,4 @@
                        ("column" "	,	${1:Name}		${2:Type}			${3:NOT NULL}\n" ", ColumnName ColumnType NOT NULL..." nil nil nil "/Users/ok/.spacemacs.d/snippets/sql-mode/column" nil nil)))
 
 
-;;; Do not edit! File generated at Tue Sep  6 18:55:26 2016
+;;; Do not edit! File generated at Thu Sep  8 11:02:54 2016

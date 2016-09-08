@@ -345,7 +345,11 @@ you should place your code here."
   (setq yas-snippet-dirs "~/.spacemacs.d/snippets")
   (setq  company-idle-delay 0.01)
   (setq  companSEEDDsz-minimum-prefix-length 1)
-
+  (defun my/helm-ag-snippet()
+       (interactive)
+       (helm-ag yas-snippet-dirs)
+       )
+  ;;snippet
   (defun delete-line-no-kill ()
     "Deletes a line, but does not put it in the kill-ring. (kinda)"
     (interactive)
@@ -382,6 +386,13 @@ you should place your code here."
       (org-edit-special)
       (indent-region (point-min) (point-max))
       (org-edit-src-exit)))
+  ;;
+  (defun my/practise()
+       (interactive)
+       (progn
+         (eww-open-file "/Users/ok/Dropbox/org/itplace_practise/question_answer.org" )
+         )
+       )
   ;;设置启动项目
   (defun my/teacher()
     (interactive)
@@ -570,12 +581,15 @@ you should place your code here."
   ;; (global-set-key [f8] 'neotree-project-dir)
   (setq ranger-dont-show-binary t)
   (setq ranger-excluded-extensions '("DS_Store" "mkv" "iso" "mp4"))
+  ;;auto save while lost focus
+  (add-hook 'focus-out-hook (lambda () (save-some-buffers t)))
 
   (global-set-key [f8] 'ranger)
   (global-set-key [f9] 'neotree-project-dir)
   (spacemacs/set-leader-keys "ot" 'neotree-project-dir)
   (global-set-key (kbd "s-F") 'helm-ag-project-root)
-
+;;copy file path
+  (global-set-key (kbd "C-c C-y") 'prelude-copy-file-name-to-clipboard)
   ;;行首行尾跳转
   ;; (global-set-key (kbd "C-s-u") 'mwim-beginning-of-code-or-line)
   ;; (global-set-key (kbd "C-s-o") 'mwim-end-of-code-or-line)

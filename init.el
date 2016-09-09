@@ -27,7 +27,7 @@ values."
    ;; If non-nil layers with lazy install support are lazy installed.
    ;; List of additional paths where to look for configuration layers.
    ;; Paths must have a trailing slash (i.e. `~/.mycontribs/')
-   dotspacemacs-configuration-layer-path '("~/Library/Mobile Documents/com~apple~CloudDocs/emacs/settings/")
+   dotspacemacs-configuration-layer-path '("~/Library/Mobile Documents/com~apple~CloudDocs/emacs/settings/spacemacs.d")
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(
@@ -91,7 +91,11 @@ values."
    ;; packages, then consider creating a layer. You can also put the
 
    ;; configuration in `dotspacemacs/user-config'.
-   dotspacemacs-additional-packages '(ag quickrun ox-twbs bongo ranger)
+   dotspacemacs-additional-packages '( ag 
+    quickrun 
+    ox-twbs 
+    bongo
+    ranger)
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
    ;; A list of packages that will not be install and loaded.
@@ -233,7 +237,7 @@ values."
    ;; in all non-asynchronous sources. If set to `source', preserve individual
    ;; source settings. Else, disable fuzzy matching in all sources.
    ;; (default 'always)
-   dotspacemacs-helm-use-fuzzy 'always
+   ;; dotspacemacs-helm-use-fuzzy 'always
    ;; If non nil the paste micro-state is enabled. When enabled pressing `p`
    ;; several times cycle between the kill ring content. (default nil)
    dotspacemacs-enable-paste-transient-state t
@@ -344,405 +348,67 @@ explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
   ;;org mode
   ;; (setq org-link-file-path-type 'absolute)
-  (spacemacs//set-monospaced-font   "Source Code Pro" "方正硬笔楷书简体" 14 18) ;设置等宽字体
-
-  (setq tramp-ssh-controlmaster-options "-o ControlMaster=auto -o ControlPath='tramp.%%C' -o ControlPersist=no")
-
-  (setq yas-snippet-dirs "~/.spacemacs.d/snippets")
-  (setq  company-idle-delay 0.01)
-  (setq  companSEEDDsz-minimum-prefix-length 1)
-  ;; (defun my/helm-ag-snippet()
-  ;;      (interactive)
-  ;;      (helm-ag yas-snippet-dirs)
-  ;;      )
-  ;;snippet
-  (defun delete-line-no-kill ()
-    "Deletes a line, but does not put it in the kill-ring. (kinda)"
-    (interactive)
-    (move-beginning-of-line 1)
-    (kill-line 1)
-    (setq kill-ring (cdr kill-ring)))
-  (defun browser-refresh--chrome-applescript ()
-    (interactive)
-    (do-applescript
-     (format
-      "
-    tell application \"Google Chrome\"
-    set winref to a reference to (first window whose title does not start with \"Developer Tools - \")
-    set winref's index to 1
-    reload active tab of winref
-    end tell
-    " )))
-  ;; (spacemacs//set-monospaced-font   "Source Code Pro" "Hiragino Sans GB" 14 16) ;设置等宽字体
-  ;;设置文学编程支持
-  (org-babel-do-load-languages
-   'org-babel-load-languages
-   '((perl . t)
-     (ruby . t)
-     (sh . t)
-     (js . t)
-     (latex .t)
-     (python . t)
-     (emacs-lisp . t)
-     (plantuml . t)
-     (ditaa . t)))
-  ;;org mode自动实现格式化代码
-  (defun indent-org-block-automatically ()
-    (when (org-in-src-block-p)
-      (org-edit-special)
-      (indent-region (point-min) (point-max))
-      (org-edit-src-exit)))
-  ;;
-  (defun my/practise()
-       (interactive)
-       (progn
-         (org-open-file "/Users/ok/Dropbox/org/itplace_practise/question_answer.org" )
-         )
-       )
-  ;;设置启动项目
-  (defun my/teacher()
-    (interactive)
-    (progn
-      (dired-other-frame "~/Teacher/.")
-      )
-
-
-    ;; (split-window-horizontally) ;; -> |
-    ;; (next-multiframe-window)
-    ;; (find-file "~/github/web/www/app/controllers/application_controller.rb")
-    ;; (split-window-vertically) ;;  -> --
-
-    ;; (next-multiframe-window)
-
-    ;; (find-file "~/.spacemacs.d/mycus.el")
-    ;; (next-multiframe-window)
-    ;; (dired "~/github/web/www/.")
-    ;; (find-file "~/github/web/www/app/views/static_pages/home.html.erb")
-    )
-  (defun my/myfun()
-    (interactive)
-    (dired-other-frame "~/github/myfun/.")
-    ;; (split-window-horizontally) ;; -> |
-    ;; (next-multiframe-window)
-    ;; (find-file "~/github/web/www/app/controllers/application_controller.rb")
-    ;; (split-window-vertically) ;;  -> --
-
-    ;; (next-multiframe-window)
-
-    ;; (find-file "~/.spacemacs.d/mycus.el")
-    ;; (next-multiframe-window)
-    ;; (dired "~/github/web/www/.")
-    ;; (find-file "~/github/web/www/app/views/static_pages/home.html.erb")
     )
 
-  (defun my/www()
-    (interactive)
-    ( dired-other-frame"~/github/www/.")
-    ;; (split-window-horizontally) ;; -> |
-    ;; (next-multiframe-window)
-    ;; (find-file "~/github/web/www/app/controllers/application_controller.rb")
-    ;; (split-window-vertically) ;;  -> --
-
-    ;; (next-multiframe-window)
-
-    ;; (find-file "~/.spacemacs.d/mycus.el")
-    ;; (next-multiframe-window)
-    ;; (dired "~/github/web/www/.")
-    ;; (find-file "~/github/web/www/app/views/static_pages/home.html.erb")
-    )
-  (defun my/appserver()
-    (interactive)
-    (dired-other-frame "~/github/appserver/.")
-    ;; (split-window-horizontally) ;; -> |
-    ;; (next-multiframe-window)
-    ;; (find-file "~/github/web/www/app/controllers/application_controller.rb")
-    ;; (split-window-vertically) ;;  -> kjkj--
-
-    ;; (next-multiframe-window)
-
-    ;; (find-file "~/.spacemacs.d/mycus.el")
-    ;; (next-multiframe-window)
-    ;; (dired "~/github/web/www/.")
-    ;; (find-file "~/github/web/www/app/views/static_pages/home.html.erb")
-    )
-  (defun prelude-copy-file-name-to-clipboard ()
-    "Copy the current buffer file name to the clipboard."
-    (interactive)
-    (let ((filename (if (equal major-mode 'dired-mode)
-                        default-directory
-                      (buffer-file-name))))
-      (when filename
-        (kill-new filename)
-        (message "Copied buffer file name '%s' to the clipboard." filename))))
-  (defun my/manager()
-    ;; /Users/ok/github/app_all/appServerManage
-    (interactive)
-    
-    (dired-other-frame "/Users/ok/github/app_all/appServerManage/.")
-    )
-  (defun my/class_config()
-    (interactive)
-    (find-file "/Users/ok/github/myfun/samples/config.yml")
-    )
-  (defun my/class_ruby()
-    (interactive)
-    (find-file "/Users/ok/github/myfun/samples/create_course_folder_class.rb")
-    )
-  (defun my/exec-class-config()
-    (interactive)
-    (shell-command "ruby /Users/ok/github/myfun/samples/create_course_folder_class.rb")
-    )
-  (defun my/push_answer()
-    (interactive)
-    (shell-command
-     (format "/Users/ok/.rbenv/shims/ruby /Users/ok/github/myfun/commit_answer.rb %s" 
-             (shell-quote-argument (buffer-file-name))))
-    (revert-buffer t t t)
-    )
-  ;; ;; 退出编辑模式自动切换输入法
-  ;; (defun exit-pyim()
-  ;;  message "yesk"
-  ;;   )
-
-  ;; ;;fasjdifouasdfiousdf
-  ;; (add-hook 'evil-insert-state-exit-hook 'exit-pyim)
-  ;;del往上移动10行
-  (define-key evil-normal-state-map (kbd "DEL") (lambda ()
-                                                  (interactive)
-                                                  (previous-line 10)
-                                                  (evil-scroll-line-up 10)
-                                                  ))
-  ;;=往下移动十行
-  (define-key evil-normal-state-map (kbd "=") (lambda ()
-                                                (interactive)
-                                                (next-line 10)
-                                                (evil-scroll-line-down 10)
-                                                ))
-                                        ; reload yas
-  (defun my/yas_reload()
-    (interactive)
-    (progn
-      (yas-recompile-all)
-      (yas-reload-all)
-      )
-    )
-  (global-set-key (kbd "C-<SPC>") 'toggle-input-method) ;;chinese pyim
-
-  (setq neo-smart-open t)
-  (run-at-time 1 10 'indent-org-block-automatically)
-  (delete-selection-mode t)             ;;设置黏贴为替换,而不是append
-  ;; search global
-  (global-set-key (kbd "s-w") 'er/expand-region)
-  (spacemacs/set-leader-keys "odp" 'youdao-dictionary-search-at-point+)
-  (spacemacs/set-leader-keys "odf" 'find-by-pinyin-dired)
-  ;; (global-set-key (kbd "s-f") 'helm-ag)
-  ;; (global-set-key (kbd "C-k") 'delete-line-no-kill)
-  (global-set-key (kbd "s-/") 'spacemacs/comment-or-uncomment-lines)
-  (global-set-key (kbd "C-s-<up>") 'move-text-up)
-  (global-set-key (kbd "C-s-<down>") 'move-text-down)
-  (global-set-key (kbd "s-d") 'delete-line-no-kill)
-  (global-set-key (kbd "s-y") 'spacemacs/copy-and-comment-lines)
-  ;; (bind-key* "s-r" 'browser-refresh--chrome-applescript)
-  (bind-key* "s-3" 'er/expand-region)
-  (spacemacs/set-leader-keys "oyv" 'yas-visit-snippet-file)
-  (spacemacs/set-leader-keys "oyc" 'yas-new-snippet)
-  (spacemacs/set-leader-keys "oyR" 'my/yas_reload)
-
-
-  (spacemacs/set-leader-keys "ogc" 'magit-commit)
-  (spacemacs/set-leader-keys "ogp" 'magit-push-current)
-  (spacemacs/set-leader-keys "ogr" 'vc-revert-buffer)
-  (spacemacs/set-leader-keys "oga" 'my/push_answer)
-
-  (spacemacs/set-leader-keys "me" 'quickrun)
-  (global-set-key (kbd "s-g") 'avy-goto-char)
-  (global-set-key (kbd "s-<left>") 'doc-view-last-page)
-  (global-set-key (kbd "s-<right>") 'doc-view-next-page)
-  (add-hook 'neotree-mode-hook
-            (lambda ()
-              (define-key evil-normal-state-local-map (kbd "TAB") 'neotree-enter)
-              (define-key evil-normal-state-local-map (kbd "q") 'neotree-hide)
-              (define-key evil-normal-state-local-map (kbd "RET") 'neotree-enter)))
-  (let ((path (shell-command-to-string ". ~/Project/config/env.sh; echo -n $PATH")))
-    (setenv "PATH" path)
-    (setq exec-path 
-          (append
-           (split-string-and-unquote path ":")
-           exec-path)))
-  (defun neotree-project-dir ()
-    "Open NeoTree using the git root."
-    (interactive)
-    (let ((project-dir (projectile-project-root))
-          (file-name (buffer-file-name)))
-      (if project-dir
-          (if (neotree-toggle)
-              (progn
-                (neotree-dir project-dir)
-                (neotree-find file-name)))
-        (message "Could not find git project root."))))
-  ;; (global-set-key [f8] 'neotree-project-dir)
-  (setq ranger-dont-show-binary t)
-  (setq ranger-excluded-extensions '("DS_Store" "mkv" "iso" "mp4"))
-  ;;auto save while lost focus
-  (add-hook 'focus-out-hook (lambda () (save-some-buffers t)))
-
-  (global-set-key [f8] 'ranger)
-  (global-set-key [f9] 'neotree-project-dir)
-  (spacemacs/set-leader-keys "ot" 'neotree-project-dir)
-  (global-set-key (kbd "s-F") 'projectile-ag)
-;;copy file path
-  (global-set-key (kbd "C-c C-y") 'prelude-copy-file-name-to-clipboard)
-  ;;行首行尾跳转
-  ;; (global-set-key (kbd "C-s-u") 'mwim-beginning-of-code-or-line)
-  ;; (global-set-key (kbd "C-s-o") 'mwim-end-of-code-or-line)
-  (define-key evil-normal-state-map (kbd "C-a") 'evil-beginning-of-line)
-  (define-key evil-insert-state-map (kbd "C-a") 'beginning-of-line)
-  (define-key evil-visual-state-map (kbd "C-a") 'evil-beginning-of-line)
-  (define-key evil-motion-state-map (kbd "C-a") 'evil-beginning-of-line)
-  ;;行尾
-  (define-key evil-normal-state-map (kbd "C-e") 'evil-end-of-line)
-  (define-key evil-insert-state-map (kbd "C-e") 'end-of-line)
-  (define-key evil-visual-state-map (kbd "C-e") 'evil-end-of-line)
-  (define-key evil-motion-state-map (kbd "C-e") 'evil-end-of-line)
-  (define-key evil-normal-state-map "\C-f" 'evil-forward-char)
-  (define-key evil-insert-state-map "\C-f" 'evil-forward-char)
-  (define-key evil-insert-state-map "\C-f" 'evil-forward-char)
-  (define-key evil-normal-state-map "\C-b" 'evil-backward-char)
-  (define-key evil-motion-state-map "\C-b" 'evil-backward-char)
-  (define-key evil-insert-state-map "\C-b" 'evil-backward-char)
-  (define-key evil-visual-state-map "\C-b" 'evil-backward-char)
-  (define-key evil-normal-state-map "\C-d" 'evil-delete-char)
-  (define-key evil-insert-state-map "\C-d" 'evil-delete-char)
-  (define-key evil-visual-state-map "\C-d" 'evil-delete-char)
-  (define-key evil-normal-state-map "\C-n" 'evil-next-line)
-  (define-key evil-insert-state-map "\C-n" 'evil-next-line)
-  (define-key evil-visual-state-map "\C-n" 'evil-next-line)
-  (define-key evil-normal-state-map "\C-p" 'evil-previous-line)
-  (define-key evil-insert-state-map "\C-p" 'evil-previous-line)
-  (define-key evil-visual-state-map "\C-p" 'evil-previous-line)
-  (define-key evil-normal-state-map "\C-w" 'evil-delete)
-  (define-key evil-insert-state-map "\C-w" 'evil-delete)
-  (define-key evil-visual-state-map "\C-w" 'evil-delete)
-  (define-key evil-normal-state-map "\C-y" 'yank)
-  (define-key evil-insert-state-map "\C-y" 'yank)
-  (define-key evil-visual-state-map "\C-y" 'yank)
-  (define-key evil-normal-state-map "\C-k" 'kill-line)
-  (define-key evil-insert-state-map "\C-k" 'kill-line)
-  (define-key evil-visual-state-map "\C-k" 'kill-line)
-
-  (define-key evil-normal-state-map "Q" 'call-last-kbd-macro)
-  (define-key evil-visual-state-map "Q" 'call-last-kbd-macro)
-  (define-key evil-normal-state-map (kbd "TAB") 'evil-undefine)
-
-  (define-key evil-insert-state-map (kbd "C-o") 'evil-open-below)
-  (define-key evil-normal-state-map (kbd "C-o") 'evil-open-below)
-  (define-key evil-visual-state-map (kbd "C-o") 'evil-open-below)
-
-  (define-key evil-insert-state-map (kbd "C-S-o") 'evil-open-above)
-  (define-key evil-normal-state-map (kbd "C-S-o") 'evil-open-above)
-  (define-key evil-visual-state-map (kbd "C-S-o") 'evil-open-above)
-
-  (define-key evil-normal-state-map "\C-v" 'clipboard-yank)
-  (define-key evil-insert-state-map "\C-v" 'clipboard-yank)
-  (define-key evil-visual-state-map "\C-v" 'clipboard-yank)
-
-  (defun evil-undefine ()
-    (interactive)
-    (let (evil-mode-map-alist)
-      (call-interactively (key-binding (this-command-keys)))))
-  ;;replace-string with cmd+ r
-  (global-set-key (kbd "s-r") 'replace-string)
-  ;;替换evil-delete的yank行为
-  ;; (defun bb/evil-delete (orig-fn beg end &optional type _ &rest args)
-  ;;   (apply orig-fn beg end type ?_ args))
-  ;; (advice-add 'evil-delete :around 'bb/evil-delete)
-  ;;================end
-
-  (defun check-expansion ()
-    (save-excursion
-      (if (looking-at "\\_>") t
-        (backward-char 1)
-        (if (looking-at "\\.") t
-          (backward-char 1)
-          (if (looking-at "->") t nil)))))
-
-  ;; (define-key projectile-rails-mode-map (kbd "C-s-m")   'projectile-rails-find-model)
-  ;; (define-key projectile-rails-mode-map (kbd "C-s-c")   'projectile-rails-find-controller)
-  ;; (define-key projectile-rails-mode-map (kbd "C-s-v")   'projectile-rails-find-view)
-  ;; (define-key projectile-rails-mode-map (kbd "s-RET") 'projectile-rails-goto-file-at-point)
-
-  (with-eval-after-load 'projectile-rails
-    (evil-define-key 'normal ruby-mode-map (kbd "RET") #'projectile-rails-goto-file-at-point)
-    (evil-define-key 'normal haml-mod-map (kbd "RET") #'projectile-rails-goto-file-at-point)
-    (evil-define-key 'normal web-mod-map (kbd "RET") #'projectile-rails-goto-file-at-point)
-    ;; (define-key projectile-rails-mode-map (kbd "s-m")   'projectile-rails-find-model)
-    ;; (define-key projectile-rails-mode-map (kbd "s-c")   'projectile-rails-find-controller)
-    ;; (define-key projectile-rails-mode-map (kbd "s-v")   'projectile-rails-find-view)
-    ;; (define-key projectile-rails-mode-map (kbd "s-RET") 'projectile-rails-goto-file-at-point)
-    
-    )
-
-  )
-
-;; Do not write anything past this comment. This is where Emacs will
-;; auto-generate custom variable definitions.
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(ansi-color-names-vector
-   ["#272822" "#F92672" "#A6E22E" "#E6DB74" "#66D9EF" "#FD5FF0" "#A1EFE4" "#F8F8F2"])
- '(compilation-message-face (quote default))
- '(custom-safe-themes
-   (quote
-    ("557c283f4f9d461f897b8cac5329f1f39fac785aa684b78949ff329c33f947ec" default)))
- '(evil-want-Y-yank-to-eol nil)
- '(fci-rule-color "#20240E" t)
- '(highlight-changes-colors (quote ("#FD5FF0" "#AE81FF")))
- '(highlight-tail-colors
-   (quote
-    (("#20240E" . 0)
-     ("#679A01" . 20)
-     ("#4BBEAE" . 30)
-     ("#1DB4D0" . 50)
-     ("#9A8F21" . 60)
-     ("#A75B00" . 70)
-     ("#F309DF" . 85)
-     ("#20240E" . 100))))
- '(magit-diff-use-overlays nil)
- '(pos-tip-background-color "#A6E22E")
- '(pos-tip-foreground-color "#272822")
- '(pyim-dicts
-   (quote
-    ((:name "BigDict-01" :file "/Users/ok/.emacs.d/.cache/pyim-bigdict.pyim.gz" :coding utf-8-unix :dict-type pinyin-dict))))
- '(vc-annotate-background nil)
- '(vc-annotate-color-map
-   (quote
-    ((20 . "#F92672")
-     (40 . "#CF4F1F")
-     (60 . "#C26C0F")
-     (80 . "#E6DB74")
-     (100 . "#AB8C00")
-     (120 . "#A18F00")
-     (140 . "#989200")
-     (160 . "#8E9500")
-     (180 . "#A6E22E")
-     (200 . "#729A1E")
-     (220 . "#609C3C")
-     (240 . "#4E9D5B")
-     (260 . "#3C9F79")
-     (280 . "#A1EFE4")
-     (300 . "#299BA6")
-     (320 . "#2896B5")
-     (340 . "#2790C3")
-     (360 . "#66D9EF"))))
- '(vc-annotate-very-old-color nil)
- '(weechat-color-list
-   (unspecified "#272822" "#20240E" "#F70057" "#F92672" "#86C30D" "#A6E22E" "#BEB244" "#E6DB74" "#40CAE4" "#66D9EF" "#FB35EA" "#FD5FF0" "#74DBCD" "#A1EFE4" "#F8F8F2" "#F8F8F0")))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
+  ;; Do not write anything past this comment. This is where Emacs will
+  ;; auto-generate custom variable definitions.
+  (custom-set-variables
+   ;; custom-set-variables was added by Custom.
+   ;; If you edit it by hand, you could mess it up, so be careful.
+   ;; Your init file should contain only one such instance.
+   ;; If there is more than one, they won't work right.
+   '(ansi-color-names-vector
+     ["#272822" "#F92672" "#A6E22E" "#E6DB74" "#66D9EF" "#FD5FF0" "#A1EFE4" "#F8F8F2"])
+   '(compilation-message-face (quote default))
+   '(custom-safe-themes
+     (quote
+      ("557c283f4f9d461f897b8cac5329f1f39fac785aa684b78949ff329c33f947ec" default)))
+   '(evil-want-Y-yank-to-eol nil)
+   '(fci-rule-color "#20240E" t)
+   '(highlight-changes-colors (quote ("#FD5FF0" "#AE81FF")))
+   '(highlight-tail-colors
+     (quote
+      (("#20240E" . 0)
+       ("#679A01" . 20)
+       ("#4BBEAE" . 30)
+       ("#1DB4D0" . 50)
+       ("#9A8F21" . 60)
+       ("#A75B00" . 70)
+       ("#F309DF" . 85)
+       ("#20240E" . 100))))
+   '(magit-diff-use-overlays nil)
+   '(pos-tip-background-color "#A6E22E")
+   '(pos-tip-foreground-color "#272822")
+   '(pyim-dicts
+     (quote
+      ((:name "BigDict-01" :file "/Users/ok/.emacs.d/.cache/pyim-bigdict.pyim.gz" :coding utf-8-unix :dict-type pinyin-dict))))
+   '(vc-annotate-background nil)
+   '(vc-annotate-color-map
+     (quote
+      ((20 . "#F92672")
+       (40 . "#CF4F1F")
+       (60 . "#C26C0F")
+       (80 . "#E6DB74")
+       (100 . "#AB8C00")
+       (120 . "#A18F00")
+       (140 . "#989200")
+       (160 . "#8E9500")
+       (180 . "#A6E22E")
+       (200 . "#729A1E")
+       (220 . "#609C3C")
+       (240 . "#4E9D5B")
+       (260 . "#3C9F79")
+       (280 . "#A1EFE4")
+       (300 . "#299BA6")
+       (320 . "#2896B5")
+       (340 . "#2790C3")
+       (360 . "#66D9EF"))))
+   '(vc-annotate-very-old-color nil)
+   '(weechat-color-list
+     (unspecified "#272822" "#20240E" "#F70057" "#F92672" "#86C30D" "#A6E22E" "#BEB244" "#E6DB74" "#40CAE4" "#66D9EF" "#FB35EA" "#FD5FF0" "#74DBCD" "#A1EFE4" "#F8F8F2" "#F8F8F0")))
+  (custom-set-faces
+   ;; custom-set-faces was added by Custom.
+   ;; If you edit it by hand, you could mess it up, so be careful.
+   ;; Your init file should contain only one such instance.
+   ;; If there is more than one, they won't work right.
+   )

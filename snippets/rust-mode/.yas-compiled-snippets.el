@@ -48,4 +48,4 @@
                        ("allow" "#[allow(${1:lint})]" "#[allow(lint)]" nil nil nil "/Users/ok/.spacemacs.d/snippets/rust-mode/allow" nil nil)))
 
 
-;;; Do not edit! File generated at Thu Sep  8 11:02:54 2016
+;;; Do not edit! File generated at Fri Sep  9 11:13:41 2016

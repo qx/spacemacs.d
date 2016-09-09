@@ -59,7 +59,8 @@ values."
      ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
-     helm
+     ;; helm
+     ivy
      (auto-completion :variables
                       auto-completion-return-key-behavior 'complete
                       ;;  auto-completion-tab-key-behavior 'cycleexcluded
@@ -90,7 +91,7 @@ values."
    ;; packages, then consider creating a layer. You can also put the
 
    ;; configuration in `dotspacemacs/user-config'.
-   dotspacemacs-additional-packages '(quickrun ox-twbs bongo ranger)
+   dotspacemacs-additional-packages '(ag quickrun ox-twbs bongo ranger)
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
    ;; A list of packages that will not be install and loaded.
@@ -228,6 +229,11 @@ values."
    ;; define the position to display `helm', options are `bottom', `top',
    ;; `left', or `right'. (default 'bottom)
    dotspacemacs-helm-position 'bottom
+   ;; Controls fuzzy matching in helm. If set to `always', force fuzzy matching
+   ;; in all non-asynchronous sources. If set to `source', preserve individual
+   ;; source settings. Else, disable fuzzy matching in all sources.
+   ;; (default 'always)
+   dotspacemacs-helm-use-fuzzy 'always
    ;; If non nil the paste micro-state is enabled. When enabled pressing `p`
    ;; several times cycle between the kill ring content. (default nil)
    dotspacemacs-enable-paste-transient-state t
@@ -345,10 +351,10 @@ you should place your code here."
   (setq yas-snippet-dirs "~/.spacemacs.d/snippets")
   (setq  company-idle-delay 0.01)
   (setq  companSEEDDsz-minimum-prefix-length 1)
-  (defun my/helm-ag-snippet()
-       (interactive)
-       (helm-ag yas-snippet-dirs)
-       )
+  ;; (defun my/helm-ag-snippet()
+  ;;      (interactive)
+  ;;      (helm-ag yas-snippet-dirs)
+  ;;      )
   ;;snippet
   (defun delete-line-no-kill ()
     "Deletes a line, but does not put it in the kill-ring. (kinda)"
@@ -390,15 +396,14 @@ you should place your code here."
   (defun my/practise()
        (interactive)
        (progn
-         (eww-open-file "/Users/ok/Dropbox/org/itplace_practise/question_answer.org" )
+         (org-open-file "/Users/ok/Dropbox/org/itplace_practise/question_answer.org" )
          )
        )
   ;;设置启动项目
   (defun my/teacher()
     (interactive)
     (progn
-      (delete-other-windows)
-      (dired "~/Teacher/.")
+      (dired-other-frame "~/Teacher/.")
       )
 
 
@@ -416,8 +421,7 @@ you should place your code here."
     )
   (defun my/myfun()
     (interactive)
-    (delete-other-windows)
-    (neotree-dir "~/github/myfun/.")
+    (dired-other-frame "~/github/myfun/.")
     ;; (split-window-horizontally) ;; -> |
     ;; (next-multiframe-window)
     ;; (find-file "~/github/web/www/app/controllers/application_controller.rb")
@@ -433,8 +437,7 @@ you should place your code here."
 
   (defun my/www()
     (interactive)
-    (delete-other-windows)
-    (neotree-dir "~/github/www/.")
+    ( dired-other-frame"~/github/www/.")
     ;; (split-window-horizontally) ;; -> |
     ;; (next-multiframe-window)
     ;; (find-file "~/github/web/www/app/controllers/application_controller.rb")
@@ -449,8 +452,7 @@ you should place your code here."
     )
   (defun my/appserver()
     (interactive)
-    (delete-other-windows)
-    (neotree-dir "~/github/appserver/.")
+    (dired-other-frame "~/github/appserver/.")
     ;; (split-window-horizontally) ;; -> |
     ;; (next-multiframe-window)
     ;; (find-file "~/github/web/www/app/controllers/application_controller.rb")
@@ -475,8 +477,8 @@ you should place your code here."
   (defun my/manager()
     ;; /Users/ok/github/app_all/appServerManage
     (interactive)
-    (delete-other-windows)
-    (neotree-dir "/Users/ok/github/app_all/appServerManage/.")
+    
+    (dired-other-frame "/Users/ok/github/app_all/appServerManage/.")
     )
   (defun my/class_config()
     (interactive)
@@ -533,7 +535,7 @@ you should place your code here."
   (global-set-key (kbd "s-w") 'er/expand-region)
   (spacemacs/set-leader-keys "odp" 'youdao-dictionary-search-at-point+)
   (spacemacs/set-leader-keys "odf" 'find-by-pinyin-dired)
-  (global-set-key (kbd "s-f") 'helm-ag)
+  ;; (global-set-key (kbd "s-f") 'helm-ag)
   ;; (global-set-key (kbd "C-k") 'delete-line-no-kill)
   (global-set-key (kbd "s-/") 'spacemacs/comment-or-uncomment-lines)
   (global-set-key (kbd "C-s-<up>") 'move-text-up)
@@ -587,7 +589,7 @@ you should place your code here."
   (global-set-key [f8] 'ranger)
   (global-set-key [f9] 'neotree-project-dir)
   (spacemacs/set-leader-keys "ot" 'neotree-project-dir)
-  (global-set-key (kbd "s-F") 'helm-ag-project-root)
+  (global-set-key (kbd "s-F") 'projectile-ag)
 ;;copy file path
   (global-set-key (kbd "C-c C-y") 'prelude-copy-file-name-to-clipboard)
   ;;行首行尾跳转

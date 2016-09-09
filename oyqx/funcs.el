@@ -1,3 +1,15 @@
+(defun my/config()
+  (interactive)
+  (find-file "/Users/ok/Library/Mobile Documents/com~apple~CloudDocs/emacs/settings/spacemacs.d/oyqx/config.el")
+  )
+(defun my/keybinding()
+  (interactive)
+  (find-file "/Users/ok/Library/Mobile Documents/com~apple~CloudDocs/emacs/settings/spacemacs.d/oyqx/keybindings.el")
+  )
+(defun my/packages()
+  (interactive)
+  (find-file "/Users/ok/Library/Mobile Documents/com~apple~CloudDocs/emacs/settings/spacemacs.d/oyqx/packages.el")
+  )
 ;;replace-string with cmd+ r
 ;;替换evil-delete的yank行为
 ;; (defun bb/evil-delete (orig-fn beg end &optional type _ &rest args)

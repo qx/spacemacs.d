@@ -31,4 +31,7 @@
 ; (let ((path (shell-command-to-string "~/Projects/config/env.sh; echo -n $PATH")))
   ;;auto save while lost focus
   (add-hook 'focus-out-hook (lambda () (save-some-buffers t)))
-  (global-set-key (kbd "s-r") 'replace-string)
+  (global-set-key (kbd "s-r") 'replace-stringn)
+  ;;shell exec alias
+(setq shell-file-name "zsh")
+(setq shell-command-switch "-ic")

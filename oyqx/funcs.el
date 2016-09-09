@@ -6,6 +6,10 @@
   (interactive)
   (find-file "/Users/ok/Library/Mobile Documents/com~apple~CloudDocs/emacs/settings/spacemacs.d/oyqx/keybindings.el")
   )
+(defun my/funcs()
+  (interactive)
+  (find-file "/Users/ok/Library/Mobile Documents/com~apple~CloudDocs/emacs/settings/spacemacs.d/oyqx/funcs.el")
+  )
 (defun my/packages()
   (interactive)
   (find-file "/Users/ok/Library/Mobile Documents/com~apple~CloudDocs/emacs/settings/spacemacs.d/oyqx/packages.el")
@@ -104,13 +108,41 @@
   (interactive)
   (shell-command "ruby /Users/ok/github/myfun/samples/create_course_folder_class.rb")
   )
-(defun my/push_answer()
-  (interactive)
-  (shell-command
-   (format "/Users/ok/.rbenv/shims/ruby /Users/ok/github/myfun/commit_answer.rb %s"
-           (shell-quote-argument (buffer-file-name))))
-  (revert-buffer t t t)
+;;查找快捷键
+(defun my/search_snippet(x)
+  (interactive "MEnter the string to be search:")
+  ;; (message "String: %s" x)
+  (ag-regexp x "/Users/ok/Library/Mobile Documents/com~apple~CloudDocs/emacs/settings/spacemacs.d/snippets")
   )
+
+(defun my/commit_answer()
+  (interactive)
+  (shell-command "ruby \"/Users/ok/Library/Mobile Documents/com~apple~CloudDocs/settings/myfun/commit_answer.rb\"")
+  )
+;;如何等待输入
+(defun my/commit_question();;(x)
+  "Ask age."
+  ;; (interactive "nEnter your age: ")
+  (interactive)
+  ;; (message "Name: %d" x)
+  ;; (projectile-run-shell-command-in-root "echo \"dfd\" %d" x)
+  ;; (shell-command "echo \"dfd\"")
+  (progn
+    (projectile-run-shell)
+    )
+  )
+
+                                        ; (defun my/commit_question()
+                                        ;   (interactive)
+                                        ;   (projectile-run-shell-command-in-root "ruby \"/Users/ok/Library/Mobile Documents/com~apple~CloudDocs/settings/myfun/commit_question.rb\"")
+                                        ;   )
+                                        ; (defun my/push_answer()
+                                        ;   (interactive)
+                                        ;   (shell-command
+                                        ;    (format "/Users/ok/.rbenv/shims/ruby /Users/ok/github/myfun/commit_answer.rb %s"
+                                        ;            (shell-quote-argument (buffer-file-name))))
+                                        ;   (revert-buffer t t t)
+                                        ;   )
 ;;org mode自动实现格式化代码
 (defun indent-org-block-automatically ()
   (when (org-in-src-block-p)

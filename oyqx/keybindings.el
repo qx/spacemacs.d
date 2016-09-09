@@ -1,3 +1,10 @@
+(global-set-key [f6] 'my/config)
+(global-set-key [f7] 'my/funcs)
+(global-set-key [f8] 'my/keybinding)
+(global-set-key [f9] 'spacemacs/find-dotfile)
+(global-set-key [f5] 'dotspacemacs/sync-configuration-layers)
+
+
 (with-eval-after-load 'projectile-rails
   (evil-define-key 'normal ruby-mode-map (kbd "RET") #'projectile-rails-goto-file-at-point)
   (evil-define-key 'normal haml-mod-map (kbd "RET") #'projectile-rails-goto-file-at-point)
@@ -38,14 +45,16 @@
 (spacemacs/set-leader-keys "ogc" 'magit-commit)
 (spacemacs/set-leader-keys "ogp" 'magit-push-current)
 (spacemacs/set-leader-keys "ogr" 'vc-revert-buffer)
-(spacemacs/set-leader-keys "oga" 'my/push_answer)
-(global-set-key [f8] 'ranger)
-(global-set-key [f9] 'neotree-project-dir)
+(spacemacs/set-leader-keys "oga" 'my/commit_answer)
+(spacemacs/set-leader-keys "ogq" 'my/commit_question)
+;; (global-set-key [f8] 'ranger)
+;; (global-set-key [f9] 'neotree-project-dir)
 (spacemacs/set-leader-keys "ot" 'neotree-project-dir)
 (global-set-key (kbd "s-F") 'projectile-ag)
 ;;copy file path
-(global-set-key (kbd "C-c C-y") 'prelude-copy-file-name-to-clipboard)
-;;行首行尾跳转
+(global-set-key [f2] 'prelude-copy-file-name-to-clipboard)
+(global-set-key [f3] 'my/commit_question)
+(global-set-key [f4] 'my/commit_answer)
 ;; (global-set-key (kbd "C-s-u") 'mwim-beginning-of-code-or-line)
 ;; (global-set-key (kbd "C-s-o") 'mwim-end-of-code-or-line)
 (define-key evil-normal-state-map (kbd "C-a") 'evil-beginning-of-line)

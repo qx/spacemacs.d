@@ -1,4 +1,4 @@
-#name : Image
-#contributor: Peng Deng <dengpeng@gmail.com>
-# --
+# -*- mode: snippet -*-
+# name: Image
+# key:Image
 ![${1:Alt Text}](${2:URL} $3) $0

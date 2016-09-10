@@ -1,4 +1,4 @@
-#name : Strong
-#contributor: Peng Deng <dengpeng@gmail.com>
-# --
+# -*- mode: snippet -*-
+# name: Strong
+# key:Strong
 **${1:Text}** $0

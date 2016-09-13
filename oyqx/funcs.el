@@ -112,20 +112,13 @@
 (defun my/search_snippet(x)
   (interactive "MEnter the string to be search:")
   ;; (message "String: %s" x)
-  ;; (find-grep-dired x "/Users/ok/Library/Mobile Documents/com~apple~CloudDocs/emacs/settings/spacemacs.d/snippets")
-  (find-grep-dired "/Users/ok/Library/Mobile Documents/com~apple~CloudDocs/emacs/settings/spacemacs.d/snippets" x)
+  (ag-regexp x "/Users/ok/Library/Mobile Documents/com~apple~CloudDocs/emacs/settings/spacemacs.d/snippets")
   )
 
 (defun my/commit_answer()
   (interactive)
   (shell-command "ruby \"/Users/ok/Library/Mobile Documents/com~apple~CloudDocs/settings/myfun/commit_answer.rb\"")
   )
-
-(defun my/search_rails(x)
-  (interactive "MEnter Rails String:")
-  ;; (find-grep-dired x "/Users/ok/Dropbox/source/rails")
-  (find-grep-dired "/Users/ok/Dropbox/source/rails" x)
-)
 ;;如何等待输入
 (defun my/commit_question();;(x)
   "Ask age."

@@ -1,6 +1,5 @@
-
-# -*- mode: snippet -*-
-# name: Unordered List
-# key: Unordered List
+#name : Unordered List
+#contributor: Peng Deng <dengpeng@gmail.com>
+# --
 - ${1:Text}
 -$0

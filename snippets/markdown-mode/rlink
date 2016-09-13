@@ -1,4 +1,4 @@
-# -*- mode: snippet -*-
-# name: Reference Link
-# key:rlink
+#name : Reference Link
+#contributor: Peng Deng <dengpeng@gmail.com>
+# --
 [${1:Link Text}][$2] $0

@@ -1,15 +1,9 @@
 (global-set-key [f6] 'my/config)
 (global-set-key [f7] 'my/funcs)
 (global-set-key [f8] 'my/keybinding)
-;; (global-set-key [f9] 'spacemacs/find-dotfile)
+(global-set-key [f9] 'spacemacs/find-dotfile)
 (global-set-key [f5] 'dotspacemacs/sync-configuration-layers)
-(add-hook 'ruby-mode-hook
-          (lambda()
-            (define-key ruby-mode-map [f9] 'my/search_rails)
-            )
-          )
-(global-set-key [f10] 'my/yas_reload)
-(global-set-key [f11] 'yas-new-snippet-default)
+
 
 (with-eval-after-load 'projectile-rails
   (evil-define-key 'normal ruby-mode-map (kbd "RET") #'projectile-rails-goto-file-at-point)
@@ -58,7 +52,6 @@
 (spacemacs/set-leader-keys "ot" 'neotree-project-dir)
 (global-set-key (kbd "s-F") 'projectile-ag)
 ;;copy file path
-(global-set-key [f1] 'my/search_snippet)
 (global-set-key [f2] 'prelude-copy-file-name-to-clipboard)
 (global-set-key [f3] 'my/commit_question)
 (global-set-key [f4] 'my/commit_answer)

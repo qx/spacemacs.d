@@ -31,4 +31,4 @@
                        ("bench" "func Benchmark$1(b *testing.B) {\n	for i := 0; i < b.N; i++ {\n		$0\n	}\n}\n" "benchmark" nil nil nil "/Users/ok/.spacemacs.d/snippets/go-mode/benchmark" nil nil)))
 
 
-;;; Do not edit! File generated at Fri Sep  9 11:13:40 2016
+;;; Do not edit! File generated at Sat Sep 10 19:45:40 2016

@@ -1,9 +1,35 @@
+;;copy code
+(global-set-key (kbd "C-c C-y") 'my/copy-code-as-rtf)
+;;copy file path
+(global-set-key [f1] 'my/search_snippet)
+(add-hook 'org-mode-hook
+          (lambda()
+            (define-key org-mode-map [f2] 'my/auto-sentence)
+          (define-key org-mode-map [f1] 'youdao-dictionary-search-at-point+)))
+
+
+
+(global-set-key [f2] 'prelude-copy-file-name-to-clipboard)
+
+(global-set-key [f3] 'my/commit_question)
+(global-set-key [f4] 'my/commit_answer)
+(global-set-key [f5] 'dotspacemacs/sync-configuration-layers)
+
 (global-set-key [f6] 'my/config)
 (global-set-key [f7] 'my/funcs)
 (global-set-key [f8] 'my/keybinding)
-(global-set-key [f9] 'spacemacs/find-dotfile)
-(global-set-key [f5] 'dotspacemacs/sync-configuration-layers)
+;; (global-set-key [f9] 'spacemacs/find-dotfile)
+;; (add-hook 'ruby-mode-hook
+;;           (lambda()
+;;             (define-key ruby-mode-map [f9] 'my/search_rails)
+;;             )
+;;           )
+(add-hook 'rspec-mode-hook
+          (lambda()
+            (define-key rspec-mode-map [f9] 'my/search_rspec)))
 
+(global-set-key [f10] 'my/yas_reload)
+(global-set-key [f11] 'yas-new-snippet-default)
 
 (with-eval-after-load 'projectile-rails
   (evil-define-key 'normal ruby-mode-map (kbd "RET") #'projectile-rails-goto-file-at-point)
@@ -18,6 +44,7 @@
             (define-key evil-normal-state-local-map (kbd "RET") 'neotree-enter)))
 
 (spacemacs/set-leader-keys "me" 'quickrun)
+(global-set-key (kbd "s-O") 'projectile-find-file-dwim-other-window)
 (global-set-key (kbd "s-g") 'avy-goto-char)
 (global-set-key (kbd "s-<left>") 'doc-view-last-page)
 (global-set-key (kbd "s-<right>") 'doc-view-next-page)
@@ -51,10 +78,6 @@
 ;; (global-set-key [f9] 'neotree-project-dir)
 (spacemacs/set-leader-keys "ot" 'neotree-project-dir)
 (global-set-key (kbd "s-F") 'projectile-ag)
-;;copy file path
-(global-set-key [f2] 'prelude-copy-file-name-to-clipboard)
-(global-set-key [f3] 'my/commit_question)
-(global-set-key [f4] 'my/commit_answer)
 ;; (global-set-key (kbd "C-s-u") 'mwim-beginning-of-code-or-line)
 ;; (global-set-key (kbd "C-s-o") 'mwim-end-of-code-or-line)
 (define-key evil-normal-state-map (kbd "C-a") 'evil-beginning-of-line)

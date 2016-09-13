@@ -7,4 +7,4 @@
                        ("for" "for ${1:var} = ${2:expr}\n    $0\nendfor" "for" nil nil nil "/Users/ok/.spacemacs.d/snippets/octave-mode/for" nil nil)))
 
 
-;;; Do not edit! File generated at Fri Sep  9 11:13:40 2016
+;;; Do not edit! File generated at Sat Sep 10 19:45:40 2016

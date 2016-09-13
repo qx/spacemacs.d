@@ -35,3 +35,8 @@
   ;;shell exec alias
 (setq shell-file-name "zsh")
 (setq shell-command-switch "-ic")
+(let ((eol-regexp "[[:graph:]] ?\\(\n\\)[^\t\n ]"))
+  (font-lock-add-keywords nil
+                          `((,eol-regexp 1 '(face default display " ")))))
+
+(visual-line-mode 1)

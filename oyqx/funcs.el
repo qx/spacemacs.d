@@ -1,3 +1,48 @@
+(defun my/copy-code-as-rtf (&optional font-size)
+  (interactive "P")
+  (let* ((real-font-size
+          (if (and font-size
+                   (/= (prefix-numeric-value font-size) 4))
+              (abs font-size)
+            18))
+         (common-options
+          (format "--font Monaco --font-size %d %s -O rtf --style Zenburn"
+                  real-font-size
+                  (if (and font-size
+                           (or (= (prefix-numeric-value font-size) 4)
+                               (< (prefix-numeric-value font-size) 0)))
+                      "--linenumbers" "")))
+         (temp-buffer (get-buffer-create " *code*")))
+    (shell-command-on-region
+     (if (region-active-p) (region-beginning) (point-min))
+     (if (region-active-p) (region-end) (point-max))
+     (format "highlight --syntax %s %s"
+             (file-name-extension (buffer-file-name)) common-options)
+     temp-buffer)
+    (with-current-buffer temp-buffer
+      (goto-char (point-max))
+      (search-backward "\\par\\pard")
+      (delete-region (match-beginning 0) (match-end 0))
+      (shell-command-on-region (point-min) (point-max) "pbcopy")
+      (kill-buffer (current-buffer)))
+    (message "Copied %s to pasteboard as RTF with font-size of %d"
+             (if (region-active-p) "region" "file")
+             real-font-size)))
+(defun my/auto-sentence ()
+  (interactive)
+  (org-forward-sentence)
+  (insert "\n\n"))
+
+
+(defun my/translate()
+  (interactive)
+  (find-file "/Users/ok/Dropbox/org/translate.org")
+  )
+(defun my/env()
+  (interactive)
+  (find-file "/Users/ok/Projects/config/env.sh")
+  )
+
 (defun my/config()
   (interactive)
   (find-file "/Users/ok/Library/Mobile Documents/com~apple~CloudDocs/emacs/settings/spacemacs.d/oyqx/config.el")
@@ -112,12 +157,25 @@
 (defun my/search_snippet(x)
   (interactive "MEnter the string to be search:")
   ;; (message "String: %s" x)
-  (ag-regexp x "/Users/ok/Library/Mobile Documents/com~apple~CloudDocs/emacs/settings/spacemacs.d/snippets")
+  ;; (find-grep-dired x "/Users/ok/Library/Mobile Documents/com~apple~CloudDocs/emacs/settings/spacemacs.d/snippets")
+  (find-grep-dired "/Users/ok/Library/Mobile Documents/com~apple~CloudDocs/emacs/settings/spacemacs.d/snippets" x)
   )
 
 (defun my/commit_answer()
   (interactive)
   (shell-command "ruby \"/Users/ok/Library/Mobile Documents/com~apple~CloudDocs/settings/myfun/commit_answer.rb\"")
+  )
+
+(defun my/search_rspec(x)
+  (interactive "MEnter Rspec String to search:")
+  ;; (ag-dired-regexp x "/Users/ok/Dropbox/source/rspec")
+  (find-grep-dired "/Users/ok/Dropbox/source/rspec" x)
+  )
+
+(defun my/search_rails(x)
+  (interactive "MEnter Rails String:")
+  ;; (find-grep-dired x "/Users/ok/Dropbox/source/rails")
+  (find-grep-dired "/Users/ok/Dropbox/source/rails" x)
   )
 ;;如何等待输入
 (defun my/commit_question();;(x)

@@ -33,4 +33,4 @@
                        ("bench" "(dotimes [_ 5 ]$>\n  (time (dotimes [i 1000000]$>\n  $0$>\n  )))$>" "bench" nil nil nil "/Users/ok/.spacemacs.d/snippets/clojure-mode/bench" nil nil)))
 
 
-;;; Do not edit! File generated at Fri Sep  9 11:13:40 2016
+;;; Do not edit! File generated at Sat Sep 10 19:45:40 2016

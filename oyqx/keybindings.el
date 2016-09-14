@@ -1,5 +1,5 @@
 ;;copy code
-(global-set-key (kbd "C-c C-y") 'my/copy-code-as-rtf)
+(global-set-key (kbd "s-c") 'my/copy-code-as-rtf)
 ;;copy file path
 (global-set-key [f1] 'my/search_snippet)
 (add-hook 'org-mode-hook
@@ -31,6 +31,9 @@
 (global-set-key [f10] 'my/yas_reload)
 (global-set-key [f11] 'yas-new-snippet-default)
 
+
+(global-set-key [tab] 'tab-indent-or-complete)
+
 (with-eval-after-load 'projectile-rails
   (evil-define-key 'normal ruby-mode-map (kbd "RET") #'projectile-rails-goto-file-at-point)
   (evil-define-key 'normal haml-mod-map (kbd "RET") #'projectile-rails-goto-file-at-point)
@@ -44,7 +47,7 @@
             (define-key evil-normal-state-local-map (kbd "RET") 'neotree-enter)))
 
 (spacemacs/set-leader-keys "me" 'quickrun)
-(global-set-key (kbd "s-O") 'projectile-find-file-dwim-other-window)
+(global-set-key (kbd "s-O") 'projectile-find-file)
 (global-set-key (kbd "s-g") 'avy-goto-char)
 (global-set-key (kbd "s-<left>") 'doc-view-last-page)
 (global-set-key (kbd "s-<right>") 'doc-view-next-page)

@@ -1,12 +1,34 @@
+(defun check-expansion ()
+  (save-excursion
+    (if (looking-at "\\_>") t
+      (backward-char 1)
+      (if (looking-at "\\.") t
+        (backward-char 1)
+        (if (looking-at "->") t nil)))))
+
+(defun do-yas-expand ()
+  (let ((yas/fallback-behavior 'return-nil))
+    (yas/expand)))
+
+(defun tab-indent-or-complete ()
+  (interactive)
+  (if (minibufferp)
+      (minibuffer-complete)
+    (if (or (not yas/minor-mode)
+            (null (do-yas-expand)))
+        (if (check-expansion)
+            (company-complete-common)
+          (indent-for-tab-command)))))
 (defun my/copy-code-as-rtf (&optional font-size)
   (interactive "P")
   (let* ((real-font-size
           (if (and font-size
                    (/= (prefix-numeric-value font-size) 4))
               (abs font-size)
-            18))
+            25))
          (common-options
-          (format "--font Monaco --font-size %d %s -O rtf --style Zenburn"
+          ;; (format "--font Monaco --font-size %d %s -O rtf --style Breeze"
+                  (format "--font Monaco --font-size %d %s -O rtf --style Moria"
                   real-font-size
                   (if (and font-size
                            (or (= (prefix-numeric-value font-size) 4)

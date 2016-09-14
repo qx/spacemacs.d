@@ -1,3 +1,5 @@
+(add-hook 'ruby-mode-hook (lambda () (goto-address-mode -1)))
+(add-hook 'web-mode-hook (lambda () (goto-address-mode -1)))
 (spacemacs//set-monospaced-font   "Source Code Pro" "方正硬笔楷书简体" 14 18) ;设置等宽字体
 (setq tramp-ssh-controlmaster-options "-o ControlMaster=auto -o ControlPath='tramp.%%C' -o ControlPersist=no")
 (setq yas-snippet-dirs "~/.spacemacs.d/snippets")

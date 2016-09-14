@@ -7,4 +7,4 @@
                        ("entry" "${1:entry}: ${2:value}\n$0" "entry" nil nil nil "/Users/ok/.spacemacs.d/snippets/yaml-mode/entry" nil nil)))
 
 
-;;; Do not edit! File generated at Sat Sep 10 19:45:44 2016
+;;; Do not edit! File generated at Wed Sep 14 11:48:46 2016

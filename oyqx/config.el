@@ -5,6 +5,7 @@
 (setq yas-snippet-dirs "~/.spacemacs.d/snippets")
 (setq  company-idle-delay 0.01)
 (setq  companSEEDDsz-minimum-prefix-length 1)
+(with-eval-after-load 'org
 ;; (spacemacs//set-monospaced-font   "Source Code Pro" "Hiragino Sans GB" 14 16) ;设置等宽字体
 ;;设置文学编程支持
 (org-babel-do-load-languages
@@ -18,8 +19,9 @@
    (emacs-lisp . t)
    (plantuml . t)
    (ditaa . t)))
-(setq neo-smart-open t)
 (run-at-time 1 10 'indent-org-block-automatically)
+)
+(setq neo-smart-open t)
 (delete-selection-mode t)             ;;设置黏贴为替换,而不是append
 ;; (global-set-key [f8] 'neotree-project-dir)
 (setq ranger-dont-show-binary t)

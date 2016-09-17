@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: rspec-it-{}
+# key: itb
+# --
+it{expect(${1:content}).to ${2:matcher}}

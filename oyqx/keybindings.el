@@ -1,5 +1,5 @@
 ;;copy code
-(global-set-key (kbd "s-c") 'my/copy-code-as-rtf)
+(global-set-key (kbd "s-C") 'my/copy-code-as-rtf)
 ;;copy file path
 (global-set-key [f1] 'my/search_snippet)
 (add-hook 'org-mode-hook

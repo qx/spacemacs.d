@@ -12,4 +12,4 @@
                        ("args" "if [ $# -lt ${1:2} ]\n   then $0\nfi" "args" nil nil nil "/Users/ok/.spacemacs.d/snippets/sh-mode/args" nil nil)))
 
 
-;;; Do not edit! File generated at Wed Sep 14 11:48:45 2016
+;;; Do not edit! File generated at Sun Sep 18 06:46:17 2016

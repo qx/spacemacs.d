@@ -5,4 +5,4 @@
                      '(("sec" "Section \"${1:Device}\"\n        $0\nEndSection" "section" nil nil nil "/Users/ok/.spacemacs.d/snippets/conf-unix-mode/section" nil nil)))
 
 
-;;; Do not edit! File generated at Wed Sep 14 11:48:45 2016
+;;; Do not edit! File generated at Sun Sep 18 06:46:16 2016

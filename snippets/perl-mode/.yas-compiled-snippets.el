@@ -17,4 +17,4 @@
                        ("eval" "eval {\n    ${1:# do something risky...}\n};\nif (\\$@) {\n    ${2:# handle failure...}\n}" "eval { ... } if ($@) { ... }" nil nil nil "/Users/ok/.spacemacs.d/snippets/perl-mode/eval" nil nil)))
 
 
-;;; Do not edit! File generated at Wed Sep 14 11:48:45 2016
+;;; Do not edit! File generated at Sun Sep 18 06:46:17 2016

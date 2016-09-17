@@ -31,4 +31,4 @@
                        ("bu" "button(\"$1\")$0" "button" nil nil nil "/Users/ok/.spacemacs.d/snippets/faust-mode/button" nil nil)))
 
 
-;;; Do not edit! File generated at Wed Sep 14 11:48:45 2016
+;;; Do not edit! File generated at Sun Sep 18 06:46:16 2016

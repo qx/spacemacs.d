@@ -133,8 +133,11 @@
 (define-key evil-normal-state-map "\C-v" 'clipboard-yank)
 (define-key evil-insert-state-map "\C-v" 'clipboard-yank)
 (define-key evil-visual-state-map "\C-v" 'clipboard-yank)
+
+
+(define-key evil-normal-state-map (kbd "DEL") 'backward-kill-word)
 ;;del往上移动10行
-(define-key evil-normal-state-map (kbd "DEL") (lambda ()
+(define-key evil-normal-state-map (kbd "-") (lambda ()
                                                 (interactive)
                                                 (previous-line 10)
                                                 (evil-scroll-line-up 10)

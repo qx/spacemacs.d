@@ -157,4 +157,4 @@
                        ("ah" "(add-hook '${1:name}-hook ${2:'${3:function}})$0\n" "add-hook" nil nil nil "/Users/ok/.spacemacs.d/snippets/emacs-lisp-mode/add-hook" nil nil)))
 
 
-;;; Do not edit! File generated at Sun Sep 18 06:46:16 2016
+;;; Do not edit! File generated at Sun Sep 18 09:33:15 2016

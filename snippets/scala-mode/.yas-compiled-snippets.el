@@ -20,4 +20,4 @@
                        ("app" "object ${1:name} extends App {\n  $0\n}" "object name extends App" nil nil nil "/Users/ok/.spacemacs.d/snippets/scala-mode/app" nil nil)))
 
 
-;;; Do not edit! File generated at Sun Sep 18 06:46:17 2016
+;;; Do not edit! File generated at Sun Sep 18 09:33:24 2016

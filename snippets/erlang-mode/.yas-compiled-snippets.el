@@ -25,4 +25,4 @@
                        ("after" "after\n    $1 -> $0\n" "after ... ->" nil nil nil "/Users/ok/.spacemacs.d/snippets/erlang-mode/after" nil nil)))
 
 
-;;; Do not edit! File generated at Sun Sep 18 06:46:16 2016
+;;; Do not edit! File generated at Sun Sep 18 09:33:15 2016

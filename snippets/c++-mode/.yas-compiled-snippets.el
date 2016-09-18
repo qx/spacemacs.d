@@ -110,4 +110,4 @@ If found, the class name is returned, otherwise STR is returned"
                        ("ass" "assert($0);" "assert" nil nil nil "/Users/ok/.spacemacs.d/snippets/c++-mode/assert" nil nil)))
 
 
-;;; Do not edit! File generated at Sun Sep 18 06:46:16 2016
+;;; Do not edit! File generated at Sun Sep 18 09:33:12 2016

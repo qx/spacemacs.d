@@ -29,4 +29,4 @@
                        ("auto" ".. autoclass:: $0\n   ${1::members: ${2:members}}" "autoclass" nil nil nil "/Users/ok/.spacemacs.d/snippets/rst-mode/autoclass" nil nil)))
 
 
-;;; Do not edit! File generated at Sun Sep 18 06:46:17 2016
+;;; Do not edit! File generated at Sun Sep 18 09:33:19 2016

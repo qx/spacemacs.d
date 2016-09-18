@@ -11,4 +11,4 @@
                        ("chan" "channel Channel extends ${1:ned.DelayChannel} {\n        $0\n}\n" "chan" nil nil nil "/Users/ok/.spacemacs.d/snippets/ned-mode/chan" nil nil)))
 
 
-;;; Do not edit! File generated at Sun Sep 18 06:46:17 2016
+;;; Do not edit! File generated at Sun Sep 18 09:33:18 2016

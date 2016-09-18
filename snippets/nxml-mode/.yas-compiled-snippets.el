@@ -30,4 +30,4 @@
                        ("body" "<body$1>\n  $0\n</body>" "<body>...</body>" nil nil nil "/Users/ok/.spacemacs.d/snippets/nxml-mode/body" nil nil)))
 
 
-;;; Do not edit! File generated at Sun Sep 18 09:33:18 2016
+;;; Do not edit! File generated at Sun Sep 18 15:46:41 2016

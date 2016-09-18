@@ -76,6 +76,9 @@
                         nil "/Users/ok/.spacemacs.d/snippets/ruby-mode/select" nil nil)
                        ("scar" "scope :${1:name}, ->(${2:arg}){ where(${3:attribute:} $2) }\n" "scar" nil nil nil "/Users/ok/.spacemacs.d/snippets/ruby-mode/scope_with_args.yasnippet" nil nil)
                        ("sc" "scope :${1:name}, ->{ where(${2:attr:} ${3:value}) }\n" "sc" nil nil nil "/Users/ok/.spacemacs.d/snippets/ruby-mode/scope.yasnippet" nil nil)
+                       ("sample_show" "  def show\n    @${2:lowcasemodel}s =${2:Model}.includes(:appadsimage_attachments).order('updated_at DESC').all.limit(3).paginate :page => params[:page]\n    @${2:lowcasemodel}s.each do |${2:lowcasemodel}|\n      ${2:lowcasemodel}.setAttachment\n    end\n    respond_to do |format|\n      format.json { render :json => {\n          data: {\n              ${2:lowcasemodel}s: @${2:lowcasemodel}s.as_json(:include => :appadsimage_attachments),\n              current_page: @${2:lowcasemodel}s.current_page,\n              per_page: @${2:lowcasemodel}s.per_page,\n              total_entries: @${2:lowcasemodel}s.total_entries,\n          },\n          status: 200,\n          result: 'success'} }\n    end\n  end" "sample_show" nil nil nil "/Users/ok/.spacemacs.d/snippets/ruby-mode/sample_show" nil nil)
+                       ("sample_index" " def index\n    # self.per_page = 10\n    @${2:lowcasemodel}s = ${2:Model}.includes(:${2:lowcasemodel}_attachment_images, :user).order(updated_at: :desc).all.paginate :page => params[:page]\n    # logger.info \"home ============\"\n    # @${2:lowcasemodel}s.each do |${2:lowcasemodel}|\n    #   ${2:lowcasemodel}.setAttachment\n    # end\n    respond_to do |format|\n      format.json { render :json => {\n          data: {\n              ${2:lowcasemodel}s: @${2:lowcasemodel}s.as_json(:methods => :${2:lowcasemodel}_comments_count, :include => [:${2:lowcasemodel}_attachment_images, :user]),\n              current_page: @${2:lowcasemodel}s.current_page,\n              per_page: @${2:lowcasemodel}s.per_page,\n              total_entries: @${2:lowcasemodel}s.total_entries\n          }, status: 200,\n          result: 'success'} }\n    end\n\n  end" "sample_index" nil nil nil "/Users/ok/.spacemacs.d/snippets/ruby-mode/sample_index" nil nil)
+                       ("sample_create" "  def create\n    # @${2:lowcasemodel} = ${1:Model}.new(${2:lowcasemodel}_params)\n    unless current_user.id == ${2:lowcasemodel}_params[:user_id]\n      render :json => {result: \"fail\",message: \"非法评论\"} and return\n    end\n    @${2:lowcasemodel} = current_user.${2:lowcasemodel}s.new(${2:lowcasemodel}_params) \n    respond_to do |format|\n      if @${2:lowcasemodel}.save\n        format.json {\n          render :json => {\n                   data: {\n                     ${2:lowcasemodel}s: @${2:lowcasemodel}.as_json\n                   }, status: 200,\n                   result: 'success'}\n        }\n      else\n        format.json { render :json => {\n                               data: {\n                                 errors: @${2:lowcasemodel}.errors.messages\n                               }, status: 200,\n                               result: 'fail'} }\n      end\n    end\n  end\n" "sample_create" nil nil nil "/Users/ok/.spacemacs.d/snippets/ruby-mode/sample_create" nil nil)
                        ("rw" "attr_accessor :" "attr_accessor ..." nil
                         ("definitions")
                         nil "/Users/ok/.spacemacs.d/snippets/ruby-mode/rw" nil nil)
@@ -137,6 +140,7 @@
                        ("r" "attr_reader :" "attr_reader ..." nil
                         ("definitions")
                         nil "/Users/ok/.spacemacs.d/snippets/ruby-mode/r" nil nil)
+                       ("preq" "\n    params.require(:${1:lowcasemodel}).permit(:${2:column}, :${3:column}, :${4:column} )\n" "params.require" nil nil nil "/Users/ok/.spacemacs.d/snippets/ruby-mode/preq" nil nil)
                        ("lsc" "scope :name, ->(${1:param}){ ${3:['${4:${5:field} = ?}', ${6:$1}]} }\n" "lsc" nil nil nil "/Users/ok/.spacemacs.d/snippets/ruby-mode/named_scope-lambda.yasnippet" nil nil)
                        ("mod" "module ${1:`(let ((fn (capitalize (file-name-nondirectory\n                                 (file-name-sans-extension\n         (or (buffer-file-name)\n             (buffer-name (current-buffer))))))))\n           (while (string-match \"_\" fn)\n             (setq fn (replace-match \"\" nil nil fn)))\n           fn)`}\n  $0\nend" "module ... end" nil nil nil "/Users/ok/.spacemacs.d/snippets/ruby-mode/mod" nil nil)
                        ("mm" "def method_missing(method, *args)\n  $0\nend" "def method_missing ... end" nil
@@ -237,6 +241,7 @@
                        ("befv" "before_validation " "befv" nil nil nil "/Users/ok/.spacemacs.d/snippets/ruby-mode/before_validation.yasnippet" nil nil)
                        ("befu" "before_update " "befu" nil nil nil "/Users/ok/.spacemacs.d/snippets/ruby-mode/before_update.yasnippet" nil nil)
                        ("befs" "before_save " "befs" nil nil nil "/Users/ok/.spacemacs.d/snippets/ruby-mode/before_save.yasnippet" nil nil)
+                       ("before_filter" "  before_filter :authenticate_user!, only: [:create]\n" "beff" nil nil nil "/Users/ok/.spacemacs.d/snippets/ruby-mode/before_filter" nil nil)
                        ("befd" "before_destroy " "befd" nil nil nil "/Users/ok/.spacemacs.d/snippets/ruby-mode/before_destroy.yasnippet" nil nil)
                        ("befc" "before_create " "befc" nil nil nil "/Users/ok/.spacemacs.d/snippets/ruby-mode/before_create.yasnippet" nil nil)
                        ("@" "@${1:attr} = $0" "attribute" nil nil nil "/Users/ok/.spacemacs.d/snippets/ruby-mode/attribute" nil nil)
@@ -316,4 +321,4 @@
                         nil "/Users/ok/.spacemacs.d/snippets/ruby-mode/#" nil nil)))
 
 
-;;; Do not edit! File generated at Sun Sep 18 09:33:24 2016
+;;; Do not edit! File generated at Sun Sep 18 15:46:41 2016

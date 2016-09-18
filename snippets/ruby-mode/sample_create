@@ -1,0 +1,28 @@
+# -*- mode: snippet -*-
+# name: sample_create
+# key: sample_create
+# --
+  def create
+    # @${2:lowcasemodel} = ${1:Model}.new(${2:lowcasemodel}_params)
+    unless current_user.id == ${2:lowcasemodel}_params[:user_id]
+      render :json => {result: "fail",message: "非法评论"} and return
+    end
+    @${2:lowcasemodel} = current_user.${2:lowcasemodel}s.new(${2:lowcasemodel}_params) 
+    respond_to do |format|
+      if @${2:lowcasemodel}.save
+        format.json {
+          render :json => {
+                   data: {
+                     ${2:lowcasemodel}s: @${2:lowcasemodel}.as_json
+                   }, status: 200,
+                   result: 'success'}
+        }
+      else
+        format.json { render :json => {
+                               data: {
+                                 errors: @${2:lowcasemodel}.errors.messages
+                               }, status: 200,
+                               result: 'fail'} }
+      end
+    end
+  end

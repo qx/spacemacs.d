@@ -15,4 +15,4 @@
                        ("def" "!define ${1:CONSTANT} ${2:value}" "define" nil nil nil "/Users/ok/.spacemacs.d/snippets/nsis-mode/define" nil nil)))
 
 
-;;; Do not edit! File generated at Sun Sep 18 09:33:18 2016
+;;; Do not edit! File generated at Sun Sep 18 15:46:41 2016

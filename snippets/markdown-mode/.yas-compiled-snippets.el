@@ -26,4 +26,4 @@
                        ("+" "# -*- mode: snippet -*-\n\n# name: Unordered List\n# key: unordered\n+ ${1:Text}\n+$0\n" "+" nil nil nil "/Users/ok/.spacemacs.d/snippets/markdown-mode/+" nil nil)))
 
 
-;;; Do not edit! File generated at Sun Sep 18 09:33:18 2016
+;;; Do not edit! File generated at Sun Sep 18 15:46:41 2016

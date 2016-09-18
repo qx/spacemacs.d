@@ -6,4 +6,4 @@
                        ("b" "blist\n" "blist" nil nil nil "/Users/ok/.spacemacs.d/snippets/erc-mode/blist" nil nil)))
 
 
-;;; Do not edit! File generated at Sun Sep 18 09:33:15 2016
+;;; Do not edit! File generated at Sun Sep 18 15:46:40 2016

@@ -24,4 +24,4 @@
                        ("as" "assert $0;;" "assert" nil nil nil "/Users/ok/.spacemacs.d/snippets/tuareg-mode/assert" nil nil)))
 
 
-;;; Do not edit! File generated at Sun Sep 18 09:33:25 2016
+;;; Do not edit! File generated at Sun Sep 18 15:46:41 2016

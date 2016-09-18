@@ -10,4 +10,4 @@
                        ("env" "ENV{$1}$0" "ENV" nil nil nil "/Users/ok/.spacemacs.d/snippets/udev-mode/ENV" nil nil)))
 
 
-;;; Do not edit! File generated at Sun Sep 18 09:33:25 2016
+;;; Do not edit! File generated at Sun Sep 18 15:46:41 2016

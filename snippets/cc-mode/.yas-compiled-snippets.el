@@ -32,4 +32,4 @@
                        ("case" "`(indent-region (- (point) 20) (+ (point) 20) nil)`case ${2:constexpr}:${3: \\{}\n    $0\n    break;\n${3:$(if (string-match \"\\{\" yas-text) \"\\}\" \"\")}" "case : {...}" nil nil nil "/Users/ok/.spacemacs.d/snippets/cc-mode/case" nil nil)))
 
 
-;;; Do not edit! File generated at Sun Sep 18 09:33:12 2016
+;;; Do not edit! File generated at Sun Sep 18 15:46:40 2016

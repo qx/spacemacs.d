@@ -25,7 +25,7 @@
           (if (and font-size
                    (/= (prefix-numeric-value font-size) 4))
               (abs font-size)
-            22))
+            25))
          (common-options
           ;; (format "--font Monaco --font-size %d %s -O rtf --style Breeze"
                   (format "--font Monaco --font-size %d %s -O rtf --style Moria"

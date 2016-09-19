@@ -1,3 +1,5 @@
+(global-set-key (kbd "M-s-<left>") 'winner-undo)
+(global-set-key (kbd "M-s-<right>") 'winner-redo)
 ;;copy code
 (global-set-key (kbd "s-C") 'my/copy-code-as-rtf)
 ;;copy file path

@@ -1,7 +1,0 @@
-# -*- mode: snippet -*-
-# name: rspec-it-do
-# key: itd 
-# --
-it '${1:describe}' do
-${2:content}
-end

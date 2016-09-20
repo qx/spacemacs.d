@@ -91,7 +91,7 @@ values."
    ;; packages, then consider creating a layer. You can also put the
 
    ;; configuration in `dotspacemacs/user-config'.
-   dotspacemacs-additional-packages '( ag 
+   dotspacemacs-additional-packages '( ox-anki,ag 
     quickrun 
     ox-twbs 
     bongo
@@ -327,10 +327,10 @@ executes.
 before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
   ;; (setq socks-server '("Default server" "127.0.0.1" 7070 5))
-  (setq configuration-layer--elpa-archives
-        '(("melpa-cn" . "https://elpa.zilongshanren.com/melpa/")
-          ("org-cn"   . "https://elpa.zilongshanren.com/org/")
-          ("gnu-cn"   . "https://elpa.zilongshanren.com/gnu/")))
+  ;; (setq configuration-layer--elpa-archives
+        ;; '(("melpa-cn" . "https://elpa.zilongshanren.com/melpa/")i
+          ;; ("org-cn"   . "https://elpa.zilongshanren.com/org/")
+          ;; ("gnu-cn"   . "https://elpa.zilongshanren.com/gnu/")))
 
   )
 (setq-default js2-basic-offset 2)

@@ -91,7 +91,7 @@ values."
    ;; packages, then consider creating a layer. You can also put the
 
    ;; configuration in `dotspacemacs/user-config'.
-   dotspacemacs-additional-packages '( ox-anki,ag 
+   dotspacemacs-additional-packages '( ag 
     quickrun 
     ox-twbs 
     bongo
@@ -125,7 +125,7 @@ values."
    ;; This variable has no effect if Emacs is launched with the parameter
    ;; `--insecure' which forces the value of this variable to nil.
    ;; (default t)
-   dotspacemacs-elpa-https t
+   dotspacemacs-elpa-https nil
    ;; Maximum allowed time in seconds to contact an ELPA repository.
    dotspacemacs-elpa-timeout 5
    ;; If non nil then spacemacs will check for updates at startup
@@ -338,7 +338,7 @@ before packages are loaded. If you are unsure, you should try in setting them in
 (setq desktop-auto-save t)
 (setq chinese-enable-youdao-dict t)
 (setq scroll-conservatively 101) ;; move minimum when cursor exits view, instead of recentering
-(setq mouse-wheel-scroll-amount '(1)) ;; mouse scroll moves 1 line at a time, instead of 5 lines
+(setq mouse-wheel-scroll-amount '(3)) ;; mouse scroll moves 1 line at a time, instead of 5 lines
 (setq mouse-wheel-progressive-speed nil) ;; on a long mouse scroll keep scrolling by 1 line
 (defun dotspacemacs/user-config ()
   "Configuration function for user code.

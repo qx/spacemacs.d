@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: bs3-row-f
+# key: bs3-row-f
+# --
+ <div class="container-fluid">
+   <div class="row" style="background-color:green">
+   </div>
+ </div>

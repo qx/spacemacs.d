@@ -37,8 +37,16 @@
   (add-hook 'focus-out-hook (lambda () (save-some-buffers t)))
   (global-set-key (kbd "s-r") 'replace-stringn)
   ;;shell exec alias
-(setq shell-file-name "zsh")
+
 (setq shell-command-switch "-ic")
+(if (eq system-type 'darwin)
+  ; something for OS X if true
+  ; optional something if not
+(setq shell-file-name "zsh")
+  
+)
+
+
 (let ((eol-regexp "[[:graph:]] ?\\(\n\\)[^\t\n ]"))
   (font-lock-add-keywords nil
                           `((,eol-regexp 1 '(face default display " ")))))

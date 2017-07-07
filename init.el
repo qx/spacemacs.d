@@ -27,7 +27,8 @@ values."
    ;; If non-nil layers with lazy install support are lazy installed.
    ;; List of additional paths where to look for configuration layers.
    ;; Paths must have a trailing slash (i.e. `~/.mycontribs/')
-   dotspacemacs-configuration-layer-path '("/Users/ok/Dropbox/spacemacs.d")
+   ;; ln -s /Users/ok/Dropbox/spacemacs.d ~/.spacemacs.d
+   dotspacemacs-configuration-layer-path '("~/.spacemacs.d")
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(

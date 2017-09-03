@@ -1,6 +1,0 @@
-# -*- mode: snippet -*-
-# name: Highlight
-# key:Highlight
-{% highlight ${1:language} %}
-${0:content}
-{% endhighlight %}

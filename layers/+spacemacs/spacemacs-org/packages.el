@@ -75,7 +75,6 @@
       (setq toc-org-max-depth 10)
       (add-hook 'org-mode-hook 'toc-org-enable))))
 
-(defun spacemacs-org/init-space-doc ()
-  (add-hook 'org-mode-hook 'dotspacemacs//prettify-spacemacs-docs))
+(defun spacemacs-org/init-space-doc ())
 
 ;;; packages.el ends here

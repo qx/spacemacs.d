@@ -694,9 +694,9 @@ REAL-WIDTH: the real width of the line.  If the line contains an image, the size
                  (lambda (&rest ignore)
                    (let ((comp-frontend
                           (cond
-                           ((configuration-layer/layer-used-p 'helm)
+                           ((configuration-layer/layer-usedp 'helm)
                             'helm-spacemacs-help)
-                           ((configuration-layer/layer-used-p 'ivy)
+                           ((configuration-layer/layer-usedp 'ivy)
                             'ivy-spacemacs-help))))
                      (call-interactively comp-frontend)))
                  :mouse-face 'highlight
@@ -876,8 +876,7 @@ SEQ, START and END are the same arguments as for `cl-subseq'"
 
 (defun spacemacs-buffer//do-insert-startupify-lists ()
   "Insert the startup lists in the current buffer."
-  (let ((list-separator "\n\n")
-        (recentf-exclude '((lambda (filename) t))))
+  (let ((list-separator "\n\n"))
     (mapc (lambda (els)
             (let ((el (or (car-safe els) els))
                   (list-size
@@ -912,7 +911,7 @@ SEQ, START and END are the same arguments as for `cl-subseq'"
                   (spacemacs-buffer||add-shortcut "c" "Agenda:")
                   (insert list-separator)))
                ((eq el 'bookmarks)
-                (when (configuration-layer/layer-used-p 'spacemacs-helm)
+                (when (configuration-layer/layer-usedp 'spacemacs-helm)
                   (helm-mode))
                 (require 'bookmark)
                 (when (spacemacs-buffer//insert-bookmark-list

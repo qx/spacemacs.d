@@ -9,8 +9,7 @@
 ;;
 ;;; License: GPLv3
 
-(configuration-layer/declare-layers '(
-                                      spacemacs-base
+(configuration-layer/declare-layers '(spacemacs-base
                                       spacemacs-completion
                                       spacemacs-layouts
                                       spacemacs-editing
@@ -18,20 +17,17 @@
                                       spacemacs-evil
                                       spacemacs-language
                                       spacemacs-misc
-                                      spacemacs-modeline
-                                      spacemacs-navigation
-                                      spacemacs-org
-                                      spacemacs-purpose
-                                      spacemacs-visual
-                                      ))
+                                      spacemacs-ui
+                                      spacemacs-ui-visual
+                                      spacemacs-org))
 ;; If the user has not explicitly declared `helm' or `ivy'
 ;; and they are using the standard distribution, assume they
 ;; want `helm' completion.
-(unless (or (configuration-layer/layer-used-p 'ivy)
-            (configuration-layer/layer-used-p 'helm))
+(unless (or (configuration-layer/layer-usedp 'ivy)
+            (configuration-layer/layer-usedp 'helm))
   (configuration-layer/declare-layers '(helm)))
 
-(when (and (configuration-layer/layer-used-p 'ivy)
-           (configuration-layer/layer-used-p 'helm))
+(when (and (configuration-layer/layer-usedp 'ivy)
+           (configuration-layer/layer-usedp 'helm))
   (spacemacs-buffer/warning (concat "Both the `helm' and `ivy' layers are enabled. "
                              "This may lead to unexpected behaviour.")))

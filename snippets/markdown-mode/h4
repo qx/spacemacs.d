@@ -1,6 +1,0 @@
-# -*- mode: snippet -*-
-# name: Header 4
-# key:Header4
-#### ${1:Header 4} ####
-
-$0

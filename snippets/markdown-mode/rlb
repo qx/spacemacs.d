@@ -1,5 +1,0 @@
-# -*- mode: snippet -*-
-# name: Reference Label
-# key:R-label
-[${1:Reference}]: ${2:URL} $3
-$0

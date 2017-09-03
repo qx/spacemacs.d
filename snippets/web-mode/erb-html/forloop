@@ -1,9 +1,0 @@
-# -*- mode: snippet -*-
-# name: if !list.blank? forloop
-# key: forloop
-# --
-<% if !list.blank? %>
-  <% for item in list %>
-  <% end %>
-<% else %>
-<% end %>

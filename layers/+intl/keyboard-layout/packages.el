@@ -1,4 +1,4 @@
-;;; packages.el --- keyboard-layout Layer Packages File for Spacemacs
+;;; config.el --- keyboard-layout Layer Packages File for Spacemacs
 ;;
 ;; Copyright (c) 2012-2017 Sylvain Benner & Contributors
 ;;
@@ -43,15 +43,7 @@
     :bepo
     (setq aw-keys '(?a ?u ?i ?e ?t ?s ?r ?n))
     :dvorak
-    (setq aw-keys '(?a ?o ?e ?u ?h ?t ?n ?s))
-    :neo
-    (setq aw-keys '(?u ?i ?a ?e ?n ?r ?t ?d))
-    :colemak-neio
-    (setq aw-keys '(?a ?r ?s ?t ?n ?e ?i ?o))
-    :colemak-hnei
-    (setq aw-keys '(?a ?r ?s ?t ?n ?e ?i ?o))
-    :colemak-jkhl
-    (setq aw-keys '(?a ?r ?s ?t ?n ?e ?i ?o))))
+    (setq aw-keys '(?a ?o ?e ?u ?h ?t ?n ?s))))
 
 (defun keyboard-layout/pre-init-avy ()
   (kl|config avy
@@ -62,15 +54,7 @@
     :bepo
     (setq-default avy-keys '(?a ?u ?i ?e ?t ?s ?r ?n))
     :dvorak
-    (setq-default avy-keys '(?a ?o ?e ?u ?h ?t ?n ?s))
-    :neo
-    (setq-default avy-keys '(?u ?i ?a ?e ?n ?r ?t ?d))
-    :colemak-neio
-    (setq-default avy-keys '(?a ?r ?s ?t ?n ?e ?i ?o))
-    :colemak-hnei
-    (setq-default avy-keys '(?a ?r ?s ?t ?n ?e ?i ?o))
-    :colemak-jkhl
-    (setq-default avy-keys '(?a ?r ?s ?t ?n ?e ?i ?o))))
+    (setq-default avy-keys '(?a ?o ?e ?u ?h ?t ?n ?s))))
 
 (defun keyboard-layout/pre-init-comint ()
   (kl|config comint-mode
@@ -154,13 +138,7 @@
     ;; Invert it twice to reset `k' and `K' for searching
     (dolist (map kl--all-evil-states-but-insert)
       (kl/correct-keys map
-        "K"))
-    :colemak-jkhl
-    (progn
-      (define-key evil-motion-state-map "J" 'evil-join)
-      (define-key evil-motion-state-map "K" 'evil-window-bottom)
-      (define-key evil-motion-state-map "H" 'evil-window-top)
-      (define-key evil-motion-state-map "L" 'evil-lookup)))
+        "K")))
 
   (kl|config evil-window
     :description
@@ -186,19 +164,6 @@
         "wq" 'delete-window)
       (kl/leader-alias-of "é" "w"))))
 
-;; HACK: These are defined by the spacemacs-bootstrap layer, and this is the
-;; only I've found to make them stick.  An unfortunate consequence of using
-;; `kl|config evil' twice is that user hooks for this configuration will be run
-;; twice as well.
-(defun keyboard-layout/post-init-evil ()
-  (kl|config evil
-    :description
-    "Remap `evil' bindings."
-    :colemak-jkhl
-    (progn
-      (define-key evil-normal-state-map "K" nil)
-      (define-key evil-normal-state-map "L" 'spacemacs/evil-smart-doc-lookup))))
-
 (defun keyboard-layout/pre-init-evil-escape ()
   (kl|config evil-escape
     :description
@@ -206,9 +171,7 @@
     :loader
     (spacemacs|use-package-add-hook evil-escape :post-init BODY)
     :bepo
-    (setq-default evil-escape-key-sequence "gq")
-    :colemak-neio
-    (setq-default evil-escape-key-sequence "tn")))
+    (setq-default evil-escape-key-sequence "gq")))
 
 (defun keyboard-layout/pre-init-evil-evilified-state ()
   (kl|config evil-evilified-state
@@ -294,16 +257,7 @@
       (kl/set-in-state helm-find-files-map "C-k" 'helm-ff-run-grep)
       (kl/set-in-state helm-find-files-map "C-r" 'helm-maybe-exit-minibuffer)
       (kl/set-in-state helm-read-file-map "C-s" 'helm-previous-line)
-      (kl/set-in-state helm-read-file-map "C-K" 'helm-previous-line))
-    :neo
-    (progn
-      (kl/set-in-state helm-find-files-map "C-r" 'helm-previous-line)
-      (kl/set-in-state helm-find-files-map "C-s" 'helm-next-line))
-    :colemak-jkhl
-    (progn
-      ;; HACK: Forced to correct wrong behaviour
-      (kl/set-in-state helm-find-files-map "C-h" 'helm-previous-line)
-      (kl/set-in-state helm-find-files-map "C-j" 'helm-find-files-up-one-level)))
+      (kl/set-in-state helm-read-file-map "C-K" 'helm-previous-line)))
 
   (kl|config helm-locate
     :description
@@ -329,8 +283,8 @@
     (spacemacs|use-package-add-hook imenu-list :post-config BODY)
     :common
     (kl/evil-correct-keys 'evilified imenu-list-major-mode-map
-      "j"
-      "k")))
+                          "j"
+                          "k")))
 
 (defun keyboard-layout/pre-init-ivy ()
   (kl|config ivy
@@ -354,14 +308,11 @@
     (spacemacs|use-package-add-hook magit :post-config BODY)
     :common
     (progn
-      (dolist (state (if evil-magit-use-y-for-yank
-                         (list evil-magit-state 'visual)
-                       (list evil-magit-state)))
-        (kl/evil-correct-keys state magit-mode-map
-          "j"
-          "k"
-          "C-j"
-          "C-k"))
+      (kl/evil-correct-keys evil-magit-state magit-mode-map
+        "j"
+        "k"
+        "C-j"
+        "C-k")
       (kl/evil-correct-keys 'normal evil-magit-toggle-text-minor-mode-map
         "C-j")
       (dolist (map (list magit-branch-section-map
@@ -387,12 +338,7 @@
     (progn
       (magit-change-popup-key 'magit-dispatch-popup :actions ?t ?j)
       (magit-change-popup-key 'magit-dispatch-popup :actions ?s ?k)
-      (magit-change-popup-key 'magit-dispatch-popup :actions ?S ?K))
-    :colemak-jkhl
-    (progn
-      (kl/evil-correct-keys 'visual magit-mode-map
-        "j"
-        "k"))))
+      (magit-change-popup-key 'magit-dispatch-popup :actions ?S ?K))))
 
 (defun keyboard-layout/pre-init-mu4e ()
   (kl|config mu4e
@@ -490,61 +436,7 @@
         "gk" nil
         ;; additional
         (kbd "«") 'org-metaleft
-        (kbd "»") 'org-metaright))
-    :colemak-neio
-    (progn
-      (spacemacs|use-package-add-hook evil-org
-        :post-config
-        (progn
-          (evil-define-key 'normal evil-org-mode-map
-            "O" 'org-forward-heading-same-level
-            "o" 'evil-forward-char
-            "E" 'org-forward-element
-            "I" 'org-backward-element
-            "N" 'org-backward-heading-same-level))))
-    :neo
-    (progn
-      (spacemacs|use-package-add-hook evil-org
-        :post-config
-        (progn
-          (evil-define-key 'normal evil-org-mode-map
-            "t" 'evil-forward-char
-            "l" 'org-todo
-            "gn" 'org-forward-heading-same-level
-            "gr" 'org-backward-heading-same-level
-            "gj" nil
-            "gk" nil)
-          (dolist (m '(normal insert))
-            (eval `(evil-define-key ',m evil-org-mode-map
-                     ;; snrt
-                     (kbd "M-s") 'org-metaleft
-                     (kbd "M-n") 'org-metadown
-                     (kbd "M-r") 'org-metaup
-                     (kbd "M-t") 'org-metaright
-                     (kbd "M-S") 'org-shiftmetaleft
-                     (kbd "M-N") 'org-shiftmetadown
-                     (kbd "M-R") 'org-shiftmetaup
-                     (kbd "M-T") 'org-shiftmetaright
-                     ;; hjkl
-                     (kbd "M-h") 'capitalize-word
-                     (kbd "M-j") 'transpose-chars
-                     (kbd "M-k") 'kill-sentence
-                     (kbd "M-l") 'move-to-window-line-top-bottom
-                     (kbd "M-H") 'capitalize-word
-                     (kbd "M-J") 'transpose-chars
-                     (kbd "M-K") 'kill-sentence
-                     (kbd "M-L") 'move-to-window-line-top-bottom)))
-          (spacemacs/set-leader-keys-for-major-mode 'org-mode
-            ;; snrt
-            "C-S-s" 'org-shiftcontrolleft
-            "C-S-n" 'org-shiftcontroldown
-            "C-S-r" 'org-shiftcontrolup
-            "C-S-t" 'org-shiftcontrolright
-            ;; hjkl
-            "C-S-h" nil
-            "C-S-j" nil
-            "C-S-k" nil
-            "C-S-l" nil))))))
+        (kbd "»") 'org-metaright))))
 
 (defun keyboard-layout/pre-init-org-agenda ()
   (kl|config org-agenda
@@ -574,13 +466,13 @@
       "k"
       "l")))
 
-(defun keyboard-layout/pre-init-twittering-mode ()
+(defun kl/pre-init-twittering-mode ()
   (kl|config twittering-mode
     :description
     "Remap navigation keys in `twittering-mode'."
     :loader
-    (spacemacs|use-package-add-hook twittering-mode :post-config BODY)
-    :common
+    (spacemacs|use-package-add-hook twittering-mode :post-init BODY)
+    :config
     (kl/correct-keys twittering-mode-map
       "h"
       "j"

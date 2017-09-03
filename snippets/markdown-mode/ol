@@ -1,5 +1,0 @@
-# -*- mode: snippet -*-
-# name: Ordered List
-# key:Ordered
-${1:1}. ${2:Text}
-${1:$(number-to-string (1+ (string-to-number yas-text)))}. $0

@@ -14,25 +14,26 @@
 (setq d-packages
       '(
         company
-        (company-dcd :requires company)
+        (company-dcd :toggle (configuration-layer/package-usedp 'company))
         d-mode
         flycheck
-        (flycheck-dmd-dub :requires flycheck)
+        (flycheck-dmd-dub :toggle (configuration-layer/package-usedp 'flycheck))
         ggtags
         helm-gtags
         ))
 
 (defun d/post-init-company ()
   ;; Need to convince company that this C-derived mode is a code mode.
-  (with-eval-after-load 'company-dabbrev-code
-    (push 'd-mode company-dabbrev-code-modes)))
+  (with-eval-after-load 'company-dabbrev-code (push 'd-mode company-dabbrev-code-modes))
+  (spacemacs|add-company-hook d-mode))
 
 (defun d/init-company-dcd ()
   (use-package company-dcd
     :defer t
     :init
     (progn
-      (spacemacs|add-company-backends :backends company-dcd :modes d-mode)
+      (add-hook 'd-mode-hook 'company-dcd-mode)
+      (push 'company-dcd company-backends-d-mode)
       (spacemacs/set-leader-keys-for-major-mode 'd-mode
         "gg" 'company-dcd-goto-definition
         "gb" 'company-dcd-goto-def-pop-marker
@@ -43,14 +44,11 @@
   (use-package d-mode :defer t))
 
 (defun d/post-init-flycheck ()
-  (spacemacs/enable-flycheck 'd-mode))
+  (spacemacs/add-flycheck-hook 'd-mode))
 
 (defun d/init-flycheck-dmd-dub ()
   (use-package flycheck-dmd-dub :defer t
-    :init
-    (progn
-      (add-hook 'd-mode-hook 'flycheck-dmd-dub-set-include-path)
-      (add-hook 'd-mode-hook 'flycheck-dmd-dub-set-variables))))
+    :init (add-hook 'd-mode-hook 'flycheck-dmd-dub-set-include-path)))
 
 (defun d/post-init-ggtags ()
   (add-hook 'd-mode-local-vars-hook #'spacemacs/ggtags-mode-enable))

@@ -1,4 +1,4 @@
-;; funcs.el file for vinegar layer
+;; funcs.el file for vinegar contribution layer
 
 (defun vinegar/dotfiles-toggle ()
   "Show/hide dot-files"

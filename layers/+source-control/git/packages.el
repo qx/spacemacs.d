@@ -20,12 +20,12 @@
         git-link
         git-messenger
         git-timemachine
-        (helm-gitignore :requires helm)
+        (helm-gitignore :toggle (configuration-layer/package-usedp 'helm))
         magit
         magit-gitflow
         ;; not compatible with magit 2.1 at the time of release
         ;; magit-svn
-        (orgit :requires org)
+        orgit
         smeargle
         ))
 
@@ -113,7 +113,7 @@
     :init
     (progn
       (setq magit-completing-read-function
-            (if (configuration-layer/layer-used-p 'ivy)
+            (if (configuration-layer/layer-usedp 'ivy)
                 'ivy-completing-read
               'magit-builtin-completing-read))
       (setq magit-revision-show-gravatars '("^Author:     " . "^Commit:     "))
@@ -126,11 +126,7 @@
       (spacemacs/declare-prefix "gf" "file")
       (spacemacs/set-leader-keys
         "gb"  'spacemacs/git-blame-micro-state
-        "gc"  'magit-clone
-        "gff" 'magit-find-file
         "gfh" 'magit-log-buffer-file
-        "gi"  'magit-init
-        "gL"  'magit-list-repositories
         "gm"  'magit-dispatch-popup
         "gs"  'magit-status
         "gS"  'magit-stage-file
@@ -161,12 +157,7 @@ Press [_b_] again to blame further in the history, [_q_] to go up or quit."
       (require 'git-rebase)
       ;; bind function keys
       ;; (define-key magit-mode-map (kbd "<tab>") 'magit-section-toggle)
-      (evilified-state-evilify-map magit-repolist-mode-map
-          :mode magit-repolist-mode
-          :bindings
-          (kbd "gr") 'magit-list-repositories
-          (kbd "RET") 'magit-repolist-status)
-      (unless (configuration-layer/package-used-p 'evil-magit)
+      (unless (configuration-layer/package-usedp 'evil-magit)
         ;; use auto evilification if `evil-magit' is not used
         (evilified-state-evilify-map magit-mode-map
           :bindings
@@ -399,7 +390,7 @@ Press [_b_] again to blame further in the history, [_q_] to go up or quit."
     :init
     (progn
       (spacemacs/declare-prefix "gH" "highlight")
-      (when (configuration-layer/package-used-p 'which-key)
+      (when (configuration-layer/package-usedp 'which-key)
         ;; TODO abstract this to a function
         (let ((descr
                '(("smeargle" . "highlight by last update time")

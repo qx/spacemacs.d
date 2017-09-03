@@ -12,7 +12,7 @@
 (setq spotify-packages
       '(
         spotify
-        (helm-spotify :requires helm)
+        (helm-spotify :toggle (configuration-layer/package-usedp 'helm))
         ))
 
 (defun spotify/init-spotify ()

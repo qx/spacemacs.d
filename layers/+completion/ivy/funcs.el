@@ -172,7 +172,6 @@ that directory."
 ;; Define search functions for each tool
 (cl-loop
    for (tools tool-name) in '((dotspacemacs-search-tools "auto")
-                              ((list "rg") "rg")
                               ((list "ag") "ag")
                               ((list "pt") "pt")
                               ((list "ack") "ack")
@@ -215,24 +214,7 @@ that directory."
                        "a tool selected from `dotspacemacs-search-tools'."
                      tool-name))
          (interactive)
-         (spacemacs/counsel-search ,tools t (projectile-project-root)))
-       (defun ,(intern (format "spacemacs/search-dir-%s" tool-name)) ()
-         ,(format
-           "Use `spacemacs/counsel-search' to search in the current
- directory with %s." (if (string= tool-name "auto")
-                        "a tool selected from `dotspacemacs-search-tools'."
-                      tool-name))
-         (interactive)
-         (spacemacs/counsel-search ,tools nil default-directory))
-       (defun ,(intern (format "spacemacs/search-dir-%s-region-or-symbol" tool-name)) ()
-         ,(format
-           "Use `spacemacs/counsel-search' to search for
- the selected region or the symbol around point in the current
- directory with %s." (if (string= tool-name "auto")
-                        "a tool selected from `dotspacemacs-search-tools'."
-                      tool-name))
-         (interactive)
-         (spacemacs/counsel-search ,tools t default-directory)))))
+         (spacemacs/counsel-search ,tools t (projectile-project-root))))))
 
 (defun spacemacs/counsel-git-grep-region-or-symbol ()
   "Use `counsel-git-grep' to search for the selected region or
@@ -270,7 +252,7 @@ that directory."
   (ignore-errors
     (call-interactively 'counsel-up-directory)))
 
-(when (configuration-layer/package-used-p 'counsel)
+(when (configuration-layer/package-usedp 'counsel)
   (with-eval-after-load 'counsel
     (defun spacemacs/describe-mode ()
       "Dummy wrapper to prevent an key binding error from helm.

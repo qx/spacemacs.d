@@ -11,7 +11,6 @@
 
 (setq typescript-packages
       '(
-        add-node-modules-path
         company
         eldoc
         flycheck
@@ -20,22 +19,14 @@
         web-mode
         ))
 
-(defun typescript/post-init-add-node-modules-path ()
-  (add-hook 'typescript-mode-hook #'add-node-modules-path)
-  (add-hook 'web-mode-hook #'add-node-modules-path))
-
 (defun typescript/post-init-company ()
-  (spacemacs|add-company-backends
-    :backends company-tide
-    :modes typescript-mode web-mode))
+  (spacemacs|add-company-hook typescript-mode))
 
 (defun typescript/post-init-eldoc ()
-  (add-hook 'typescript-mode-hook 'eldoc-mode)
-  (add-hook 'web-mode-hook 'spacemacs//typescript-web-mode-enable-eldoc))
+  (add-hook 'typescript-mode-hook 'eldoc-mode))
 
 (defun typescript/post-init-flycheck ()
-  (spacemacs/enable-flycheck 'typescript-mode)
-  (add-hook 'web-mode-hook 'spacemacs//typescript-web-mode-enable-flycheck))
+  (spacemacs/add-flycheck-hook 'typescript-mode))
 
 (defun typescript/init-tide ()
   (use-package tide
@@ -48,8 +39,7 @@
         (kbd "C-j") 'tide-find-next-reference
         (kbd "C-l") 'tide-goto-reference)
       (add-hook 'typescript-mode-hook 'tide-setup)
-      (add-to-list 'spacemacs-jump-handlers-typescript-mode
-                   '(tide-jump-to-definition :async t)))
+      (push 'company-tide company-backends-typescript-mode))
     :config
     (progn
       (spacemacs/declare-prefix-for-mode 'typescript-mode "mg" "goto")
@@ -59,21 +49,30 @@
       (spacemacs/declare-prefix-for-mode 'typescript-mode "mS" "server")
       (spacemacs/declare-prefix-for-mode 'typescript-mode "ms" "send")
 
-      (setq keybindingList '("gb" tide-jump-back
-                             "gt" typescript/jump-to-type-def
-                             "gu" tide-references
-                             "hh" tide-documentation-at-point
-                             "rr" tide-rename-symbol
-                             "sr" tide-restart-server)
-            typescriptList (cons 'typescript-mode keybindingList)
-            webList (cons 'web-mode (cons "gg" (cons 'tide-jump-to-definition
-                                                     keybindingList ))))
-      (apply 'spacemacs/set-leader-keys-for-major-mode typescriptList)
-      (apply 'spacemacs/set-leader-keys-for-major-mode webList))))
+      (defun typescript/jump-to-type-def()
+        (interactive)
+        (tide-jump-to-definition t))
+
+      (spacemacs/set-leader-keys-for-major-mode 'typescript-mode
+        "gb" 'tide-jump-back
+        "gt" 'typescript/jump-to-type-def
+        "gu" 'tide-references
+        "hh" 'tide-documentation-at-point
+        "rr" 'tide-rename-symbol
+        "Sr" 'tide-restart-server))))
 
 (defun typescript/post-init-web-mode ()
   (add-to-list 'auto-mode-alist '("\\.tsx\\'" . web-mode))
-  (add-hook 'web-mode-hook 'spacemacs//typescript-web-mode-enable-tide))
+  ;; FIXME -- this is not good!
+  (add-hook 'web-mode-hook
+            (lambda ()
+              (when (and (buffer-file-name)
+                         (string-equal "tsx" (file-name-extension (buffer-file-name))))
+                (tide-setup)
+                (flycheck-mode +1)
+                (eldoc-mode +1)
+                (when (configuration-layer/package-usedp 'company)
+                  (company-mode-on))))))
 
 (defun typescript/init-typescript-mode ()
   (use-package typescript-mode
@@ -81,7 +80,7 @@
     :config
     (progn
       (when typescript-fmt-on-save
-        (add-hook 'typescript-mode-hook 'spacemacs/typescript-fmt-before-save-hook))
+        (add-hook 'typescript-mode-hook 'typescript/fmt-before-save-hook))
       (spacemacs/set-leader-keys-for-major-mode 'typescript-mode
-        "="  'spacemacs/typescript-format
-        "sp" 'spacemacs/typescript-open-region-in-playground))))
+        "="  'typescript/format
+        "sp" 'typescript/open-region-in-playground))))

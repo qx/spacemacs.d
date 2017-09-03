@@ -40,7 +40,6 @@
           "rfp" 'projectile-rails-find-spec
           "rfr" 'projectile-rails-find-rake-task
           "rfs" 'projectile-rails-find-stylesheet
-          "rfS" 'projectile-rails-find-serializer
           "rft" 'projectile-rails-find-test
           "rfu" 'projectile-rails-find-fixture
           "rfv" 'projectile-rails-find-view

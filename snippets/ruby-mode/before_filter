@@ -1,6 +1,0 @@
-# -*- mode: snippet -*-
-# contributor: Translated to yasnippet by sublime-snippet import
-# key: before_filter
-# name: beff
-# --
-  before_filter :authenticate_user!, only: [:create]

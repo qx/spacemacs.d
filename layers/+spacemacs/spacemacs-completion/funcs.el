@@ -84,8 +84,6 @@
              hybrid-mode-enable-hjkl-bindings))
     (define-key helm-map (kbd "C-j") 'helm-next-line)
     (define-key helm-map (kbd "C-k") 'helm-previous-line)
-    (define-key helm-map (kbd "C-S-j") 'helm-follow-action-forward)
-    (define-key helm-map (kbd "C-S-k") 'helm-follow-action-backward)
     (define-key helm-map (kbd "C-h") 'helm-next-source)
     (define-key helm-map (kbd "C-S-h") 'describe-key)
     (define-key helm-map (kbd "C-l") (kbd "RET"))
@@ -159,9 +157,7 @@ See https://github.com/syl20bnr/spacemacs/issues/3700"
   (interactive)
   (cond
    ((string-equal "*helm-ag*" helm-buffer)
-    (helm-ag-edit))
-   ((string-equal "*Helm Swoop*" helm-buffer)
-    (helm-swoop-edit))))
+    (helm-ag-edit))))
 
 (defun spacemacs//helm-navigation-ts-on-enter ()
   "Initialization of helm transient-state."
@@ -217,9 +213,6 @@ See https://github.com/syl20bnr/spacemacs/issues/3700"
     (define-key ivy-minibuffer-map (kbd "C-h") nil)
     (define-key ivy-minibuffer-map (kbd "C-l") nil))))
 
-(defun spacemacs//ivy-matcher-desc ()
-  (replace-regexp-in-string "ivy--" "" (format "%s" ivy--regex-function)))
-
 
 ;; Ido
 
@@ -229,15 +222,15 @@ See https://github.com/syl20bnr/spacemacs/issues/3700"
   ;; iteration setup a whole new minibuffer, we have to keep
   ;; track of any activated ido navigation transient-state and force
   ;; the reactivation at each iteration.
-  (when spacemacs--ido-navigation-ts-enabled
-    (spacemacs/ido-navigation-transient-state/body)))
+  (when spacemacs--ido-navigation-ms-enabled
+    (spacemacs/ido-navigation-micro-state)))
 
 (defun spacemacs//ido-setup ()
-  (when spacemacs--ido-navigation-ts-face-cookie-minibuffer
+  (when spacemacs--ido-navigation-ms-face-cookie-minibuffer
     (face-remap-remove-relative
-     spacemacs--ido-navigation-ts-face-cookie-minibuffer))
+     spacemacs--ido-navigation-ms-face-cookie-minibuffer))
   ;; be sure to wipe any previous transient-state flag
-  (setq spacemacs--ido-navigation-ts-enabled nil)
+  (setq spacemacs--ido-navigation-ms-enabled nil)
   ;; overwrite the key bindings for ido vertical mode only
   (define-key ido-completion-map (kbd "C-<return>") 'ido-select-text)
   ;; use M-RET in terminal
@@ -260,8 +253,8 @@ See https://github.com/syl20bnr/spacemacs/issues/3700"
   (define-key ido-completion-map (kbd "C-t") 'spacemacs/ido-invoke-in-new-frame)
   (define-key ido-completion-map (kbd "C-v") 'spacemacs/ido-invoke-in-horizontal-split)
   ;; initiate transient-state
-  (define-key ido-completion-map (kbd "M-SPC") 'spacemacs/ido-navigation-transient-state/body)
-  (define-key ido-completion-map (kbd "S-M-SPC") 'spacemacs/ido-navigation-transient-state/body))
+  (define-key ido-completion-map (kbd "M-SPC") 'spacemacs/ido-navigation-micro-state)
+  (define-key ido-completion-map (kbd "s-M-SPC") 'spacemacs/ido-navigation-micro-state))
 
 (defun spacemacs/ido-invoke-in-other-window ()
   "signals ido mode to switch to (or create) another window after exiting"
@@ -287,24 +280,24 @@ See https://github.com/syl20bnr/spacemacs/issues/3700"
   (setq ido-exit-minibuffer-target-window 'frame)
   (ido-exit-minibuffer))
 
-(defun spacemacs//ido-navigation-ts-set-face ()
+(defun spacemacs//ido-navigation-ms-set-face ()
   "Set faces for ido navigation transient-state."
-  (setq spacemacs--ido-navigation-ts-face-cookie-minibuffer
+  (setq spacemacs--ido-navigation-ms-face-cookie-minibuffer
         (face-remap-add-relative
          'minibuffer-prompt
-         'spacemacs-ido-navigation-ts-face)))
+         'spacemacs-ido-navigation-ms-face)))
 
-(defun spacemacs//ido-navigation-ts-on-enter ()
+(defun spacemacs//ido-navigation-ms-on-enter ()
   "Initialization of ido transient-state."
-  (setq spacemacs--ido-navigation-ts-enabled t)
-  (spacemacs//ido-navigation-ts-set-face))
+  (setq spacemacs--ido-navigation-ms-enabled t)
+  (spacemacs//ido-navigation-ms-set-face))
 
-(defun spacemacs//ido-navigation-ts-on-exit ()
+(defun spacemacs//ido-navigation-ms-on-exit ()
   "Action to perform when exiting ido transient-state."
   (face-remap-remove-relative
-   spacemacs--ido-navigation-ts-face-cookie-minibuffer))
+   spacemacs--ido-navigation-ms-face-cookie-minibuffer))
 
-(defun spacemacs//ido-navigation-ts-full-doc ()
+(defun spacemacs//ido-navigation-ms-full-doc ()
   "Full documentation for ido navigation transient-state."
   "
  [?]          display this help

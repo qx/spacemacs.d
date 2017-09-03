@@ -1,6 +1,0 @@
-# -*- mode: snippet -*-
-# name: params.require
-# key: preq
-# --
-
-    params.require(:${1:lowcasemodel}).permit(:${2:column}, :${3:column}, :${4:column} )

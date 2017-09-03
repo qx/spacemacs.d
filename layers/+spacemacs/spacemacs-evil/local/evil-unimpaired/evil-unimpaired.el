@@ -54,13 +54,11 @@
 
 (defun evil-unimpaired/paste-above ()
   (interactive)
-  (setq this-command 'evil-paste-after)
   (evil-insert-newline-above)
   (evil-paste-after 1))
 
 (defun evil-unimpaired/paste-below ()
   (interactive)
-  (setq this-command 'evil-paste-after)
   (evil-insert-newline-below)
   (evil-paste-after 1))
 
@@ -74,11 +72,11 @@
 
 (defun evil-unimpaired/next-frame ()
   (interactive)
-  (select-frame-set-input-focus (next-frame)))
+  (raise-frame (next-frame)))
 
 (defun evil-unimpaired/previous-frame ()
   (interactive)
-  (select-frame-set-input-focus (previous-frame)))
+  (raise-frame (previous-frame)))
 
 ;; from tpope's unimpaired
 (define-key evil-normal-state-map (kbd "[ SPC")

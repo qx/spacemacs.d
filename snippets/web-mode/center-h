@@ -1,5 +1,0 @@
-# -*- mode: snippet -*-
-# name: center-horizontal
-# key: center-h
-# --
-style="border: 1px solid red;width:50px;margin: auto"

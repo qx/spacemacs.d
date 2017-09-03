@@ -11,7 +11,7 @@
 
 (setq cscope-packages
       '(
-        (helm-cscope :requires helm)
+        (helm-cscope :toggle (configuration-layer/package-usedp 'helm))
         xcscope
         ))
 
@@ -47,9 +47,8 @@
     (defun spacemacs/setup-helm-cscope (mode)
       "Setup `helm-cscope' for MODE"
       (spacemacs/set-leader-keys-for-major-mode mode
-        "g=" 'helm-cscope-find-assignments-to-this-symbol
         "gc" 'helm-cscope-find-called-function
-        "gC" 'helm-cscope-find-calling-this-function
+        "gC" 'helm-cscope-find-calling-this-funtcion
         "gd" 'helm-cscope-find-global-definition
         "ge" 'helm-cscope-find-egrep-pattern
         "gf" 'helm-cscope-find-this-file

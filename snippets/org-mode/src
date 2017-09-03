@@ -1,7 +1,0 @@
-# -*- mode: snippet -*-
-# name: src
-# key: src 
-# --
-#+BEGIN_SRC ${1:sourcefile} :results output :session :exports both 
-            ${2:yourcode}
-#+END_SRC

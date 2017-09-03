@@ -1,6 +1,0 @@
-# -*- mode: snippet -*-
-
-# name: Unordered List
-# key: unordered
-+ ${1:Text}
-+$0

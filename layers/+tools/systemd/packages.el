@@ -10,20 +10,14 @@
 ;;; License: GPLv3
 
 (defconst systemd-packages
-  '(
-    flycheck
-    systemd
-    )
+  '(systemd)
   "The list of Lisp packages required by the systemd layer.")
-
-(defun systemd/post-init-flycheck ()
-  (spacemacs/enable-flycheck 'systemd-mode))
 
 (defun systemd/init-systemd ()
   (use-package systemd
     :defer t
     :init (setq systemd-use-company-p
-                (configuration-layer/package-used-p 'company))
+                (configuration-layer/package-usedp 'company))
     :config (spacemacs/set-leader-keys-for-major-mode 'systemd-mode
               "hd" 'systemd-doc-directives
               "ho" 'systemd-doc-open)))

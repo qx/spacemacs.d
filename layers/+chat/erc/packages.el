@@ -35,10 +35,11 @@
   (push 'erc-terminal-notifier erc-packages))
 
 (defun erc/post-init-company ()
-  (spacemacs|add-company-backends :backends company-capf :modes erc-mode))
+  (spacemacs|add-company-hook erc-mode)
+  (push 'company-capf company-backends-erc-mode))
 
 (defun erc/post-init-company-emoji ()
-  (spacemacs|add-company-backends :backends company-emoji :modes erc-mode))
+  (push 'company-emoji company-backends-erc-mode))
 
 (defun erc/post-init-emoji-cheat-sheet-plus ()
   (add-hook 'erc-mode-hook 'emoji-cheat-sheet-plus-display-mode))
@@ -79,22 +80,21 @@
             erc-server-coding-system '(utf-8 . utf-8))
       (setq erc-prompt (lambda () (concat "[" (buffer-name) "]")))
 
-      ;; Notifications are enabled if erc-enable-notifications is non-nil, and
-      ;; D-BUS is available (i.e. Linux/BSD).
-      (when (and erc-enable-notifications (boundp 'dbus-compiled-version))
-        (require 'notifications)
-        (defun erc-global-notify (match-type nick message)
-          "Notify when a message is received."
-          (notifications-notify
-           :title nick
-           :body message
-           :app-icon (concat spacemacs-assets-directory "spacemacs.svg")
-           :urgency 'low))
+      (require 'notifications)
+      (defun erc-global-notify (match-type nick message)
+        "Notify when a message is recieved."
+        (notifications-notify
+         :title nick
+         :body message
+         :app-icon (concat spacemacs-assets-directory "spacemacs.svg")
+         :urgency 'low))
+
+      ;; osx doesn't have dbus support
+      (when (boundp 'dbus-compiled-version)
         (add-hook 'erc-text-matched-hook 'erc-global-notify))
 
       ;; keybindings
       (spacemacs/set-leader-keys-for-major-mode 'erc-mode
-        "b" 'erc-switch-to-buffer
         "d" 'erc-input-action
         "j" 'erc-join-channel
         "n" 'erc-channel-names
@@ -176,7 +176,7 @@
   (spacemacs|use-package-add-hook erc
     :post-config
     (use-package erc-yank
-      :if (configuration-layer/package-used-p 'gist)
+      :if (configuration-layer/package-usedp 'gist)
       :init (evil-define-key 'normal erc-mode-map "p" 'erc-yank))))
 
 (defun erc/init-erc-view-log ()

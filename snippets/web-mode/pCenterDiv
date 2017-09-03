@@ -1,8 +1,0 @@
-# -*- mode: snippet -*-
-# name: pCenterDiv
-# key: pCenterDiv
-# --
-    <div style="background-color:green;display: table;
-                margin: 0 auto;" >
-        <p class="text-center" style="width: 70%;margin: 0 auto">$2 </p>
-    </div>

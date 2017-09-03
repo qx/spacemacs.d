@@ -5,22 +5,23 @@
         nim-mode))
 
 (defun nim/post-init-company ()
-  (spacemacs|add-company-backends
-    :backends company-capf
-    :modes nim-mode nimscript-mode))
+  (spacemacs|add-company-hook nim-mode)
+  (spacemacs|add-company-hook nimscript-mode))
 
 (defun nim/post-init-flycheck ()
-  (spacemacs/enable-flycheck 'nim-mode))
+  (spacemacs/add-flycheck-hook 'nim-mode))
 
 (defun nim/init-flycheck-nim ()
   (use-package flycheck-nim
-    :if (configuration-layer/package-used-p 'flycheck)))
+    :if (configuration-layer/package-usedp 'flycheck)))
 
 (defun nim/init-nim-mode ()
   (use-package nim-mode
     :defer t
     :init
     (progn
+      (when (configuration-layer/package-usedp 'company)
+        (push 'company-capf company-backends-nim-mode))
       (add-hook 'nim-mode-hook 'nimsuggest-mode)
       (push 'nimsuggest-find-definition spacemacs-jump-handlers-nim-mode))
     :config

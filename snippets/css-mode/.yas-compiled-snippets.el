@@ -26,4 +26,4 @@
                        ("bg" "background-color: #${1:DDD};" "background-color: ..." nil nil nil "/Users/ok/.spacemacs.d/snippets/css-mode/bg" nil nil)))
 
 
-;;; Do not edit! File generated at Wed Sep 21 04:09:09 2016
+;;; Do not edit! File generated at Tue Sep  5 11:58:35 2017

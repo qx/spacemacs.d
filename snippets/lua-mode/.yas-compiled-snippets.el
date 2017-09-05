@@ -5,4 +5,4 @@
                      '(("fun" "function ()\n         ${1:return something}\nend" "fun" nil nil nil "/Users/ok/.spacemacs.d/snippets/lua-mode/fun" nil nil)))
 
 
-;;; Do not edit! File generated at Wed Sep 21 04:09:10 2016
+;;; Do not edit! File generated at Tue Sep  5 11:58:36 2017

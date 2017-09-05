@@ -7,6 +7,7 @@
 (setq  companSEEDDsz-minimum-prefix-length 1)
 (setq org-latex-pdf-process '("xelatex -interaction nonstopmode %f"
                               "xelatex -interaction nonstopmode %f"))
+(add-hook 'org-mode-hook (lambda () (setq truncate-lines nil)))
 (with-eval-after-load 'org
 ;; (spacemacs//set-monospaced-font   "Source Code Pro" "Hiragino Sans GB" 14 16) ;设置等宽字体
 ;;设置文学编程支持

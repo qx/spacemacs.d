@@ -452,4 +452,4 @@
                        ("bs3well:lg" "\n<div class=\"well well-lg\">\n	$0\n</div>\n" "bs3-well:lg" nil nil nil "/Users/ok/.spacemacs.d/snippets/web-mode/wells/bs3-well-lg.yasnippet" nil nil)))
 
 
-;;; Do not edit! File generated at Wed Sep 21 04:09:11 2016
+;;; Do not edit! File generated at Tue Sep  5 11:58:37 2017
